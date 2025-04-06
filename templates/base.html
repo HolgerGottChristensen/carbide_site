@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <link href='{{ get_url(path="css/output.css") }}' rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carbide</title>
+</head>
+
+<body class="bg-stone-50 min-h-screen min-w-screen max-h-screen max-w-screen overflow-hidden flex flex-col text-stone-700"
+  style="background-image: linear-gradient(180deg, rgba(88, 125, 45, 0.04) 0%, transparent 680px)">
+  <nav class="bg-white w-full h-14 shadow-xs shrink-0 grow-0 z-20"></nav>
+  <div class="grow flex flex-col overflow-hidden bg-slate-50">
+    {% block content %} {% endblock %}
+  </div>
+</body>
+
+</html>

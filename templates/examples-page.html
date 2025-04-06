@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% set ancestor = page.ancestors[1] %}
+{% set section = get_section(path=ancestor) %}
+<div class="flex flex-row w-full grow overflow-hidden">
+  <aside class="flex flex-col gap-2 w-72 min-w-72 py-4 px-2 box-border border-r border-stone-200 bg-white">
+    <ul>
+      {% for page in section.pages %}
+      <li class="{% if current_path == page.path %}active{% endif %}">
+        <a href="{{page.permalink}}" class="underline">{{page.title}}</a>
+      </li>
+      {% endfor %}
+      {% for p in section.subsections %}
+          {% set subsection = get_section(path=p) %}
+          <li>
+              <span>{{ subsection.title }}</span>
+              <ul class="pl-3">
+                  {% for page in subsection.pages %}
+                      <li class="{% if current_path == page.path %}active{% endif %}">
+                          <a href="{{page.permalink}}" class="underline cursor-pointer">{{page.title}}</a>
+                      </li>
+                  {% endfor %}
+              </ul>
+          </li>
+      {% endfor %}
+      </ul>
+  </aside>
+
+  <main class="overflow-x-hidden overflow-y-auto grow flex flex-col">
+    <div class="flex flex-col p-6 grow">
+      <div class="flex flex-col w-full page-content leading-relaxed grow">
+        {{ page.content | safe }}
+
+        {% if page.backlinks %}
+        <h2 id="related"><a href="#related">Related examples</a></h2>
+        <ul class="mt-0">
+          {% for backlink in page.backlinks %}
+            <li><a href="{{backlink.permalink}}">{{backlink.title}}</a></li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+
+        <div class="w-full transparent grow flex"></div>
+        <hr class="mb-4 text-stone-300">
+        <div class="flex flex-row justify-between">
+          <div>← Test back</div>
+          <div>Test forward →</div>
+        </div>
+      </div>
+  
+      {# <div class="overflow-auto">
+        <pre>{{page | json_encode(pretty=true) | safe }}</pre>
+      </div>  #}
+    </div>
+  </main>
+</div>
+{% endblock content %}

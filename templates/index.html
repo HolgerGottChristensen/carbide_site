@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<p class="hejsa">Hejsa verden!</p>
+
+<h1 class="title text-3xl">
+  This is my blog made with Zola.
+</h1>
+<p><a href="{{ get_url(path='@/examples/_index.md') }}">Examples</a></p>
+<p><a href="{{ get_url(path='@/docs/_index.md') }}">Docs</a></p>
+{% endblock content %}
