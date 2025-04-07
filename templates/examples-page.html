@@ -14,7 +14,7 @@
       {% for p in section.subsections %}
           {% set subsection = get_section(path=p) %}
           <li>
-              <span>{{ subsection.title }}</span>
+              <span class="font-medium">{{ subsection.title }}</span>
               <ul class="pl-3">
                   {% for page in subsection.pages %}
                       <li class="{% if current_path == page.path %}active{% endif %}">
@@ -33,7 +33,7 @@
         {{ page.content | safe }}
 
         {% if page.backlinks %}
-        <h2 id="related"><a href="#related">Related examples</a></h2>
+        <h2 id="related"><a href="#related">Related</a></h2>
         <ul class="mt-0">
           {% for backlink in page.backlinks %}
             <li><a href="{{backlink.permalink}}">{{backlink.title}}</a></li>

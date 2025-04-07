@@ -43,6 +43,23 @@
         content: "# ";
         @apply text-amber-600;
     }
+
+    .page-content h3 {
+        @apply mb-0 font-bold text-stone-700;
+    }
+    
+    .page-content h3 a {
+        @apply text-stone-700;
+    }
+    
+    .page-content h3 a:hover {
+        @apply no-underline;
+    }
+    
+    .page-content h3:hover a::before {
+        content: "# ";
+        @apply text-amber-600;
+    }
     
     .page-content p code {
         @apply py-1 px-1.5 bg-stone-400/15 border border-stone-400/15 rounded-sm text-sm;
@@ -62,6 +79,14 @@
 
     .page-content .footnote-definition {
         @apply flex flex-row;
+    }
+
+    .page-content blockquote {
+        @apply border-l-4 border-amber-500 pl-4 mb-4;
+    }
+
+    .page-content blockquote p {
+        @apply mb-0;
     }
 }
 

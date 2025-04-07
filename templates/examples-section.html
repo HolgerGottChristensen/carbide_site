@@ -1,27 +1,9 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1 class="title">
-  {{ section.title }}
-</h1>
-<ul>
-  <!-- If you are using pagination, section.pages will be empty.
-       You need to use the paginator object -->  
-  {% for page in section.pages %}
-  <li><a href="{{ page.permalink | safe }}">{{ page.title }}</a></li>
-  {% endfor %}
 
-  {% for subsection in section.subsections %}
-    <h1>{{subsection}}</h1>
+<div class="overflow-auto p-10 grow">
+  <pre>{{ section | json_encode(pretty=true) | safe }}</pre>
+</div>
 
-    {% set ss = get_section(path=subsection) %}
-    {% for page in ss.pages %}
-    <li><a href="{{ page.permalink | safe }}">{{ page.title }}</a></li>
-
-    {% endfor %}
-  {% endfor %}
-
-  <pre>{{section | json_encode(pretty=true) | safe }}</pre>
-
-</ul>
 {% endblock content %}

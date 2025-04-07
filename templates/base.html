@@ -10,7 +10,24 @@
 
 <body class="bg-stone-50 min-h-screen min-w-screen max-h-screen max-w-screen overflow-hidden flex flex-col text-stone-700"
   style="background-image: linear-gradient(180deg, rgba(88, 125, 45, 0.04) 0%, transparent 680px)">
-  <nav class="bg-white w-full h-14 shadow-xs shrink-0 grow-0 z-20"></nav>
+  <header class="bg-white w-full h-14 shadow-xs shrink-0 grow-0 z-20 flex flex-row justify-between items-center px-5">
+    <a class="text-amber-600 font-bold" href="/">Carbide</a>
+    <div class="flex flex-row gap-8 h-full items-center">
+      <nav class="flex flex-row gap-2 h-full items-center">
+        <a class="group px-1.5 box-content {% if current_path is starting_with('/docs') %} border-b-2 {% endif %} hover:border-b-2 border-amber-600 h-full flex flex-row items-center" href="{{ get_url(path='@/docs/outline.md') }}">
+          <div class="group-hover:-mb-[2px] {% if current_path is starting_with('/docs') %} -mb-[2px] {% endif %}">Home</div>
+        </a>
+        <a class="group px-1.5 box-content {% if current_path is starting_with('/api') %} border-b-2 {% endif %} hover:border-b-2 border-amber-600 h-full flex flex-row items-center" href="{{ get_url(path='@/api/_index.md') }}">
+          <div class="group-hover:-mb-[2px] {% if current_path is starting_with('/api') %} -mb-[2px] {% endif %}">API</div>
+        </a>
+        <a class="group px-1.5 box-content {% if current_path is starting_with('/examples') %} border-b-2 {% endif %} hover:border-b-2 border-amber-600 h-full flex flex-row items-center" href="{{ get_url(path='@/examples/outline.md') }}">
+          <div class="group-hover:-mb-[2px] {% if current_path is starting_with('/examples') %} -mb-[2px] {% endif %}">Examples</div>
+        </a>
+      </nav>
+      <a href="https://github.com/HolgerGottChristensen/carbide">GitHub</a>
+    </div>
+    
+  </header>
   <div class="grow flex flex-col overflow-hidden bg-slate-50">
     {% block content %} {% endblock %}
   </div>
