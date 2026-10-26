@@ -14,6 +14,27 @@ A material is different than a Color, because a material includes other effects.
 ## Explanation
 The example consist of two rows of rectangles, where the first row uses the light theme material, and the second row the dark theme. Each row consist of 5 different matarials, each of a different strength, with the strength decreasing from left to right.
 
+The below code shows how the top row of rectangles are defined:
+```rust
+HStack::new((
+    Rectangle::new()
+        .material(EnvironmentColor::UltraThickLight)
+        .frame(100.0, 100.0),
+    Rectangle::new()
+        .material(EnvironmentColor::ThickLight)
+        .frame(100.0, 100.0),
+    Rectangle::new()
+        .material(EnvironmentColor::RegularLight)
+        .frame(100.0, 100.0),
+    Rectangle::new()
+        .material(EnvironmentColor::ThinLight)
+        .frame(100.0, 100.0),
+    Rectangle::new()
+        .material(EnvironmentColor::UltraThinLight)
+        .frame(100.0, 100.0),
+))
+```
+
 The background consist of multiple different colored rectangles, that are rotated to better show the effect of the materials.
 
 ## Run the example

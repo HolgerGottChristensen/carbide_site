@@ -4,7 +4,7 @@
 {% set ancestor = page.ancestors[1] %}
 {% set section = get_section(path=ancestor) %}
 <div class="flex flex-row w-full grow overflow-hidden">
-  <aside class="flex flex-col gap-2 w-72 min-w-72 py-4 px-2 box-border border-r border-stone-200 bg-white">
+  <aside class="flex flex-col gap-2 w-72 min-w-72 py-4 px-2 box-border border-r border-stone-200 bg-white overflow-x-hidden overflow-y-auto">
     <ul>
       {% for page in section.pages %}
       <li class="{% if current_path == page.path %}active{% endif %}">

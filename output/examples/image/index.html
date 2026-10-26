@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <link href='https://carbide.rs/css/output.css' rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carbide</title>
+</head>
+
+<body class="bg-stone-50 min-h-screen min-w-screen max-h-screen max-w-screen overflow-hidden flex flex-col text-stone-700"
+  style="background-image: linear-gradient(180deg, rgba(88, 125, 45, 0.04) 0%, transparent 680px)">
+  <header class="bg-white w-full h-14 shadow-xs shrink-0 grow-0 z-20 flex flex-row justify-between items-center px-5">
+    <a class="text-amber-600 font-bold" href="/">Carbide</a>
+    <div class="flex flex-row gap-8 h-full items-center">
+      <nav class="flex flex-row gap-2 h-full items-center">
+        <a class="group px-1.5 box-content  hover:border-b-2 border-amber-600 h-full flex flex-row items-center" href="https://carbide.rs/docs/outline/">
+          <div class="group-hover:-mb-[2px] ">Home</div>
+        </a>
+        <a class="group px-1.5 box-content  hover:border-b-2 border-amber-600 h-full flex flex-row items-center" href="https://carbide.rs/api/">
+          <div class="group-hover:-mb-[2px] ">API</div>
+        </a>
+        <a class="group px-1.5 box-content  border-b-2  hover:border-b-2 border-amber-600 h-full flex flex-row items-center" href="https://carbide.rs/examples/outline/">
+          <div class="group-hover:-mb-[2px]  -mb-[2px] ">Examples</div>
+        </a>
+      </nav>
+      <a href="https://github.com/HolgerGottChristensen/carbide">GitHub</a>
+    </div>
+    
+  </header>
+  <div class="grow flex flex-col overflow-hidden bg-slate-50">
+    
+
+<div class="overflow-auto p-10 grow">
+  <pre>{
+  "relative_path": "examples/image/_index.md",
+  "colocated_path": null,
+  "content": "",
+  "permalink": "https://carbide.rs/examples/image/",
+  "draft": false,
+  "ancestors": [
+    "_index.md",
+    "examples/_index.md"
+  ],
+  "title": "Image",
+  "description": null,
+  "extra": {},
+  "path": "/examples/image/",
+  "components": [
+    "examples",
+    "image"
+  ],
+  "toc": [],
+  "word_count": 0,
+  "reading_time": 0,
+  "lang": "en",
+  "assets": [],
+  "pages": [
+    {
+      "relative_path": "examples/image/icon/index.md",
+      "colocated_path": "examples/image/icon/",
+      "content": "<h1 id=\"icon\"><a class=\"zola-anchor\" href=\"#icon\" aria-label=\"Anchor link for: icon\">Icon</a></h1>\n<p><img src=\"https://carbide.rs/examples/image/icon/icon.png\" alt=\"A screenshot of the icon example\" /></p>\n<p>The icon example shows how to render an <a href=\"https://carbide.rs/examples/image/image/\">Image</a> in icon mode, and coloring it using its opacity to define where to fill, and not fill. The example renders a <a href=\"https://carbide.rs/examples/image/icon/TODO\">VStack</a> with an icon, and a rectangle, both in the <a href=\"https://carbide.rs/docs/general/colors/#environmentcolor\">EnvironmentColor</a> green.</p>\n<h2 id=\"explaination\"><a class=\"zola-anchor\" href=\"#explaination\" aria-label=\"Anchor link for: explaination\">Explaination</a></h2>\n<p>When rendering an <a href=\"https://carbide.rs/examples/image/image/\">Image</a>, you can derine the image to be rendered in icon mode. When rendering in icon mode, the color of the result is defined by the Label <a href=\"https://carbide.rs/docs/general/colors/#environmentcolor\">EnvironmentColor</a>.</p>\n<pre data-lang=\"rust\" style=\"background-color:#2b303b;color:#c0c5ce;\" class=\"language-rust \"><code class=\"language-rust\" data-lang=\"rust\"><span>VStack::new((\n</span><span>    Image::new_icon(&quot;</span><span style=\"color:#a3be8c;\">images/rust.png</span><span>&quot;)\n</span><span>        .</span><span style=\"color:#96b5b4;\">foreground_color</span><span>(EnvironmentColor::Accent),\n</span><span>    Rectangle::new()\n</span><span>        .</span><span style=\"color:#96b5b4;\">frame</span><span>(</span><span style=\"color:#d08770;\">50.0</span><span>, </span><span style=\"color:#d08770;\">50.0</span><span>),\n</span><span>)).</span><span style=\"color:#96b5b4;\">accent_color</span><span>(EnvironmentColor::Green)\n</span></code></pre>\n<p>In the above code, we define a <a href=\"https://carbide.rs/examples/image/icon/TODO\">VStack</a> with 2 elements. The first element in the stack is an <a href=\"https://carbide.rs/examples/image/image/\">Image</a> that is defined to render in icon mode. The Label <a href=\"https://carbide.rs/docs/general/colors/#environmentcolor\">EnvironmentColor</a> is set to the current Accent <a href=\"https://carbide.rs/docs/general/colors/#environmentcolor\">EnvironmentColor</a>. The second element is a 50x50 rectangle, which by default is rendered using the <a href=\"https://carbide.rs/examples/drawing/accent/\">accent color</a>. Lastly the accent color is set to the <a href=\"https://carbide.rs/docs/general/colors/#environmentcolor\">EnvironmentColor</a> green for all items in the <a href=\"https://carbide.rs/examples/image/icon/TODO\">VStack</a>.</p>\n<blockquote>\n<p>The default color used for the icon is the Label <a href=\"https://carbide.rs/docs/general/colors/#environmentcolor\">EnvironmentColor</a>. This is chosen because you often want the same color to be used for the icons as the current <a href=\"https://carbide.rs/examples/image/icon/TODO\">Text</a> color. The default <a href=\"https://carbide.rs/examples/image/icon/TODO\">Text</a> color is also using the Label <a href=\"https://carbide.rs/docs/general/colors/#environmentcolor\">EnvironmentColor</a>.</p>\n</blockquote>\n<h2 id=\"run-the-example\"><a class=\"zola-anchor\" href=\"#run-the-example\" aria-label=\"Anchor link for: run-the-example\">Run the example</a></h2>\n<p>The example can be run with the following command: <code>cargo run --package carbide_wgpu --example icon</code> when located in the working directory <code>carbide</code>.</p>\n<p>For better performance, remember to run the example with <code>--release</code>.</p>\n",
+      "permalink": "https://carbide.rs/examples/image/icon/",
+      "slug": "icon",
+      "ancestors": [
+        "_index.md",
+        "examples/_index.md",
+        "examples/image/_index.md"
+      ],
+      "title": "Icon",
+      "description": null,
+      "updated": null,
+      "date": null,
+      "year": null,
+      "month": null,
+      "day": null,
+      "taxonomies": {},
+      "authors": [],
+      "extra": {},
+      "path": "/examples/image/icon/",
+      "components": [
+        "examples",
+        "image",
+        "icon"
+      ],
+      "summary": null,
+      "toc": [
+        {
+          "level": 1,
+          "id": "icon",
+          "permalink": "https://carbide.rs/examples/image/icon/#icon",
+          "title": "Icon",
+          "children": [
+            {
+              "level": 2,
+              "id": "explaination",
+              "permalink": "https://carbide.rs/examples/image/icon/#explaination",
+              "title": "Explaination",
+              "children": []
+            },
+            {
+              "level": 2,
+              "id": "run-the-example",
+              "permalink": "https://carbide.rs/examples/image/icon/#run-the-example",
+              "title": "Run the example",
+              "children": []
+            }
+          ]
+        }
+      ],
+      "word_count": 285,
+      "reading_time": 2,
+      "assets": [
+        "/examples/image/icon/icon.png"
+      ],
+      "draft": false,
+      "lang": "en",
+      "lower": null,
+      "higher": {
+        "relative_path": "examples/image/image/index.md",
+        "colocated_path": "examples/image/image/",
+        "content": "<h1 id=\"image\"><a class=\"zola-anchor\" href=\"#image\" aria-label=\"Anchor link for: image\">Image</a></h1>\n<p><img src=\"https://carbide.rs/examples/image/image/image.png\" alt=\"A screenshot of the image example\" /></p>\n<h2 id=\"run-the-example\"><a class=\"zola-anchor\" href=\"#run-the-example\" aria-label=\"Anchor link for: run-the-example\">Run the example</a></h2>\n<p>The example can be run with the following command: <code>cargo run --package carbide_wgpu --example image</code> when located in the working directory <code>carbide</code>.</p>\n<p>For better performance, remember to run the example with <code>--release</code>.</p>\n",
+        "permalink": "https://carbide.rs/examples/image/image/",
+        "slug": "image",
+        "ancestors": [
+          "_index.md",
+          "examples/_index.md",
+          "examples/image/_index.md"
+        ],
+        "title": "Image",
+        "description": null,
+        "updated": null,
+        "date": null,
+        "year": null,
+        "month": null,
+        "day": null,
+        "taxonomies": {},
+        "authors": [],
+        "extra": {},
+        "path": "/examples/image/image/",
+        "components": [
+          "examples",
+          "image",
+          "image"
+        ],
+        "summary": null,
+        "toc": [
+          {
+            "level": 1,
+            "id": "image",
+            "permalink": "https://carbide.rs/examples/image/image/#image",
+            "title": "Image",
+            "children": [
+              {
+                "level": 2,
+                "id": "run-the-example",
+                "permalink": "https://carbide.rs/examples/image/image/#run-the-example",
+                "title": "Run the example",
+                "children": []
+              }
+            ]
+          }
+        ],
+        "word_count": 43,
+        "reading_time": 1,
+        "assets": [
+          "/examples/image/image/image.png"
+        ],
+        "draft": false,
+        "lang": "en",
+        "lower": null,
+        "higher": null,
+        "translations": [],
+        "backlinks": [
+          {
+            "permalink": "https://carbide.rs/examples/drawing/blur/",
+            "title": "Blur"
+          },
+          {
+            "permalink": "https://carbide.rs/examples/drawing/border/",
+            "title": "Border"
+          },
+          {
+            "permalink": "https://carbide.rs/examples/drawing/clip-shape/",
+            "title": "ClipShape"
+          },
+          {
+            "permalink": "https://carbide.rs/examples/drawing/clip/",
+            "title": "Clip"
+          },
+          {
+            "permalink": "https://carbide.rs/examples/drawing/filter/",
+            "title": "Filter"
+          },
+          {
+            "permalink": "https://carbide.rs/examples/drawing/mask/",
+            "title": "Mask"
+          },
+          {
+            "permalink": "https://carbide.rs/examples/image/icon/",
+            "title": "Icon"
+          }
+        ]
+      },
+      "translations": [],
+      "backlinks": []
+    },
+    {
+      "relative_path": "examples/image/image/index.md",
+      "colocated_path": "examples/image/image/",
+      "content": "<h1 id=\"image\"><a class=\"zola-anchor\" href=\"#image\" aria-label=\"Anchor link for: image\">Image</a></h1>\n<p><img src=\"https://carbide.rs/examples/image/image/image.png\" alt=\"A screenshot of the image example\" /></p>\n<h2 id=\"run-the-example\"><a class=\"zola-anchor\" href=\"#run-the-example\" aria-label=\"Anchor link for: run-the-example\">Run the example</a></h2>\n<p>The example can be run with the following command: <code>cargo run --package carbide_wgpu --example image</code> when located in the working directory <code>carbide</code>.</p>\n<p>For better performance, remember to run the example with <code>--release</code>.</p>\n",
+      "permalink": "https://carbide.rs/examples/image/image/",
+      "slug": "image",
+      "ancestors": [
+        "_index.md",
+        "examples/_index.md",
+        "examples/image/_index.md"
+      ],
+      "title": "Image",
+      "description": null,
+      "updated": null,
+      "date": null,
+      "year": null,
+      "month": null,
+      "day": null,
+      "taxonomies": {},
+      "authors": [],
+      "extra": {},
+      "path": "/examples/image/image/",
+      "components": [
+        "examples",
+        "image",
+        "image"
+      ],
+      "summary": null,
+      "toc": [
+        {
+          "level": 1,
+          "id": "image",
+          "permalink": "https://carbide.rs/examples/image/image/#image",
+          "title": "Image",
+          "children": [
+            {
+              "level": 2,
+              "id": "run-the-example",
+              "permalink": "https://carbide.rs/examples/image/image/#run-the-example",
+              "title": "Run the example",
+              "children": []
+            }
+          ]
+        }
+      ],
+      "word_count": 43,
+      "reading_time": 1,
+      "assets": [
+        "/examples/image/image/image.png"
+      ],
+      "draft": false,
+      "lang": "en",
+      "lower": {
+        "relative_path": "examples/image/icon/index.md",
+        "colocated_path": "examples/image/icon/",
+        "content": "<h1 id=\"icon\"><a class=\"zola-anchor\" href=\"#icon\" aria-label=\"Anchor link for: icon\">Icon</a></h1>\n<p><img src=\"https://carbide.rs/examples/image/icon/icon.png\" alt=\"A screenshot of the icon example\" /></p>\n<p>The icon example shows how to render an <a href=\"https://carbide.rs/examples/image/image/\">Image</a> in icon mode, and coloring it using its opacity to define where to fill, and not fill. The example renders a <a href=\"https://carbide.rs/examples/image/icon/TODO\">VStack</a> with an icon, and a rectangle, both in the <a href=\"https://carbide.rs/docs/general/colors/#environmentcolor\">EnvironmentColor</a> green.</p>\n<h2 id=\"explaination\"><a class=\"zola-anchor\" href=\"#explaination\" aria-label=\"Anchor link for: explaination\">Explaination</a></h2>\n<p>When rendering an <a href=\"https://carbide.rs/examples/image/image/\">Image</a>, you can derine the image to be rendered in icon mode. When rendering in icon mode, the color of the result is defined by the Label <a href=\"https://carbide.rs/docs/general/colors/#environmentcolor\">EnvironmentColor</a>.</p>\n<pre data-lang=\"rust\" style=\"background-color:#2b303b;color:#c0c5ce;\" class=\"language-rust \"><code class=\"language-rust\" data-lang=\"rust\"><span>VStack::new((\n</span><span>    Image::new_icon(&quot;</span><span style=\"color:#a3be8c;\">images/rust.png</span><span>&quot;)\n</span><span>        .</span><span style=\"color:#96b5b4;\">foreground_color</span><span>(EnvironmentColor::Accent),\n</span><span>    Rectangle::new()\n</span><span>        .</span><span style=\"color:#96b5b4;\">frame</span><span>(</span><span style=\"color:#d08770;\">50.0</span><span>, </span><span style=\"color:#d08770;\">50.0</span><span>),\n</span><span>)).</span><span style=\"color:#96b5b4;\">accent_color</span><span>(EnvironmentColor::Green)\n</span></code></pre>\n<p>In the above code, we define a <a href=\"https://carbide.rs/examples/image/icon/TODO\">VStack</a> with 2 elements. The first element in the stack is an <a href=\"https://carbide.rs/examples/image/image/\">Image</a> that is defined to render in icon mode. The Label <a href=\"https://carbide.rs/docs/general/colors/#environmentcolor\">EnvironmentColor</a> is set to the current Accent <a href=\"https://carbide.rs/docs/general/colors/#environmentcolor\">EnvironmentColor</a>. The second element is a 50x50 rectangle, which by default is rendered using the <a href=\"https://carbide.rs/examples/drawing/accent/\">accent color</a>. Lastly the accent color is set to the <a href=\"https://carbide.rs/docs/general/colors/#environmentcolor\">EnvironmentColor</a> green for all items in the <a href=\"https://carbide.rs/examples/image/icon/TODO\">VStack</a>.</p>\n<blockquote>\n<p>The default color used for the icon is the Label <a href=\"https://carbide.rs/docs/general/colors/#environmentcolor\">EnvironmentColor</a>. This is chosen because you often want the same color to be used for the icons as the current <a href=\"https://carbide.rs/examples/image/icon/TODO\">Text</a> color. The default <a href=\"https://carbide.rs/examples/image/icon/TODO\">Text</a> color is also using the Label <a href=\"https://carbide.rs/docs/general/colors/#environmentcolor\">EnvironmentColor</a>.</p>\n</blockquote>\n<h2 id=\"run-the-example\"><a class=\"zola-anchor\" href=\"#run-the-example\" aria-label=\"Anchor link for: run-the-example\">Run the example</a></h2>\n<p>The example can be run with the following command: <code>cargo run --package carbide_wgpu --example icon</code> when located in the working directory <code>carbide</code>.</p>\n<p>For better performance, remember to run the example with <code>--release</code>.</p>\n",
+        "permalink": "https://carbide.rs/examples/image/icon/",
+        "slug": "icon",
+        "ancestors": [
+          "_index.md",
+          "examples/_index.md",
+          "examples/image/_index.md"
+        ],
+        "title": "Icon",
+        "description": null,
+        "updated": null,
+        "date": null,
+        "year": null,
+        "month": null,
+        "day": null,
+        "taxonomies": {},
+        "authors": [],
+        "extra": {},
+        "path": "/examples/image/icon/",
+        "components": [
+          "examples",
+          "image",
+          "icon"
+        ],
+        "summary": null,
+        "toc": [
+          {
+            "level": 1,
+            "id": "icon",
+            "permalink": "https://carbide.rs/examples/image/icon/#icon",
+            "title": "Icon",
+            "children": [
+              {
+                "level": 2,
+                "id": "explaination",
+                "permalink": "https://carbide.rs/examples/image/icon/#explaination",
+                "title": "Explaination",
+                "children": []
+              },
+              {
+                "level": 2,
+                "id": "run-the-example",
+                "permalink": "https://carbide.rs/examples/image/icon/#run-the-example",
+                "title": "Run the example",
+                "children": []
+              }
+            ]
+          }
+        ],
+        "word_count": 285,
+        "reading_time": 2,
+        "assets": [
+          "/examples/image/icon/icon.png"
+        ],
+        "draft": false,
+        "lang": "en",
+        "lower": null,
+        "higher": null,
+        "translations": [],
+        "backlinks": []
+      },
+      "higher": {
+        "relative_path": "examples/image/sub_images/index.md",
+        "colocated_path": "examples/image/sub_images/",
+        "content": "<h1 id=\"sub-images\"><a class=\"zola-anchor\" href=\"#sub-images\" aria-label=\"Anchor link for: sub-images\">Sub Images</a></h1>\n<p><img src=\"https://carbide.rs/examples/image/sub-images/sub_images.png\" alt=\"An screenshot of the sub images example\" /></p>\n<h2 id=\"run-the-example\"><a class=\"zola-anchor\" href=\"#run-the-example\" aria-label=\"Anchor link for: run-the-example\">Run the example</a></h2>\n<p>The example can be run with the following command: <code>cargo run --package carbide_wgpu --example sub_images</code> when located in the working directory <code>carbide</code>.</p>\n<p>For better performance, remember to run the example with <code>--release</code>.</p>\n",
+        "permalink": "https://carbide.rs/examples/image/sub-images/",
+        "slug": "sub-images",
+        "ancestors": [
+          "_index.md",
+          "examples/_index.md",
+          "examples/image/_index.md"
+        ],
+        "title": "Sub Images",
+        "description": null,
+        "updated": null,
+        "date": null,
+        "year": null,
+        "month": null,
+        "day": null,
+        "taxonomies": {},
+        "authors": [],
+        "extra": {},
+        "path": "/examples/image/sub-images/",
+        "components": [
+          "examples",
+          "image",
+          "sub-images"
+        ],
+        "summary": null,
+        "toc": [
+          {
+            "level": 1,
+            "id": "sub-images",
+            "permalink": "https://carbide.rs/examples/image/sub-images/#sub-images",
+            "title": "Sub Images",
+            "children": [
+              {
+                "level": 2,
+                "id": "run-the-example",
+                "permalink": "https://carbide.rs/examples/image/sub-images/#run-the-example",
+                "title": "Run the example",
+                "children": []
+              }
+            ]
+          }
+        ],
+        "word_count": 45,
+        "reading_time": 1,
+        "assets": [
+          "/examples/image/sub_images/sub_images.png"
+        ],
+        "draft": false,
+        "lang": "en",
+        "lower": null,
+        "higher": null,
+        "translations": [],
+        "backlinks": []
+      },
+      "translations": [],
+      "backlinks": [
+        {
+          "permalink": "https://carbide.rs/examples/drawing/blur/",
+          "title": "Blur"
+        },
+        {
+          "permalink": "https://carbide.rs/examples/drawing/border/",
+          "title": "Border"
+        },
+        {
+          "permalink": "https://carbide.rs/examples/drawing/clip-shape/",
+          "title": "ClipShape"
+        },
+        {
+          "permalink": "https://carbide.rs/examples/drawing/clip/",
+          "title": "Clip"
+        },
+        {
+          "permalink": "https://carbide.rs/examples/drawing/filter/",
+          "title": "Filter"
+        },
+        {
+          "permalink": "https://carbide.rs/examples/drawing/mask/",
+          "title": "Mask"
+        },
+        {
+          "permalink": "https://carbide.rs/examples/image/icon/",
+          "title": "Icon"
+        }
+      ]
+    },
+    {
+      "relative_path": "examples/image/sub_images/index.md",
+      "colocated_path": "examples/image/sub_images/",
+      "content": "<h1 id=\"sub-images\"><a class=\"zola-anchor\" href=\"#sub-images\" aria-label=\"Anchor link for: sub-images\">Sub Images</a></h1>\n<p><img src=\"https://carbide.rs/examples/image/sub-images/sub_images.png\" alt=\"An screenshot of the sub images example\" /></p>\n<h2 id=\"run-the-example\"><a class=\"zola-anchor\" href=\"#run-the-example\" aria-label=\"Anchor link for: run-the-example\">Run the example</a></h2>\n<p>The example can be run with the following command: <code>cargo run --package carbide_wgpu --example sub_images</code> when located in the working directory <code>carbide</code>.</p>\n<p>For better performance, remember to run the example with <code>--release</code>.</p>\n",
+      "permalink": "https://carbide.rs/examples/image/sub-images/",
+      "slug": "sub-images",
+      "ancestors": [
+        "_index.md",
+        "examples/_index.md",
+        "examples/image/_index.md"
+      ],
+      "title": "Sub Images",
+      "description": null,
+      "updated": null,
+      "date": null,
+      "year": null,
+      "month": null,
+      "day": null,
+      "taxonomies": {},
+      "authors": [],
+      "extra": {},
+      "path": "/examples/image/sub-images/",
+      "components": [
+        "examples",
+        "image",
+        "sub-images"
+      ],
+      "summary": null,
+      "toc": [
+        {
+          "level": 1,
+          "id": "sub-images",
+          "permalink": "https://carbide.rs/examples/image/sub-images/#sub-images",
+          "title": "Sub Images",
+          "children": [
+            {
+              "level": 2,
+              "id": "run-the-example",
+              "permalink": "https://carbide.rs/examples/image/sub-images/#run-the-example",
+              "title": "Run the example",
+              "children": []
+            }
+          ]
+        }
+      ],
+      "word_count": 45,
+      "reading_time": 1,
+      "assets": [
+        "/examples/image/sub_images/sub_images.png"
+      ],
+      "draft": false,
+      "lang": "en",
+      "lower": {
+        "relative_path": "examples/image/image/index.md",
+        "colocated_path": "examples/image/image/",
+        "content": "<h1 id=\"image\"><a class=\"zola-anchor\" href=\"#image\" aria-label=\"Anchor link for: image\">Image</a></h1>\n<p><img src=\"https://carbide.rs/examples/image/image/image.png\" alt=\"A screenshot of the image example\" /></p>\n<h2 id=\"run-the-example\"><a class=\"zola-anchor\" href=\"#run-the-example\" aria-label=\"Anchor link for: run-the-example\">Run the example</a></h2>\n<p>The example can be run with the following command: <code>cargo run --package carbide_wgpu --example image</code> when located in the working directory <code>carbide</code>.</p>\n<p>For better performance, remember to run the example with <code>--release</code>.</p>\n",
+        "permalink": "https://carbide.rs/examples/image/image/",
+        "slug": "image",
+        "ancestors": [
+          "_index.md",
+          "examples/_index.md",
+          "examples/image/_index.md"
+        ],
+        "title": "Image",
+        "description": null,
+        "updated": null,
+        "date": null,
+        "year": null,
+        "month": null,
+        "day": null,
+        "taxonomies": {},
+        "authors": [],
+        "extra": {},
+        "path": "/examples/image/image/",
+        "components": [
+          "examples",
+          "image",
+          "image"
+        ],
+        "summary": null,
+        "toc": [
+          {
+            "level": 1,
+            "id": "image",
+            "permalink": "https://carbide.rs/examples/image/image/#image",
+            "title": "Image",
+            "children": [
+              {
+                "level": 2,
+                "id": "run-the-example",
+                "permalink": "https://carbide.rs/examples/image/image/#run-the-example",
+                "title": "Run the example",
+                "children": []
+              }
+            ]
+          }
+        ],
+        "word_count": 43,
+        "reading_time": 1,
+        "assets": [
+          "/examples/image/image/image.png"
+        ],
+        "draft": false,
+        "lang": "en",
+        "lower": null,
+        "higher": null,
+        "translations": [],
+        "backlinks": [
+          {
+            "permalink": "https://carbide.rs/examples/drawing/blur/",
+            "title": "Blur"
+          },
+          {
+            "permalink": "https://carbide.rs/examples/drawing/border/",
+            "title": "Border"
+          },
+          {
+            "permalink": "https://carbide.rs/examples/drawing/clip-shape/",
+            "title": "ClipShape"
+          },
+          {
+            "permalink": "https://carbide.rs/examples/drawing/clip/",
+            "title": "Clip"
+          },
+          {
+            "permalink": "https://carbide.rs/examples/drawing/filter/",
+            "title": "Filter"
+          },
+          {
+            "permalink": "https://carbide.rs/examples/drawing/mask/",
+            "title": "Mask"
+          },
+          {
+            "permalink": "https://carbide.rs/examples/image/icon/",
+            "title": "Icon"
+          }
+        ]
+      },
+      "higher": null,
+      "translations": [],
+      "backlinks": []
+    }
+  ],
+  "subsections": [],
+  "translations": [],
+  "backlinks": [],
+  "generate_feeds": false,
+  "transparent": false,
+  "paginate_by": null,
+  "paginate_reversed": false
+}</pre>
+</div>
+
+
+  </div>
+</body>
+
+</html>

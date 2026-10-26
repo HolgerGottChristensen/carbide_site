@@ -1,3 +1,5 @@
 +++
-title = "Getting started"
+title = "Getting Started"
 +++
+
+# Getting Started

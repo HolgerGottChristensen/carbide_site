@@ -1,18 +1,17 @@
 +++
 title = "Accent"
-date = 2019-11-28
 +++
 
 # Accent 
 
 ![A screenshot of the accent example](accent.png)
 
-The accent example shows how to change the accent color of the [environment](TODO), when rendering. The environment is inherited by a [widget's children](TODO), and is following the [normal scoping rules](TODO).
+The accent example shows how to change the accent color of the [Environment](TODO), when rendering. The environment is inherited by a [widget's children](TODO), and is following the [normal scoping rules](TODO).
 
 ## Explanation
 When rendering, unless otherwise specified, shapes uses the accent color from the environment to fill the shape. 
 
-The accent color of the environment can be overridden using the `.accent_color()` [modifier](TODO). This modifier can be applied to any widget. The modifier takes anything that can be turned into a [State](TODO) of [Color](@/docs/general/colors/index.md). This is for example a static [Color](@/docs/general/colors/index.md), and [EnvironmentColor](@/docs/general/colors/index.md#environmentcolor) and others.
+The accent color of the environment can be overridden using the `.accent_color()` [modifier](TODO). This modifier can be applied to any widget. The modifier takes anything that can be turned into a [State](TODO) of [Color](@/docs/general/colors/index.md). This is for example a static [Color](@/docs/general/colors/index.md), [EnvironmentColor](@/docs/general/colors/index.md#environmentcolor) and others.
 
 Below we see the source code of the example:
 ```rust

@@ -1,0 +1,2009 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <link href='https://carbide.rs/css/output.css' rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carbide</title>
+</head>
+
+<body class="bg-stone-50 min-h-screen min-w-screen max-h-screen max-w-screen overflow-hidden flex flex-col text-stone-700"
+  style="background-image: linear-gradient(180deg, rgba(88, 125, 45, 0.04) 0%, transparent 680px)">
+  <header class="bg-white w-full h-14 shadow-xs shrink-0 grow-0 z-20 flex flex-row justify-between items-center px-5">
+    <a class="text-amber-600 font-bold" href="/">Carbide</a>
+    <div class="flex flex-row gap-8 h-full items-center">
+      <nav class="flex flex-row gap-2 h-full items-center">
+        <a class="group px-1.5 box-content  hover:border-b-2 border-amber-600 h-full flex flex-row items-center" href="https://carbide.rs/docs/outline/">
+          <div class="group-hover:-mb-[2px] ">Home</div>
+        </a>
+        <a class="group px-1.5 box-content  hover:border-b-2 border-amber-600 h-full flex flex-row items-center" href="https://carbide.rs/api/">
+          <div class="group-hover:-mb-[2px] ">API</div>
+        </a>
+        <a class="group px-1.5 box-content  border-b-2  hover:border-b-2 border-amber-600 h-full flex flex-row items-center" href="https://carbide.rs/examples/outline/">
+          <div class="group-hover:-mb-[2px]  -mb-[2px] ">Examples</div>
+        </a>
+      </nav>
+      <a href="https://github.com/HolgerGottChristensen/carbide">GitHub</a>
+    </div>
+    
+  </header>
+  <div class="grow flex flex-col overflow-hidden bg-slate-50">
+    
+
+<div class="overflow-auto p-10 grow">
+  <pre>{
+  "relative_path": "examples/drawing/_index.md",
+  "colocated_path": null,
+  "content": "",
+  "permalink": "https://carbide.rs/examples/drawing/",
+  "draft": false,
+  "ancestors": [
+    "_index.md",
+    "examples/_index.md"
+  ],
+  "title": "Drawing",
+  "description": null,
+  "extra": {},
+  "path": "/examples/drawing/",
+  "components": [
+    "examples",
+    "drawing"
+  ],
+  "toc": [],
+  "word_count": 0,
+  "reading_time": 0,
+  "lang": "en",
+  "assets": [],
+  "pages": [
+    {
+      "relative_path": "examples/drawing/accent/index.md",
+      "colocated_path": "examples/drawing/accent/",
+      "content": "<h1 id=\"accent\"><a class=\"zola-anchor\" href=\"#accent\" aria-label=\"Anchor link for: accent\">Accent</a></h1>\n<p><img src=\"https://carbide.rs/examples/drawing/accent/accent.png\" alt=\"A screenshot of the accent example\" /></p>\n<p>The accent example shows how to change the accent color of the <a href=\"https://carbide.rs/examples/drawing/accent/TODO\">Environment</a>, when rendering. The environment is inherited by a <a href=\"https://carbide.rs/examples/drawing/accent/TODO\">widget's children</a>, and is following the <a href=\"https://carbide.rs/examples/drawing/accent/TODO\">normal scoping rules</a>.</p>\n<h2 id=\"explanation\"><a class=\"zola-anchor\" href=\"#explanation\" aria-label=\"Anchor link for: explanation\">Explanation</a></h2>\n<p>When rendering, unless otherwise specified, shapes uses the accent color from the environment to fill the shape.</p>\n<p>The accent color of the environment can be overridden using the <code>.accent_color()</code> <a href=\"https://carbide.rs/examples/drawing/accent/TODO\">modifier</a>. This modifier can be applied to any widget. The modifier takes anything that can be turned into a <a href=\"https://carbide.rs/examples/drawing/accent/TODO\">State</a> of <a href=\"https://carbide.rs/docs/general/colors/\">Color</a>. This is for example a static <a href=\"https://carbide.rs/docs/general/colors/\">Color</a>, <a href=\"https://carbide.rs/docs/general/colors/#environmentcolor\">EnvironmentColor</a> and others.</p>\n<p>Below we see the source code of the example:</p>\n<pre data-lang=\"rust\" style=\"background-color:#2b303b;color:#c0c5ce;\" class=\"language-rust \"><code class=\"language-rust\" data-lang=\"rust\"><span style=\"color:#b48ead;\">fn </span><span style=\"color:#8fa1b3;\">main</span><span>() {\n</span><span>    </span><span style=\"color:#b48ead;\">let mut</span><span> application = Application::new();\n</span><span>\n</span><span>    application.</span><span style=\"color:#96b5b4;\">set_scene</span><span>(\n</span><span>        Window::new(\n</span><span>            &quot;</span><span style=\"color:#a3be8c;\">Accent example - Carbide</span><span>&quot;,\n</span><span>            Dimension::new(</span><span style=\"color:#d08770;\">600.0</span><span>, </span><span style=\"color:#d08770;\">600.0</span><span>),\n</span><span>            VStack::new((\n</span><span>                Rectangle::new()\n</span><span>                    .</span><span style=\"color:#96b5b4;\">frame</span><span>(</span><span style=\"color:#d08770;\">100.0</span><span>, </span><span style=\"color:#d08770;\">30.0</span><span>),\n</span><span>                Rectangle::new()\n</span><span>                    .</span><span style=\"color:#96b5b4;\">frame</span><span>(</span><span style=\"color:#d08770;\">100.0</span><span>, </span><span style=\"color:#d08770;\">30.0</span><span>)\n</span><span>                    .</span><span style=\"color:#96b5b4;\">accent_color</span><span>(</span><span style=\"color:#d08770;\">RED</span><span>),\n</span><span>                Rectangle::new()\n</span><span>                    .</span><span style=\"color:#96b5b4;\">frame</span><span>(</span><span style=\"color:#d08770;\">100.0</span><span>, </span><span style=\"color:#d08770;\">30.0</span><span>)\n</span><span>                    .</span><span style=\"color:#96b5b4;\">accent_color</span><span>(EnvironmentColor::Red)\n</span><span>            )).</span><span style=\"color:#96b5b4;\">accent_color</span><span>(</span><span style=\"color:#d08770;\">GREEN</span><span>)\n</span><span>        )\n</span><span>    );\n</span><span>\n</span><span>    application.</span><span style=\"color:#96b5b4;\">launch</span><span>()\n</span><span>}\n</span></code></pre>\n<p>We start by creating an <a href=\"https://carbide.rs/examples/drawing/accent/TODO\">Application</a>, and setting the <a href=\"https://carbide.rs/examples/drawing/accent/TODO\">Scene</a> of that application. The scene consist of a single <a href=\"https://carbide.rs/examples/drawing/accent/TODO\">Window</a>.</p>\n<p>The content of the window is a <a href=\"https://carbide.rs/examples/drawing/accent/TODO\">VStack</a>, which has three rectangles.</p>\n<p>The <code>.accent_color()</code> modifier is used in three different places. It is applied to the <a href=\"https://carbide.rs/examples/drawing/accent/TODO\">VStack</a>, which affects all its children. This is why the first rectangle is green.</p>\n<p>The second modifier is applied to the second rectangle. This overrides the accent color and sets it to the color red, which we see in the result.</p>\n<p>The third modifier is applied to the third rectangle, and is using the <a href=\"https://carbide.rs/docs/general/colors/#environmentcolor\">EnvironmentColor</a> red. Since this is an environment specific color, it is not pre determined, but can change based on the <a href=\"https://carbide.rs/examples/drawing/accent/TODO\">Theme</a> and overridden.</p>\n<h2 id=\"run-the-example\"><a class=\"zola-anchor\" href=\"#run-the-example\" aria-label=\"Anchor link for: run-the-example\">Run the example</a></h2>\n<p>The example can be run with the following command: <code>cargo run --package carbide_wgpu --example accent</code> when located in the working directory <code>carbide</code>.</p>\n<p>For better performance, remember to run the example with <code>--release</code>.</p>\n",
+      "permalink": "https://carbide.rs/examples/drawing/accent/",
+      "slug": "accent",
+      "ancestors": [
+        "_index.md",
+        "examples/_index.md",
+        "examples/drawing/_index.md"
+      ],
+      "title": "Accent",
+      "description": null,
+      "updated": null,
+      "date": null,
+      "year": null,
+      "month": null,
+      "day": null,
+      "taxonomies": {},
+      "authors": [],
+      "extra": {},
+      "path": "/examples/drawing/accent/",
+      "components": [
+        "examples",
+        "drawing",
+        "accent"
+      ],
+      "summary": null,
+      "toc": [
+        {
+          "level": 1,
+          "id": "accent",
+          "permalink": "https://carbide.rs/examples/drawing/accent/#accent",
+          "title": "Accent",
+          "children": [
+            {
+              "level": 2,
+              "id": "explanation",
+              "permalink": "https://carbide.rs/examples/drawing/accent/#explanation",
+              "title": "Explanation",
+              "children": []
+            },
+            {
+              "level": 2,
+              "id": "run-the-example",
+              "permalink": "https://carbide.rs/examples/drawing/accent/#run-the-example",
+              "title": "Run the example",
+              "children": []
+            }
+          ]
+        }
+      ],
+      "word_count": 296,
+      "reading_time": 2,
+      "assets": [
+        "/examples/drawing/accent/accent.png"
+      ],
+      "draft": false,
+      "lang": "en",
+      "lower": null,
+      "higher": {
+        "relative_path": "examples/drawing/blur/index.md",
+        "colocated_path": "examples/drawing/blur/",
+        "content": "<h1 id=\"blur\"><a class=\"zola-anchor\" href=\"#blur\" aria-label=\"Anchor link for: blur\">Blur</a></h1>\n<p><img src=\"https://carbide.rs/examples/drawing/blur/blur.png\" alt=\"A screenshot of the blur example\" /></p>\n<p>The blur example shows how to apply a blur rendering effect within a given shape to an area. In the example, we blur an <a href=\"https://carbide.rs/examples/image/image/\">Image</a> within specified moving areas with different blur strengths.</p>\n<h2 id=\"explaination\"><a class=\"zola-anchor\" href=\"#explaination\" aria-label=\"Anchor link for: explaination\">Explaination</a></h2>\n<p>Carbide provides different graphical effects (<a href=\"https://carbide.rs/examples/drawing/filter/\">Filter</a>) that can be used to customize rendering and style your application to your liking. The blur example consist of two shapes, within which a gaussian or box blur is applied.</p>\n<p>Another place blurring is used, is for rendering specific <a href=\"https://carbide.rs/examples/drawing/materials/\">materials</a>.</p>\n<p>In the below code, a mean/box blur effect is given, and clipped to a circle. The effect is constrained to a 100x100 <a href=\"https://carbide.rs/examples/drawing/blur/TODO\">frame</a>, and <a href=\"https://carbide.rs/examples/drawing/blur/TODO\">offset</a> with an x coordinate.</p>\n<pre data-lang=\"rust\" style=\"background-color:#2b303b;color:#c0c5ce;\" class=\"language-rust \"><code class=\"language-rust\" data-lang=\"rust\"><span>Blur::mean(</span><span style=\"color:#d08770;\">3</span><span>)\n</span><span>    .</span><span style=\"color:#96b5b4;\">clip_shape</span><span>(Circle::new())\n</span><span>    .</span><span style=\"color:#96b5b4;\">frame</span><span>(</span><span style=\"color:#d08770;\">100.0</span><span>, </span><span style=\"color:#d08770;\">100.0</span><span>)\n</span><span>    .</span><span style=\"color:#96b5b4;\">offset</span><span>(position_neg_x.</span><span style=\"color:#96b5b4;\">clone</span><span>(), </span><span style=\"color:#d08770;\">0.0</span><span>),\n</span></code></pre>\n<p>The offset of the blur effect is animated, to show how the effect is dynamic, and performant.</p>\n<p>When multiple blur effects overlap, the are applied on top of each other, making a stronger blur. Using the WGPU rendering backend, the blurs are calculated on the GPU, with different rendering performance optimizations, to allow larger radii blurs. But when the blur radii become very large, they can be taxing on the GPU, and it is recommended to apply multiple blurs on top of each other instead.</p>\n<p>Both Gaussian and Box blurs stack, and the same rendering result can be achieved by combining multiple blurs with a smaller radius instead of a single blur with a large radius.</p>\n<h2 id=\"run-the-example\"><a class=\"zola-anchor\" href=\"#run-the-example\" aria-label=\"Anchor link for: run-the-example\">Run the example</a></h2>\n<p>The example can be run with the following command: <code>cargo run --package carbide_wgpu --example blur</code> when located in the working directory <code>carbide</code>.</p>\n<p>For better performance, remember to run the example with <code>--release</code>.</p>\n",
+        "permalink": "https://carbide.rs/examples/drawing/blur/",
+        "slug": "blur",
+        "ancestors": [
+          "_index.md",
+          "examples/_index.md",
+          "examples/drawing/_index.md"
+        ],
+        "title": "Blur",
+        "description": null,
+        "updated": null,
+        "date": null,
+        "year": null,
+        "month": null,
+        "day": null,
+        "taxonomies": {},
+        "authors": [],
+        "extra": {},
+        "path": "/examples/drawing/blur/",
+        "components": [
+          "examples",
+          "drawing",
+          "blur"
+        ],
+        "summary": null,
+        "toc": [
+          {
+            "level": 1,
+            "id": "blur",
+            "permalink": "https://carbide.rs/examples/drawing/blur/#blur",
+            "title": "Blur",
+            "children": [
+              {
+                "level": 2,
+                "id": "explaination",
+                "permalink": "https://carbide.rs/examples/drawing/blur/#explaination",
+                "title": "Explaination",
+                "children": []
+              },
+              {
+                "level": 2,
+                "id": "run-the-example",
+                "permalink": "https://carbide.rs/examples/drawing/blur/#run-the-example",
+                "title": "Run the example",
+                "children": []
+              }
+            ]
+          }
+        ],
+        "word_count": 283,
+        "reading_time": 2,
+        "assets": [
+          "/examples/drawing/blur/blur.png"
+        ],
+        "draft": false,
+        "lang": "en",
+        "lower": null,
+        "higher": null,
+        "translations": [],
+        "backlinks": [
+          {
+            "permalink": "https://carbide.rs/examples/drawing/filter/",
+            "title": "Filter"
+          }
+        ]
+      },
+      "translations": [],
+      "backlinks": [
+        {
+          "permalink": "https://carbide.rs/docs/general/colors/",
+          "title": "Colors"
+        },
+        {
+          "permalink": "https://carbide.rs/examples/drawing/canvas/",
+          "title": "Canvas"
+        },
+        {
+          "permalink": "https://carbide.rs/examples/drawing/shapes/",
+          "title": "Shapes"
+        },
+        {
+          "permalink": "https://carbide.rs/examples/image/icon/",
+          "title": "Icon"
+        }
+      ]
+    },
+    {
+      "relative_path": "examples/drawing/blur/index.md",
+      "colocated_path": "examples/drawing/blur/",
+      "content": "<h1 id=\"blur\"><a class=\"zola-anchor\" href=\"#blur\" aria-label=\"Anchor link for: blur\">Blur</a></h1>\n<p><img src=\"https://carbide.rs/examples/drawing/blur/blur.png\" alt=\"A screenshot of the blur example\" /></p>\n<p>The blur example shows how to apply a blur rendering effect within a given shape to an area. In the example, we blur an <a href=\"https://carbide.rs/examples/image/image/\">Image</a> within specified moving areas with different blur strengths.</p>\n<h2 id=\"explaination\"><a class=\"zola-anchor\" href=\"#explaination\" aria-label=\"Anchor link for: explaination\">Explaination</a></h2>\n<p>Carbide provides different graphical effects (<a href=\"https://carbide.rs/examples/drawing/filter/\">Filter</a>) that can be used to customize rendering and style your application to your liking. The blur example consist of two shapes, within which a gaussian or box blur is applied.</p>\n<p>Another place blurring is used, is for rendering specific <a href=\"https://carbide.rs/examples/drawing/materials/\">materials</a>.</p>\n<p>In the below code, a mean/box blur effect is given, and clipped to a circle. The effect is constrained to a 100x100 <a href=\"https://carbide.rs/examples/drawing/blur/TODO\">frame</a>, and <a href=\"https://carbide.rs/examples/drawing/blur/TODO\">offset</a> with an x coordinate.</p>\n<pre data-lang=\"rust\" style=\"background-color:#2b303b;color:#c0c5ce;\" class=\"language-rust \"><code class=\"language-rust\" data-lang=\"rust\"><span>Blur::mean(</span><span style=\"color:#d08770;\">3</span><span>)\n</span><span>    .</span><span style=\"color:#96b5b4;\">clip_shape</span><span>(Circle::new())\n</span><span>    .</span><span style=\"color:#96b5b4;\">frame</span><span>(</span><span style=\"color:#d08770;\">100.0</span><span>, </span><span style=\"color:#d08770;\">100.0</span><span>)\n</span><span>    .</span><span style=\"color:#96b5b4;\">offset</span><span>(position_neg_x.</span><span style=\"color:#96b5b4;\">clone</span><span>(), </span><span style=\"color:#d08770;\">0.0</span><span>),\n</span></code></pre>\n<p>The offset of the blur effect is animated, to show how the effect is dynamic, and performant.</p>\n<p>When multiple blur effects overlap, the are applied on top of each other, making a stronger blur. Using the WGPU rendering backend, the blurs are calculated on the GPU, with different rendering performance optimizations, to allow larger radii blurs. But when the blur radii become very large, they can be taxing on the GPU, and it is recommended to apply multiple blurs on top of each other instead.</p>\n<p>Both Gaussian and Box blurs stack, and the same rendering result can be achieved by combining multiple blurs with a smaller radius instead of a single blur with a large radius.</p>\n<h2 id=\"run-the-example\"><a class=\"zola-anchor\" href=\"#run-the-example\" aria-label=\"Anchor link for: run-the-example\">Run the example</a></h2>\n<p>The example can be run with the following command: <code>cargo run --package carbide_wgpu --example blur</code> when located in the working directory <code>carbide</code>.</p>\n<p>For better performance, remember to run the example with <code>--release</code>.</p>\n",
+      "permalink": "https://carbide.rs/examples/drawing/blur/",
+      "slug": "blur",
+      "ancestors": [
+        "_index.md",
+        "examples/_index.md",
+        "examples/drawing/_index.md"
+      ],
+      "title": "Blur",
+      "description": null,
+      "updated": null,
+      "date": null,
+      "year": null,
+      "month": null,
+      "day": null,
+      "taxonomies": {},
+      "authors": [],
+      "extra": {},
+      "path": "/examples/drawing/blur/",
+      "components": [
+        "examples",
+        "drawing",
+        "blur"
+      ],
+      "summary": null,
+      "toc": [
+        {
+          "level": 1,
+          "id": "blur",
+          "permalink": "https://carbide.rs/examples/drawing/blur/#blur",
+          "title": "Blur",
+          "children": [
+            {
+              "level": 2,
+              "id": "explaination",
+              "permalink": "https://carbide.rs/examples/drawing/blur/#explaination",
+              "title": "Explaination",
+              "children": []
+            },
+            {
+              "level": 2,
+              "id": "run-the-example",
+              "permalink": "https://carbide.rs/examples/drawing/blur/#run-the-example",
+              "title": "Run the example",
+              "children": []
+            }
+          ]
+        }
+      ],
+      "word_count": 283,
+      "reading_time": 2,
+      "assets": [
+        "/examples/drawing/blur/blur.png"
+      ],
+      "draft": false,
+      "lang": "en",
+      "lower": {
+        "relative_path": "examples/drawing/accent/index.md",
+        "colocated_path": "examples/drawing/accent/",
+        "content": "<h1 id=\"accent\"><a class=\"zola-anchor\" href=\"#accent\" aria-label=\"Anchor link for: accent\">Accent</a></h1>\n<p><img src=\"https://carbide.rs/examples/drawing/accent/accent.png\" alt=\"A screenshot of the accent example\" /></p>\n<p>The accent example shows how to change the accent color of the <a href=\"https://carbide.rs/examples/drawing/accent/TODO\">Environment</a>, when rendering. The environment is inherited by a <a href=\"https://carbide.rs/examples/drawing/accent/TODO\">widget's children</a>, and is following the <a href=\"https://carbide.rs/examples/drawing/accent/TODO\">normal scoping rules</a>.</p>\n<h2 id=\"explanation\"><a class=\"zola-anchor\" href=\"#explanation\" aria-label=\"Anchor link for: explanation\">Explanation</a></h2>\n<p>When rendering, unless otherwise specified, shapes uses the accent color from the environment to fill the shape.</p>\n<p>The accent color of the environment can be overridden using the <code>.accent_color()</code> <a href=\"https://carbide.rs/examples/drawing/accent/TODO\">modifier</a>. This modifier can be applied to any widget. The modifier takes anything that can be turned into a <a href=\"https://carbide.rs/examples/drawing/accent/TODO\">State</a> of <a href=\"https://carbide.rs/docs/general/colors/\">Color</a>. This is for example a static <a href=\"https://carbide.rs/docs/general/colors/\">Color</a>, <a href=\"https://carbide.rs/docs/general/colors/#environmentcolor\">EnvironmentColor</a> and others.</p>\n<p>Below we see the source code of the example:</p>\n<pre data-lang=\"rust\" style=\"background-color:#2b303b;color:#c0c5ce;\" class=\"language-rust \"><code class=\"language-rust\" data-lang=\"rust\"><span style=\"color:#b48ead;\">fn </span><span style=\"color:#8fa1b3;\">main</span><span>() {\n</span><span>    </span><span style=\"color:#b48ead;\">let mut</span><span> application = Application::new();\n</span><span>\n</span><span>    application.</span><span style=\"color:#96b5b4;\">set_scene</span><span>(\n</span><span>        Window::new(\n</span><span>            &quot;</span><span style=\"color:#a3be8c;\">Accent example - Carbide</span><span>&quot;,\n</span><span>            Dimension::new(</span><span style=\"color:#d08770;\">600.0</span><span>, </span><span style=\"color:#d08770;\">600.0</span><span>),\n</span><span>            VStack::new((\n</span><span>                Rectangle::new()\n</span><span>                    .</span><span style=\"color:#96b5b4;\">frame</span><span>(</span><span style=\"color:#d08770;\">100.0</span><span>, </span><span style=\"color:#d08770;\">30.0</span><span>),\n</span><span>                Rectangle::new()\n</span><span>                    .</span><span style=\"color:#96b5b4;\">frame</span><span>(</span><span style=\"color:#d08770;\">100.0</span><span>, </span><span style=\"color:#d08770;\">30.0</span><span>)\n</span><span>                    .</span><span style=\"color:#96b5b4;\">accent_color</span><span>(</span><span style=\"color:#d08770;\">RED</span><span>),\n</span><span>                Rectangle::new()\n</span><span>                    .</span><span style=\"color:#96b5b4;\">frame</span><span>(</span><span style=\"color:#d08770;\">100.0</span><span>, </span><span style=\"color:#d08770;\">30.0</span><span>)\n</span><span>                    .</span><span style=\"color:#96b5b4;\">accent_color</span><span>(EnvironmentColor::Red)\n</span><span>            )).</span><span style=\"color:#96b5b4;\">accent_color</span><span>(</span><span style=\"color:#d08770;\">GREEN</span><span>)\n</span><span>        )\n</span><span>    );\n</span><span>\n</span><span>    application.</span><span style=\"color:#96b5b4;\">launch</span><span>()\n</span><span>}\n</span></code></pre>\n<p>We start by creating an <a href=\"https://carbide.rs/examples/drawing/accent/TODO\">Application</a>, and setting the <a href=\"https://carbide.rs/examples/drawing/accent/TODO\">Scene</a> of that application. The scene consist of a single <a href=\"https://carbide.rs/examples/drawing/accent/TODO\">Window</a>.</p>\n<p>The content of the window is a <a href=\"https://carbide.rs/examples/drawing/accent/TODO\">VStack</a>, which has three rectangles.</p>\n<p>The <code>.accent_color()</code> modifier is used in three different places. It is applied to the <a href=\"https://carbide.rs/examples/drawing/accent/TODO\">VStack</a>, which affects all its children. This is why the first rectangle is green.</p>\n<p>The second modifier is applied to the second rectangle. This overrides the accent color and sets it to the color red, which we see in the result.</p>\n<p>The third modifier is applied to the third rectangle, and is using the <a href=\"https://carbide.rs/docs/general/colors/#environmentcolor\">EnvironmentColor</a> red. Since this is an environment specific color, it is not pre determined, but can change based on the <a href=\"https://carbide.rs/examples/drawing/accent/TODO\">Theme</a> and overridden.</p>\n<h2 id=\"run-the-example\"><a class=\"zola-anchor\" href=\"#run-the-example\" aria-label=\"Anchor link for: run-the-example\">Run the example</a></h2>\n<p>The example can be run with the following command: <code>cargo run --package carbide_wgpu --example accent</code> when located in the working directory <code>carbide</code>.</p>\n<p>For better performance, remember to run the example with <code>--release</code>.</p>\n",
+        "permalink": "https://carbide.rs/examples/drawing/accent/",
+        "slug": "accent",
+        "ancestors": [
+          "_index.md",
+          "examples/_index.md",
+          "examples/drawing/_index.md"
+        ],
+        "title": "Accent",
+        "description": null,
+        "updated": null,
+        "date": null,
+        "year": null,
+        "month": null,
+        "day": null,
+        "taxonomies": {},
+        "authors": [],
+        "extra": {},
+        "path": "/examples/drawing/accent/",
+        "components": [
+          "examples",
+          "drawing",
+          "accent"
+        ],
+        "summary": null,
+        "toc": [
+          {
+            "level": 1,
+            "id": "accent",
+            "permalink": "https://carbide.rs/examples/drawing/accent/#accent",
+            "title": "Accent",
+            "children": [
+              {
+                "level": 2,
+                "id": "explanation",
+                "permalink": "https://carbide.rs/examples/drawing/accent/#explanation",
+                "title": "Explanation",
+                "children": []
+              },
+              {
+                "level": 2,
+                "id": "run-the-example",
+                "permalink": "https://carbide.rs/examples/drawing/accent/#run-the-example",
+                "title": "Run the example",
+                "children": []
+              }
+            ]
+          }
+        ],
+        "word_count": 296,
+        "reading_time": 2,
+        "assets": [
+          "/examples/drawing/accent/accent.png"
+        ],
+        "draft": false,
+        "lang": "en",
+        "lower": null,
+        "higher": null,
+        "translations": [],
+        "backlinks": [
+          {
+            "permalink": "https://carbide.rs/docs/general/colors/",
+            "title": "Colors"
+          },
+          {
+            "permalink": "https://carbide.rs/examples/drawing/canvas/",
+            "title": "Canvas"
+          },
+          {
+            "permalink": "https://carbide.rs/examples/drawing/shapes/",
+            "title": "Shapes"
+          },
+          {
+            "permalink": "https://carbide.rs/examples/image/icon/",
+            "title": "Icon"
+          }
+        ]
+      },
+      "higher": {
+        "relative_path": "examples/drawing/border/index.md",
+        "colocated_path": "examples/drawing/border/",
+        "content": "<h1 id=\"border\"><a class=\"zola-anchor\" href=\"#border\" aria-label=\"Anchor link for: border\">Border</a></h1>\n<p><img src=\"https://carbide.rs/examples/drawing/border/border.png\" alt=\"A screenshot of the border example\" /></p>\n<p>The border example shows off the component that draws a border around another widget. The border will always be a rectangle. It is mostly useful for quickly debugging and finding elements.</p>\n<h2 id=\"explaination\"><a class=\"zola-anchor\" href=\"#explaination\" aria-label=\"Anchor link for: explaination\">Explaination</a></h2>\n<p>A border is drawn surrounding the <a href=\"https://carbide.rs/examples/image/image/\">Image</a>. By default the border <a href=\"https://carbide.rs/docs/general/colors/\">Color</a> is randomly chosen. The color can be chosed by calling the <code>.color()</code> method on the border widget, before or after you set the <code>.border_width()</code>.</p>\n<pre data-lang=\"rust\" style=\"background-color:#2b303b;color:#c0c5ce;\" class=\"language-rust \"><code class=\"language-rust\" data-lang=\"rust\"><span>Image::new(&quot;</span><span style=\"color:#a3be8c;\">images/landscape.png</span><span>&quot;)\n</span><span>    .</span><span style=\"color:#96b5b4;\">clip</span><span>()\n</span><span>    .</span><span style=\"color:#96b5b4;\">frame</span><span>(</span><span style=\"color:#d08770;\">200.0</span><span>, </span><span style=\"color:#d08770;\">200.0</span><span>)\n</span><span>    .</span><span style=\"color:#96b5b4;\">border</span><span>()\n</span><span>    .</span><span style=\"color:#96b5b4;\">border_width</span><span>(</span><span style=\"color:#d08770;\">10</span><span>),\n</span></code></pre>\n<p>The border will shrink to the size of the contained widget, plus its border_width * 2.</p>\n<h2 id=\"run-the-example\"><a class=\"zola-anchor\" href=\"#run-the-example\" aria-label=\"Anchor link for: run-the-example\">Run the example</a></h2>\n<p>The example can be run with the following command: <code>cargo run --package carbide_wgpu --example border</code> when located in the working directory <code>carbide</code>.</p>\n<p>For better performance, remember to run the example with <code>--release</code>.</p>\n",
+        "permalink": "https://carbide.rs/examples/drawing/border/",
+        "slug": "border",
+        "ancestors": [
+          "_index.md",
+          "examples/_index.md",
+          "examples/drawing/_index.md"
+        ],
+        "title": "Border",
+        "description": null,
+        "updated": null,
+        "date": null,
+        "year": null,
+        "month": null,
+        "day": null,
+        "taxonomies": {},
+        "authors": [],
+        "extra": {},
+        "path": "/examples/drawing/border/",
+        "components": [
+          "examples",
+          "drawing",
+          "border"
+        ],
+        "summary": null,
+        "toc": [
+          {
+            "level": 1,
+            "id": "border",
+            "permalink": "https://carbide.rs/examples/drawing/border/#border",
+            "title": "Border",
+            "children": [
+              {
+                "level": 2,
+                "id": "explaination",
+                "permalink": "https://carbide.rs/examples/drawing/border/#explaination",
+                "title": "Explaination",
+                "children": []
+              },
+              {
+                "level": 2,
+                "id": "run-the-example",
+                "permalink": "https://carbide.rs/examples/drawing/border/#run-the-example",
+                "title": "Run the example",
+                "children": []
+              }
+            ]
+          }
+        ],
+        "word_count": 134,
+        "reading_time": 1,
+        "assets": [
+          "/examples/drawing/border/border.png"
+        ],
+        "draft": false,
+        "lang": "en",
+        "lower": null,
+        "higher": null,
+        "translations": [],
+        "backlinks": []
+      },
+      "translations": [],
+      "backlinks": [
+        {
+          "permalink": "https://carbide.rs/examples/drawing/filter/",
+          "title": "Filter"
+        }
+      ]
+    },
+    {
+      "relative_path": "examples/drawing/border/index.md",
+      "colocated_path": "examples/drawing/border/",
+      "content": "<h1 id=\"border\"><a class=\"zola-anchor\" href=\"#border\" aria-label=\"Anchor link for: border\">Border</a></h1>\n<p><img src=\"https://carbide.rs/examples/drawing/border/border.png\" alt=\"A screenshot of the border example\" /></p>\n<p>The border example shows off the component that draws a border around another widget. The border will always be a rectangle. It is mostly useful for quickly debugging and finding elements.</p>\n<h2 id=\"explaination\"><a class=\"zola-anchor\" href=\"#explaination\" aria-label=\"Anchor link for: explaination\">Explaination</a></h2>\n<p>A border is drawn surrounding the <a href=\"https://carbide.rs/examples/image/image/\">Image</a>. By default the border <a href=\"https://carbide.rs/docs/general/colors/\">Color</a> is randomly chosen. The color can be chosed by calling the <code>.color()</code> method on the border widget, before or after you set the <code>.border_width()</code>.</p>\n<pre data-lang=\"rust\" style=\"background-color:#2b303b;color:#c0c5ce;\" class=\"language-rust \"><code class=\"language-rust\" data-lang=\"rust\"><span>Image::new(&quot;</span><span style=\"color:#a3be8c;\">images/landscape.png</span><span>&quot;)\n</span><span>    .</span><span style=\"color:#96b5b4;\">clip</span><span>()\n</span><span>    .</span><span style=\"color:#96b5b4;\">frame</span><span>(</span><span style=\"color:#d08770;\">200.0</span><span>, </span><span style=\"color:#d08770;\">200.0</span><span>)\n</span><span>    .</span><span style=\"color:#96b5b4;\">border</span><span>()\n</span><span>    .</span><span style=\"color:#96b5b4;\">border_width</span><span>(</span><span style=\"color:#d08770;\">10</span><span>),\n</span></code></pre>\n<p>The border will shrink to the size of the contained widget, plus its border_width * 2.</p>\n<h2 id=\"run-the-example\"><a class=\"zola-anchor\" href=\"#run-the-example\" aria-label=\"Anchor link for: run-the-example\">Run the example</a></h2>\n<p>The example can be run with the following command: <code>cargo run --package carbide_wgpu --example border</code> when located in the working directory <code>carbide</code>.</p>\n<p>For better performance, remember to run the example with <code>--release</code>.</p>\n",
+      "permalink": "https://carbide.rs/examples/drawing/border/",
+      "slug": "border",
+      "ancestors": [
+        "_index.md",
+        "examples/_index.md",
+        "examples/drawing/_index.md"
+      ],
+      "title": "Border",
+      "description": null,
+      "updated": null,
+      "date": null,
+      "year": null,
+      "month": null,
+      "day": null,
+      "taxonomies": {},
+      "authors": [],
+      "extra": {},
+      "path": "/examples/drawing/border/",
+      "components": [
+        "examples",
+        "drawing",
+        "border"
+      ],
+      "summary": null,
+      "toc": [
+        {
+          "level": 1,
+          "id": "border",
+          "permalink": "https://carbide.rs/examples/drawing/border/#border",
+          "title": "Border",
+          "children": [
+            {
+              "level": 2,
+              "id": "explaination",
+              "permalink": "https://carbide.rs/examples/drawing/border/#explaination",
+              "title": "Explaination",
+              "children": []
+            },
+            {
+              "level": 2,
+              "id": "run-the-example",
+              "permalink": "https://carbide.rs/examples/drawing/border/#run-the-example",
+              "title": "Run the example",
+              "children": []
+            }
+          ]
+        }
+      ],
+      "word_count": 134,
+      "reading_time": 1,
+      "assets": [
+        "/examples/drawing/border/border.png"
+      ],
+      "draft": false,
+      "lang": "en",
+      "lower": {
+        "relative_path": "examples/drawing/blur/index.md",
+        "colocated_path": "examples/drawing/blur/",
+        "content": "<h1 id=\"blur\"><a class=\"zola-anchor\" href=\"#blur\" aria-label=\"Anchor link for: blur\">Blur</a></h1>\n<p><img src=\"https://carbide.rs/examples/drawing/blur/blur.png\" alt=\"A screenshot of the blur example\" /></p>\n<p>The blur example shows how to apply a blur rendering effect within a given shape to an area. In the example, we blur an <a href=\"https://carbide.rs/examples/image/image/\">Image</a> within specified moving areas with different blur strengths.</p>\n<h2 id=\"explaination\"><a class=\"zola-anchor\" href=\"#explaination\" aria-label=\"Anchor link for: explaination\">Explaination</a></h2>\n<p>Carbide provides different graphical effects (<a href=\"https://carbide.rs/examples/drawing/filter/\">Filter</a>) that can be used to customize rendering and style your application to your liking. The blur example consist of two shapes, within which a gaussian or box blur is applied.</p>\n<p>Another place blurring is used, is for rendering specific <a href=\"https://carbide.rs/examples/drawing/materials/\">materials</a>.</p>\n<p>In the below code, a mean/box blur effect is given, and clipped to a circle. The effect is constrained to a 100x100 <a href=\"https://carbide.rs/examples/drawing/blur/TODO\">frame</a>, and <a href=\"https://carbide.rs/examples/drawing/blur/TODO\">offset</a> with an x coordinate.</p>\n<pre data-lang=\"rust\" style=\"background-color:#2b303b;color:#c0c5ce;\" class=\"language-rust \"><code class=\"language-rust\" data-lang=\"rust\"><span>Blur::mean(</span><span style=\"color:#d08770;\">3</span><span>)\n</span><span>    .</span><span style=\"color:#96b5b4;\">clip_shape</span><span>(Circle::new())\n</span><span>    .</span><span style=\"color:#96b5b4;\">frame</span><span>(</span><span style=\"color:#d08770;\">100.0</span><span>, </span><span style=\"color:#d08770;\">100.0</span><span>)\n</span><span>    .</span><span style=\"color:#96b5b4;\">offset</span><span>(position_neg_x.</span><span style=\"color:#96b5b4;\">clone</span><span>(), </span><span style=\"color:#d08770;\">0.0</span><span>),\n</span></code></pre>\n<p>The offset of the blur effect is animated, to show how the effect is dynamic, and performant.</p>\n<p>When multiple blur effects overlap, the are applied on top of each other, making a stronger blur. Using the WGPU rendering backend, the blurs are calculated on the GPU, with different rendering performance optimizations, to allow larger radii blurs. But when the blur radii become very large, they can be taxing on the GPU, and it is recommended to apply multiple blurs on top of each other instead.</p>\n<p>Both Gaussian and Box blurs stack, and the same rendering result can be achieved by combining multiple blurs with a smaller radius instead of a single blur with a large radius.</p>\n<h2 id=\"run-the-example\"><a class=\"zola-anchor\" href=\"#run-the-example\" aria-label=\"Anchor link for: run-the-example\">Run the example</a></h2>\n<p>The example can be run with the following command: <code>cargo run --package carbide_wgpu --example blur</code> when located in the working directory <code>carbide</code>.</p>\n<p>For better performance, remember to run the example with <code>--release</code>.</p>\n",
+        "permalink": "https://carbide.rs/examples/drawing/blur/",
+        "slug": "blur",
+        "ancestors": [
+          "_index.md",
+          "examples/_index.md",
+          "examples/drawing/_index.md"
+        ],
+        "title": "Blur",
+        "description": null,
+        "updated": null,
+        "date": null,
+        "year": null,
+        "month": null,
+        "day": null,
+        "taxonomies": {},
+        "authors": [],
+        "extra": {},
+        "path": "/examples/drawing/blur/",
+        "components": [
+          "examples",
+          "drawing",
+          "blur"
+        ],
+        "summary": null,
+        "toc": [
+          {
+            "level": 1,
+            "id": "blur",
+            "permalink": "https://carbide.rs/examples/drawing/blur/#blur",
+            "title": "Blur",
+            "children": [
+              {
+                "level": 2,
+                "id": "explaination",
+                "permalink": "https://carbide.rs/examples/drawing/blur/#explaination",
+                "title": "Explaination",
+                "children": []
+              },
+              {
+                "level": 2,
+                "id": "run-the-example",
+                "permalink": "https://carbide.rs/examples/drawing/blur/#run-the-example",
+                "title": "Run the example",
+                "children": []
+              }
+            ]
+          }
+        ],
+        "word_count": 283,
+        "reading_time": 2,
+        "assets": [
+          "/examples/drawing/blur/blur.png"
+        ],
+        "draft": false,
+        "lang": "en",
+        "lower": null,
+        "higher": null,
+        "translations": [],
+        "backlinks": [
+          {
+            "permalink": "https://carbide.rs/examples/drawing/filter/",
+            "title": "Filter"
+          }
+        ]
+      },
+      "higher": {
+        "relative_path": "examples/drawing/canvas/index.md",
+        "colocated_path": "examples/drawing/canvas/",
+        "content": "<h1 id=\"canvas\"><a class=\"zola-anchor\" href=\"#canvas\" aria-label=\"Anchor link for: canvas\">Canvas</a></h1>\n<p><img src=\"https://carbide.rs/examples/drawing/canvas/canvas.png\" alt=\"A screenshot of the canvas example\" /></p>\n<p>The canvas example showcases how to draw a simple shape using the Canvas widget. Rendering using a canvas is declarative, and is based on the HTML canvas.</p>\n<p>For more information on how the Canvas widget works, see <strong>INSERT DOC LINK</strong>.</p>\n<h2 id=\"explanation\"><a class=\"zola-anchor\" href=\"#explanation\" aria-label=\"Anchor link for: explanation\">Explanation</a></h2>\n<p>The example consist of a single centered Canvas element. The Canvas element has a canvas context, and which uses in a call to a function called <code>draw_star</code>. This function takes inputs defining what star to draw, and calles the different canvas context methods in order to draw the star.</p>\n<p>The rendering is using the <a href=\"https://carbide.rs/examples/drawing/accent/\">accent color</a>, and is filled.</p>\n<h2 id=\"run-the-example\"><a class=\"zola-anchor\" href=\"#run-the-example\" aria-label=\"Anchor link for: run-the-example\">Run the example</a></h2>\n<p>The example can be run with the following command: <code>cargo run --package carbide_wgpu --example canvas</code> when located in the working directory <code>carbide</code>.</p>\n<p>For better performance, remember to run the example with <code>--release</code>.</p>\n",
+        "permalink": "https://carbide.rs/examples/drawing/canvas/",
+        "slug": "canvas",
+        "ancestors": [
+          "_index.md",
+          "examples/_index.md",
+          "examples/drawing/_index.md"
+        ],
+        "title": "Canvas",
+        "description": null,
+        "updated": null,
+        "date": null,
+        "year": null,
+        "month": null,
+        "day": null,
+        "taxonomies": {},
+        "authors": [],
+        "extra": {},
+        "path": "/examples/drawing/canvas/",
+        "components": [
+          "examples",
+          "drawing",
+          "canvas"
+        ],
+        "summary": null,
+        "toc": [
+          {
+            "level": 1,
+            "id": "canvas",
+            "permalink": "https://carbide.rs/examples/drawing/canvas/#canvas",
+            "title": "Canvas",
+            "children": [
+              {
+                "level": 2,
+                "id": "explanation",
+                "permalink": "https://carbide.rs/examples/drawing/canvas/#explanation",
+                "title": "Explanation",
+                "children": []
+              },
+              {
+                "level": 2,
+                "id": "run-the-example",
+                "permalink": "https://carbide.rs/examples/drawing/canvas/#run-the-example",
+                "title": "Run the example",
+                "children": []
+              }
+            ]
+          }
+        ],
+        "word_count": 147,
+        "reading_time": 1,
+        "assets": [
+          "/examples/drawing/canvas/canvas.png"
+        ],
+        "draft": false,
+        "lang": "en",
+        "lower": null,
+        "higher": null,
+        "translations": [],
+        "backlinks": [
+          {
+            "permalink": "https://carbide.rs/examples/drawing/shapes/",
+            "title": "Shapes"
+          }
+        ]
+      },
+      "translations": [],
+      "backlinks": []
+    },
+    {
+      "relative_path": "examples/drawing/canvas/index.md",
+      "colocated_path": "examples/drawing/canvas/",
+      "content": "<h1 id=\"canvas\"><a class=\"zola-anchor\" href=\"#canvas\" aria-label=\"Anchor link for: canvas\">Canvas</a></h1>\n<p><img src=\"https://carbide.rs/examples/drawing/canvas/canvas.png\" alt=\"A screenshot of the canvas example\" /></p>\n<p>The canvas example showcases how to draw a simple shape using the Canvas widget. Rendering using a canvas is declarative, and is based on the HTML canvas.</p>\n<p>For more information on how the Canvas widget works, see <strong>INSERT DOC LINK</strong>.</p>\n<h2 id=\"explanation\"><a class=\"zola-anchor\" href=\"#explanation\" aria-label=\"Anchor link for: explanation\">Explanation</a></h2>\n<p>The example consist of a single centered Canvas element. The Canvas element has a canvas context, and which uses in a call to a function called <code>draw_star</code>. This function takes inputs defining what star to draw, and calles the different canvas context methods in order to draw the star.</p>\n<p>The rendering is using the <a href=\"https://carbide.rs/examples/drawing/accent/\">accent color</a>, and is filled.</p>\n<h2 id=\"run-the-example\"><a class=\"zola-anchor\" href=\"#run-the-example\" aria-label=\"Anchor link for: run-the-example\">Run the example</a></h2>\n<p>The example can be run with the following command: <code>cargo run --package carbide_wgpu --example canvas</code> when located in the working directory <code>carbide</code>.</p>\n<p>For better performance, remember to run the example with <code>--release</code>.</p>\n",
+      "permalink": "https://carbide.rs/examples/drawing/canvas/",
+      "slug": "canvas",
+      "ancestors": [
+        "_index.md",
+        "examples/_index.md",
+        "examples/drawing/_index.md"
+      ],
+      "title": "Canvas",
+      "description": null,
+      "updated": null,
+      "date": null,
+      "year": null,
+      "month": null,
+      "day": null,
+      "taxonomies": {},
+      "authors": [],
+      "extra": {},
+      "path": "/examples/drawing/canvas/",
+      "components": [
+        "examples",
+        "drawing",
+        "canvas"
+      ],
+      "summary": null,
+      "toc": [
+        {
+          "level": 1,
+          "id": "canvas",
+          "permalink": "https://carbide.rs/examples/drawing/canvas/#canvas",
+          "title": "Canvas",
+          "children": [
+            {
+              "level": 2,
+              "id": "explanation",
+              "permalink": "https://carbide.rs/examples/drawing/canvas/#explanation",
+              "title": "Explanation",
+              "children": []
+            },
+            {
+              "level": 2,
+              "id": "run-the-example",
+              "permalink": "https://carbide.rs/examples/drawing/canvas/#run-the-example",
+              "title": "Run the example",
+              "children": []
+            }
+          ]
+        }
+      ],
+      "word_count": 147,
+      "reading_time": 1,
+      "assets": [
+        "/examples/drawing/canvas/canvas.png"
+      ],
+      "draft": false,
+      "lang": "en",
+      "lower": {
+        "relative_path": "examples/drawing/border/index.md",
+        "colocated_path": "examples/drawing/border/",
+        "content": "<h1 id=\"border\"><a class=\"zola-anchor\" href=\"#border\" aria-label=\"Anchor link for: border\">Border</a></h1>\n<p><img src=\"https://carbide.rs/examples/drawing/border/border.png\" alt=\"A screenshot of the border example\" /></p>\n<p>The border example shows off the component that draws a border around another widget. The border will always be a rectangle. It is mostly useful for quickly debugging and finding elements.</p>\n<h2 id=\"explaination\"><a class=\"zola-anchor\" href=\"#explaination\" aria-label=\"Anchor link for: explaination\">Explaination</a></h2>\n<p>A border is drawn surrounding the <a href=\"https://carbide.rs/examples/image/image/\">Image</a>. By default the border <a href=\"https://carbide.rs/docs/general/colors/\">Color</a> is randomly chosen. The color can be chosed by calling the <code>.color()</code> method on the border widget, before or after you set the <code>.border_width()</code>.</p>\n<pre data-lang=\"rust\" style=\"background-color:#2b303b;color:#c0c5ce;\" class=\"language-rust \"><code class=\"language-rust\" data-lang=\"rust\"><span>Image::new(&quot;</span><span style=\"color:#a3be8c;\">images/landscape.png</span><span>&quot;)\n</span><span>    .</span><span style=\"color:#96b5b4;\">clip</span><span>()\n</span><span>    .</span><span style=\"color:#96b5b4;\">frame</span><span>(</span><span style=\"color:#d08770;\">200.0</span><span>, </span><span style=\"color:#d08770;\">200.0</span><span>)\n</span><span>    .</span><span style=\"color:#96b5b4;\">border</span><span>()\n</span><span>    .</span><span style=\"color:#96b5b4;\">border_width</span><span>(</span><span style=\"color:#d08770;\">10</span><span>),\n</span></code></pre>\n<p>The border will shrink to the size of the contained widget, plus its border_width * 2.</p>\n<h2 id=\"run-the-example\"><a class=\"zola-anchor\" href=\"#run-the-example\" aria-label=\"Anchor link for: run-the-example\">Run the example</a></h2>\n<p>The example can be run with the following command: <code>cargo run --package carbide_wgpu --example border</code> when located in the working directory <code>carbide</code>.</p>\n<p>For better performance, remember to run the example with <code>--release</code>.</p>\n",
+        "permalink": "https://carbide.rs/examples/drawing/border/",
+        "slug": "border",
+        "ancestors": [
+          "_index.md",
+          "examples/_index.md",
+          "examples/drawing/_index.md"
+        ],
+        "title": "Border",
+        "description": null,
+        "updated": null,
+        "date": null,
+        "year": null,
+        "month": null,
+        "day": null,
+        "taxonomies": {},
+        "authors": [],
+        "extra": {},
+        "path": "/examples/drawing/border/",
+        "components": [
+          "examples",
+          "drawing",
+          "border"
+        ],
+        "summary": null,
+        "toc": [
+          {
+            "level": 1,
+            "id": "border",
+            "permalink": "https://carbide.rs/examples/drawing/border/#border",
+            "title": "Border",
+            "children": [
+              {
+                "level": 2,
+                "id": "explaination",
+                "permalink": "https://carbide.rs/examples/drawing/border/#explaination",
+                "title": "Explaination",
+                "children": []
+              },
+              {
+                "level": 2,
+                "id": "run-the-example",
+                "permalink": "https://carbide.rs/examples/drawing/border/#run-the-example",
+                "title": "Run the example",
+                "children": []
+              }
+            ]
+          }
+        ],
+        "word_count": 134,
+        "reading_time": 1,
+        "assets": [
+          "/examples/drawing/border/border.png"
+        ],
+        "draft": false,
+        "lang": "en",
+        "lower": null,
+        "higher": null,
+        "translations": [],
+        "backlinks": []
+      },
+      "higher": {
+        "relative_path": "examples/drawing/clip/index.md",
+        "colocated_path": "examples/drawing/clip/",
+        "content": "<h1 id=\"clip\"><a class=\"zola-anchor\" href=\"#clip\" aria-label=\"Anchor link for: clip\">Clip</a></h1>\n<p><img src=\"https://carbide.rs/examples/drawing/clip/clip.png\" alt=\"A screenshot of the clip example\" /></p>\n<p>The clip example, defines a rectancle to be used as clipping. In the example an <a href=\"https://carbide.rs/examples/image/image/\">Image</a> is clipped to a square.</p>\n<h2 id=\"explaination\"><a class=\"zola-anchor\" href=\"#explaination\" aria-label=\"Anchor link for: explaination\">Explaination</a></h2>\n<p>The <code>.clip()</code> modifier clips its the content to a given area. The modifier fills its available space, meaning it tries to be as large as possible. In the below example the size chosen is 200x200, since that is the space given by the enclosing <a href=\"https://carbide.rs/examples/drawing/clip/TODO\">frame</a>.</p>\n<pre data-lang=\"rust\" style=\"background-color:#2b303b;color:#c0c5ce;\" class=\"language-rust \"><code class=\"language-rust\" data-lang=\"rust\"><span>Image::new(&quot;</span><span style=\"color:#a3be8c;\">images/landscape.png</span><span>&quot;)\n</span><span>    .</span><span style=\"color:#96b5b4;\">scaled_to_fill</span><span>()\n</span><span>    .</span><span style=\"color:#96b5b4;\">frame</span><span>(</span><span style=\"color:#d08770;\">800.0</span><span>, </span><span style=\"color:#d08770;\">800.0</span><span>)\n</span><span>    .</span><span style=\"color:#96b5b4;\">clip</span><span>()\n</span><span>    .</span><span style=\"color:#96b5b4;\">frame</span><span>(</span><span style=\"color:#d08770;\">200.0</span><span>, </span><span style=\"color:#d08770;\">200.0</span><span>),\n</span></code></pre>\n<p>The <a href=\"https://carbide.rs/examples/drawing/clip/TODO\">Image</a> is also set to fill its available content using the <code>.scaled_to_fill()</code> modifier, and fills a frame of size 800x800.</p>\n<blockquote>\n<p>Clipping is often the most efficient but most inflexible solution. Other solutions such as <a href=\"https://carbide.rs/examples/drawing/clip-shape/\">ClipShape</a> and <a href=\"https://carbide.rs/examples/drawing/mask/\">Mask</a> are more flexible, but comes with their own performance considerations.</p>\n</blockquote>\n<p>When multiple clippings are applied to the same content, the result will be the intersection of the clippings.</p>\n<blockquote>\n<p><strong>WARNING:</strong> It is not defined whether you are allowed to transform the clip using a transformation matrix. Currently the WGPU backend does not allow this. This is due to platform optimizations. If you need to transform a rectangle clipping, use <a href=\"https://carbide.rs/examples/drawing/clip-shape/\">ClipShape</a>.</p>\n</blockquote>\n<h2 id=\"run-the-example\"><a class=\"zola-anchor\" href=\"#run-the-example\" aria-label=\"Anchor link for: run-the-example\">Run the example</a></h2>\n<p>The example can be run with the following command: <code>cargo run --package carbide_wgpu --example clip</code> when located in the working directory <code>carbide</code>.</p>\n<p>For better performance, remember to run the example with <code>--release</code>.</p>\n",
+        "permalink": "https://carbide.rs/examples/drawing/clip/",
+        "slug": "clip",
+        "ancestors": [
+          "_index.md",
+          "examples/_index.md",
+          "examples/drawing/_index.md"
+        ],
+        "title": "Clip",
+        "description": null,
+        "updated": null,
+        "date": null,
+        "year": null,
+        "month": null,
+        "day": null,
+        "taxonomies": {},
+        "authors": [],
+        "extra": {},
+        "path": "/examples/drawing/clip/",
+        "components": [
+          "examples",
+          "drawing",
+          "clip"
+        ],
+        "summary": null,
+        "toc": [
+          {
+            "level": 1,
+            "id": "clip",
+            "permalink": "https://carbide.rs/examples/drawing/clip/#clip",
+            "title": "Clip",
+            "children": [
+              {
+                "level": 2,
+                "id": "explaination",
+                "permalink": "https://carbide.rs/examples/drawing/clip/#explaination",
+                "title": "Explaination",
+                "children": []
+              },
+              {
+                "level": 2,
+                "id": "run-the-example",
+                "permalink": "https://carbide.rs/examples/drawing/clip/#run-the-example",
+                "title": "Run the example",
+                "children": []
+              }
+            ]
+          }
+        ],
+        "word_count": 235,
+        "reading_time": 2,
+        "assets": [
+          "/examples/drawing/clip/clip.png"
+        ],
+        "draft": false,
+        "lang": "en",
+        "lower": null,
+        "higher": null,
+        "translations": [],
+        "backlinks": [
+          {
+            "permalink": "https://carbide.rs/examples/drawing/clip-shape/",
+            "title": "ClipShape"
+          }
+        ]
+      },
+      "translations": [],
+      "backlinks": [
+        {
+          "permalink": "https://carbide.rs/examples/drawing/shapes/",
+          "title": "Shapes"
+        }
+      ]
+    },
+    {
+      "relative_path": "examples/drawing/clip/index.md",
+      "colocated_path": "examples/drawing/clip/",
+      "content": "<h1 id=\"clip\"><a class=\"zola-anchor\" href=\"#clip\" aria-label=\"Anchor link for: clip\">Clip</a></h1>\n<p><img src=\"https://carbide.rs/examples/drawing/clip/clip.png\" alt=\"A screenshot of the clip example\" /></p>\n<p>The clip example, defines a rectancle to be used as clipping. In the example an <a href=\"https://carbide.rs/examples/image/image/\">Image</a> is clipped to a square.</p>\n<h2 id=\"explaination\"><a class=\"zola-anchor\" href=\"#explaination\" aria-label=\"Anchor link for: explaination\">Explaination</a></h2>\n<p>The <code>.clip()</code> modifier clips its the content to a given area. The modifier fills its available space, meaning it tries to be as large as possible. In the below example the size chosen is 200x200, since that is the space given by the enclosing <a href=\"https://carbide.rs/examples/drawing/clip/TODO\">frame</a>.</p>\n<pre data-lang=\"rust\" style=\"background-color:#2b303b;color:#c0c5ce;\" class=\"language-rust \"><code class=\"language-rust\" data-lang=\"rust\"><span>Image::new(&quot;</span><span style=\"color:#a3be8c;\">images/landscape.png</span><span>&quot;)\n</span><span>    .</span><span style=\"color:#96b5b4;\">scaled_to_fill</span><span>()\n</span><span>    .</span><span style=\"color:#96b5b4;\">frame</span><span>(</span><span style=\"color:#d08770;\">800.0</span><span>, </span><span style=\"color:#d08770;\">800.0</span><span>)\n</span><span>    .</span><span style=\"color:#96b5b4;\">clip</span><span>()\n</span><span>    .</span><span style=\"color:#96b5b4;\">frame</span><span>(</span><span style=\"color:#d08770;\">200.0</span><span>, </span><span style=\"color:#d08770;\">200.0</span><span>),\n</span></code></pre>\n<p>The <a href=\"https://carbide.rs/examples/drawing/clip/TODO\">Image</a> is also set to fill its available content using the <code>.scaled_to_fill()</code> modifier, and fills a frame of size 800x800.</p>\n<blockquote>\n<p>Clipping is often the most efficient but most inflexible solution. Other solutions such as <a href=\"https://carbide.rs/examples/drawing/clip-shape/\">ClipShape</a> and <a href=\"https://carbide.rs/examples/drawing/mask/\">Mask</a> are more flexible, but comes with their own performance considerations.</p>\n</blockquote>\n<p>When multiple clippings are applied to the same content, the result will be the intersection of the clippings.</p>\n<blockquote>\n<p><strong>WARNING:</strong> It is not defined whether you are allowed to transform the clip using a transformation matrix. Currently the WGPU backend does not allow this. This is due to platform optimizations. If you need to transform a rectangle clipping, use <a href=\"https://carbide.rs/examples/drawing/clip-shape/\">ClipShape</a>.</p>\n</blockquote>\n<h2 id=\"run-the-example\"><a class=\"zola-anchor\" href=\"#run-the-example\" aria-label=\"Anchor link for: run-the-example\">Run the example</a></h2>\n<p>The example can be run with the following command: <code>cargo run --package carbide_wgpu --example clip</code> when located in the working directory <code>carbide</code>.</p>\n<p>For better performance, remember to run the example with <code>--release</code>.</p>\n",
+      "permalink": "https://carbide.rs/examples/drawing/clip/",
+      "slug": "clip",
+      "ancestors": [
+        "_index.md",
+        "examples/_index.md",
+        "examples/drawing/_index.md"
+      ],
+      "title": "Clip",
+      "description": null,
+      "updated": null,
+      "date": null,
+      "year": null,
+      "month": null,
+      "day": null,
+      "taxonomies": {},
+      "authors": [],
+      "extra": {},
+      "path": "/examples/drawing/clip/",
+      "components": [
+        "examples",
+        "drawing",
+        "clip"
+      ],
+      "summary": null,
+      "toc": [
+        {
+          "level": 1,
+          "id": "clip",
+          "permalink": "https://carbide.rs/examples/drawing/clip/#clip",
+          "title": "Clip",
+          "children": [
+            {
+              "level": 2,
+              "id": "explaination",
+              "permalink": "https://carbide.rs/examples/drawing/clip/#explaination",
+              "title": "Explaination",
+              "children": []
+            },
+            {
+              "level": 2,
+              "id": "run-the-example",
+              "permalink": "https://carbide.rs/examples/drawing/clip/#run-the-example",
+              "title": "Run the example",
+              "children": []
+            }
+          ]
+        }
+      ],
+      "word_count": 235,
+      "reading_time": 2,
+      "assets": [
+        "/examples/drawing/clip/clip.png"
+      ],
+      "draft": false,
+      "lang": "en",
+      "lower": {
+        "relative_path": "examples/drawing/canvas/index.md",
+        "colocated_path": "examples/drawing/canvas/",
+        "content": "<h1 id=\"canvas\"><a class=\"zola-anchor\" href=\"#canvas\" aria-label=\"Anchor link for: canvas\">Canvas</a></h1>\n<p><img src=\"https://carbide.rs/examples/drawing/canvas/canvas.png\" alt=\"A screenshot of the canvas example\" /></p>\n<p>The canvas example showcases how to draw a simple shape using the Canvas widget. Rendering using a canvas is declarative, and is based on the HTML canvas.</p>\n<p>For more information on how the Canvas widget works, see <strong>INSERT DOC LINK</strong>.</p>\n<h2 id=\"explanation\"><a class=\"zola-anchor\" href=\"#explanation\" aria-label=\"Anchor link for: explanation\">Explanation</a></h2>\n<p>The example consist of a single centered Canvas element. The Canvas element has a canvas context, and which uses in a call to a function called <code>draw_star</code>. This function takes inputs defining what star to draw, and calles the different canvas context methods in order to draw the star.</p>\n<p>The rendering is using the <a href=\"https://carbide.rs/examples/drawing/accent/\">accent color</a>, and is filled.</p>\n<h2 id=\"run-the-example\"><a class=\"zola-anchor\" href=\"#run-the-example\" aria-label=\"Anchor link for: run-the-example\">Run the example</a></h2>\n<p>The example can be run with the following command: <code>cargo run --package carbide_wgpu --example canvas</code> when located in the working directory <code>carbide</code>.</p>\n<p>For better performance, remember to run the example with <code>--release</code>.</p>\n",
+        "permalink": "https://carbide.rs/examples/drawing/canvas/",
+        "slug": "canvas",
+        "ancestors": [
+          "_index.md",
+          "examples/_index.md",
+          "examples/drawing/_index.md"
+        ],
+        "title": "Canvas",
+        "description": null,
+        "updated": null,
+        "date": null,
+        "year": null,
+        "month": null,
+        "day": null,
+        "taxonomies": {},
+        "authors": [],
+        "extra": {},
+        "path": "/examples/drawing/canvas/",
+        "components": [
+          "examples",
+          "drawing",
+          "canvas"
+        ],
+        "summary": null,
+        "toc": [
+          {
+            "level": 1,
+            "id": "canvas",
+            "permalink": "https://carbide.rs/examples/drawing/canvas/#canvas",
+            "title": "Canvas",
+            "children": [
+              {
+                "level": 2,
+                "id": "explanation",
+                "permalink": "https://carbide.rs/examples/drawing/canvas/#explanation",
+                "title": "Explanation",
+                "children": []
+              },
+              {
+                "level": 2,
+                "id": "run-the-example",
+                "permalink": "https://carbide.rs/examples/drawing/canvas/#run-the-example",
+                "title": "Run the example",
+                "children": []
+              }
+            ]
+          }
+        ],
+        "word_count": 147,
+        "reading_time": 1,
+        "assets": [
+          "/examples/drawing/canvas/canvas.png"
+        ],
+        "draft": false,
+        "lang": "en",
+        "lower": null,
+        "higher": null,
+        "translations": [],
+        "backlinks": [
+          {
+            "permalink": "https://carbide.rs/examples/drawing/shapes/",
+            "title": "Shapes"
+          }
+        ]
+      },
+      "higher": {
+        "relative_path": "examples/drawing/clip_shape/index.md",
+        "colocated_path": "examples/drawing/clip_shape/",
+        "content": "<h1 id=\"clipshape\"><a class=\"zola-anchor\" href=\"#clipshape\" aria-label=\"Anchor link for: clipshape\">ClipShape</a></h1>\n<p><img src=\"https://carbide.rs/examples/drawing/clip-shape/clip_shape.png\" alt=\"A screenshot of the clipshape example\" /></p>\n<p>The ClipShape example, defines a shape to use for clipping another widget. In the example, the shape chosen is a circle, and the item being clippes is an <a href=\"https://carbide.rs/examples/image/image/\">Image</a>. Notice only the image is clipped, and not the background.</p>\n<h2 id=\"explaination\"><a class=\"zola-anchor\" href=\"#explaination\" aria-label=\"Anchor link for: explaination\">Explaination</a></h2>\n<p>The <code>.clip_shape()</code> modifier clips its content to a given shape. The modifier fills its available space with the shape, meaning it tries to be as large as possible. In the below example the size chosen is the size of the <a href=\"https://carbide.rs/examples/drawing/clip-shape/TODO\">Window</a>.</p>\n<pre data-lang=\"rust\" style=\"background-color:#2b303b;color:#c0c5ce;\" class=\"language-rust \"><code class=\"language-rust\" data-lang=\"rust\"><span>Image::new(&quot;</span><span style=\"color:#a3be8c;\">images/landscape.png</span><span>&quot;)\n</span><span>    .</span><span style=\"color:#96b5b4;\">clip_shape</span><span>(Circle::new())\n</span></code></pre>\n<p>When multiple clip shapes are applied to the same content, the result will be the intersection of the different clip shapes.</p>\n<p>The <code>ClipShape</code> will react to the current transform matrix. It will render the same way as any other rendering primitives.</p>\n<blockquote>\n<p>The <code>ClipShape</code> is the middleground in performance and flexibility between the <a href=\"https://carbide.rs/examples/drawing/clip/\">Clip</a> and the <a href=\"https://carbide.rs/examples/drawing/mask/\">Mask</a>. The complexity of the shape can affect the performance, but due to optimizations renderers can make, will often not be noticed.</p>\n</blockquote>\n<h2 id=\"run-the-example\"><a class=\"zola-anchor\" href=\"#run-the-example\" aria-label=\"Anchor link for: run-the-example\">Run the example</a></h2>\n<p>The example can be run with the following command: <code>cargo run --package carbide_wgpu --example clip_shape</code> when located in the working directory <code>carbide</code>.</p>\n<p>For better performance, remember to run the example with <code>--release</code>.</p>\n",
+        "permalink": "https://carbide.rs/examples/drawing/clip-shape/",
+        "slug": "clip-shape",
+        "ancestors": [
+          "_index.md",
+          "examples/_index.md",
+          "examples/drawing/_index.md"
+        ],
+        "title": "ClipShape",
+        "description": null,
+        "updated": null,
+        "date": null,
+        "year": null,
+        "month": null,
+        "day": null,
+        "taxonomies": {},
+        "authors": [],
+        "extra": {},
+        "path": "/examples/drawing/clip-shape/",
+        "components": [
+          "examples",
+          "drawing",
+          "clip-shape"
+        ],
+        "summary": null,
+        "toc": [
+          {
+            "level": 1,
+            "id": "clipshape",
+            "permalink": "https://carbide.rs/examples/drawing/clip-shape/#clipshape",
+            "title": "ClipShape",
+            "children": [
+              {
+                "level": 2,
+                "id": "explaination",
+                "permalink": "https://carbide.rs/examples/drawing/clip-shape/#explaination",
+                "title": "Explaination",
+                "children": []
+              },
+              {
+                "level": 2,
+                "id": "run-the-example",
+                "permalink": "https://carbide.rs/examples/drawing/clip-shape/#run-the-example",
+                "title": "Run the example",
+                "children": []
+              }
+            ]
+          }
+        ],
+        "word_count": 214,
+        "reading_time": 2,
+        "assets": [
+          "/examples/drawing/clip_shape/clip_shape.png"
+        ],
+        "draft": false,
+        "lang": "en",
+        "lower": null,
+        "higher": null,
+        "translations": [],
+        "backlinks": [
+          {
+            "permalink": "https://carbide.rs/examples/drawing/clip/",
+            "title": "Clip"
+          }
+        ]
+      },
+      "translations": [],
+      "backlinks": [
+        {
+          "permalink": "https://carbide.rs/examples/drawing/clip-shape/",
+          "title": "ClipShape"
+        }
+      ]
+    },
+    {
+      "relative_path": "examples/drawing/clip_shape/index.md",
+      "colocated_path": "examples/drawing/clip_shape/",
+      "content": "<h1 id=\"clipshape\"><a class=\"zola-anchor\" href=\"#clipshape\" aria-label=\"Anchor link for: clipshape\">ClipShape</a></h1>\n<p><img src=\"https://carbide.rs/examples/drawing/clip-shape/clip_shape.png\" alt=\"A screenshot of the clipshape example\" /></p>\n<p>The ClipShape example, defines a shape to use for clipping another widget. In the example, the shape chosen is a circle, and the item being clippes is an <a href=\"https://carbide.rs/examples/image/image/\">Image</a>. Notice only the image is clipped, and not the background.</p>\n<h2 id=\"explaination\"><a class=\"zola-anchor\" href=\"#explaination\" aria-label=\"Anchor link for: explaination\">Explaination</a></h2>\n<p>The <code>.clip_shape()</code> modifier clips its content to a given shape. The modifier fills its available space with the shape, meaning it tries to be as large as possible. In the below example the size chosen is the size of the <a href=\"https://carbide.rs/examples/drawing/clip-shape/TODO\">Window</a>.</p>\n<pre data-lang=\"rust\" style=\"background-color:#2b303b;color:#c0c5ce;\" class=\"language-rust \"><code class=\"language-rust\" data-lang=\"rust\"><span>Image::new(&quot;</span><span style=\"color:#a3be8c;\">images/landscape.png</span><span>&quot;)\n</span><span>    .</span><span style=\"color:#96b5b4;\">clip_shape</span><span>(Circle::new())\n</span></code></pre>\n<p>When multiple clip shapes are applied to the same content, the result will be the intersection of the different clip shapes.</p>\n<p>The <code>ClipShape</code> will react to the current transform matrix. It will render the same way as any other rendering primitives.</p>\n<blockquote>\n<p>The <code>ClipShape</code> is the middleground in performance and flexibility between the <a href=\"https://carbide.rs/examples/drawing/clip/\">Clip</a> and the <a href=\"https://carbide.rs/examples/drawing/mask/\">Mask</a>. The complexity of the shape can affect the performance, but due to optimizations renderers can make, will often not be noticed.</p>\n</blockquote>\n<h2 id=\"run-the-example\"><a class=\"zola-anchor\" href=\"#run-the-example\" aria-label=\"Anchor link for: run-the-example\">Run the example</a></h2>\n<p>The example can be run with the following command: <code>cargo run --package carbide_wgpu --example clip_shape</code> when located in the working directory <code>carbide</code>.</p>\n<p>For better performance, remember to run the example with <code>--release</code>.</p>\n",
+      "permalink": "https://carbide.rs/examples/drawing/clip-shape/",
+      "slug": "clip-shape",
+      "ancestors": [
+        "_index.md",
+        "examples/_index.md",
+        "examples/drawing/_index.md"
+      ],
+      "title": "ClipShape",
+      "description": null,
+      "updated": null,
+      "date": null,
+      "year": null,
+      "month": null,
+      "day": null,
+      "taxonomies": {},
+      "authors": [],
+      "extra": {},
+      "path": "/examples/drawing/clip-shape/",
+      "components": [
+        "examples",
+        "drawing",
+        "clip-shape"
+      ],
+      "summary": null,
+      "toc": [
+        {
+          "level": 1,
+          "id": "clipshape",
+          "permalink": "https://carbide.rs/examples/drawing/clip-shape/#clipshape",
+          "title": "ClipShape",
+          "children": [
+            {
+              "level": 2,
+              "id": "explaination",
+              "permalink": "https://carbide.rs/examples/drawing/clip-shape/#explaination",
+              "title": "Explaination",
+              "children": []
+            },
+            {
+              "level": 2,
+              "id": "run-the-example",
+              "permalink": "https://carbide.rs/examples/drawing/clip-shape/#run-the-example",
+              "title": "Run the example",
+              "children": []
+            }
+          ]
+        }
+      ],
+      "word_count": 214,
+      "reading_time": 2,
+      "assets": [
+        "/examples/drawing/clip_shape/clip_shape.png"
+      ],
+      "draft": false,
+      "lang": "en",
+      "lower": {
+        "relative_path": "examples/drawing/clip/index.md",
+        "colocated_path": "examples/drawing/clip/",
+        "content": "<h1 id=\"clip\"><a class=\"zola-anchor\" href=\"#clip\" aria-label=\"Anchor link for: clip\">Clip</a></h1>\n<p><img src=\"https://carbide.rs/examples/drawing/clip/clip.png\" alt=\"A screenshot of the clip example\" /></p>\n<p>The clip example, defines a rectancle to be used as clipping. In the example an <a href=\"https://carbide.rs/examples/image/image/\">Image</a> is clipped to a square.</p>\n<h2 id=\"explaination\"><a class=\"zola-anchor\" href=\"#explaination\" aria-label=\"Anchor link for: explaination\">Explaination</a></h2>\n<p>The <code>.clip()</code> modifier clips its the content to a given area. The modifier fills its available space, meaning it tries to be as large as possible. In the below example the size chosen is 200x200, since that is the space given by the enclosing <a href=\"https://carbide.rs/examples/drawing/clip/TODO\">frame</a>.</p>\n<pre data-lang=\"rust\" style=\"background-color:#2b303b;color:#c0c5ce;\" class=\"language-rust \"><code class=\"language-rust\" data-lang=\"rust\"><span>Image::new(&quot;</span><span style=\"color:#a3be8c;\">images/landscape.png</span><span>&quot;)\n</span><span>    .</span><span style=\"color:#96b5b4;\">scaled_to_fill</span><span>()\n</span><span>    .</span><span style=\"color:#96b5b4;\">frame</span><span>(</span><span style=\"color:#d08770;\">800.0</span><span>, </span><span style=\"color:#d08770;\">800.0</span><span>)\n</span><span>    .</span><span style=\"color:#96b5b4;\">clip</span><span>()\n</span><span>    .</span><span style=\"color:#96b5b4;\">frame</span><span>(</span><span style=\"color:#d08770;\">200.0</span><span>, </span><span style=\"color:#d08770;\">200.0</span><span>),\n</span></code></pre>\n<p>The <a href=\"https://carbide.rs/examples/drawing/clip/TODO\">Image</a> is also set to fill its available content using the <code>.scaled_to_fill()</code> modifier, and fills a frame of size 800x800.</p>\n<blockquote>\n<p>Clipping is often the most efficient but most inflexible solution. Other solutions such as <a href=\"https://carbide.rs/examples/drawing/clip-shape/\">ClipShape</a> and <a href=\"https://carbide.rs/examples/drawing/mask/\">Mask</a> are more flexible, but comes with their own performance considerations.</p>\n</blockquote>\n<p>When multiple clippings are applied to the same content, the result will be the intersection of the clippings.</p>\n<blockquote>\n<p><strong>WARNING:</strong> It is not defined whether you are allowed to transform the clip using a transformation matrix. Currently the WGPU backend does not allow this. This is due to platform optimizations. If you need to transform a rectangle clipping, use <a href=\"https://carbide.rs/examples/drawing/clip-shape/\">ClipShape</a>.</p>\n</blockquote>\n<h2 id=\"run-the-example\"><a class=\"zola-anchor\" href=\"#run-the-example\" aria-label=\"Anchor link for: run-the-example\">Run the example</a></h2>\n<p>The example can be run with the following command: <code>cargo run --package carbide_wgpu --example clip</code> when located in the working directory <code>carbide</code>.</p>\n<p>For better performance, remember to run the example with <code>--release</code>.</p>\n",
+        "permalink": "https://carbide.rs/examples/drawing/clip/",
+        "slug": "clip",
+        "ancestors": [
+          "_index.md",
+          "examples/_index.md",
+          "examples/drawing/_index.md"
+        ],
+        "title": "Clip",
+        "description": null,
+        "updated": null,
+        "date": null,
+        "year": null,
+        "month": null,
+        "day": null,
+        "taxonomies": {},
+        "authors": [],
+        "extra": {},
+        "path": "/examples/drawing/clip/",
+        "components": [
+          "examples",
+          "drawing",
+          "clip"
+        ],
+        "summary": null,
+        "toc": [
+          {
+            "level": 1,
+            "id": "clip",
+            "permalink": "https://carbide.rs/examples/drawing/clip/#clip",
+            "title": "Clip",
+            "children": [
+              {
+                "level": 2,
+                "id": "explaination",
+                "permalink": "https://carbide.rs/examples/drawing/clip/#explaination",
+                "title": "Explaination",
+                "children": []
+              },
+              {
+                "level": 2,
+                "id": "run-the-example",
+                "permalink": "https://carbide.rs/examples/drawing/clip/#run-the-example",
+                "title": "Run the example",
+                "children": []
+              }
+            ]
+          }
+        ],
+        "word_count": 235,
+        "reading_time": 2,
+        "assets": [
+          "/examples/drawing/clip/clip.png"
+        ],
+        "draft": false,
+        "lang": "en",
+        "lower": null,
+        "higher": null,
+        "translations": [],
+        "backlinks": [
+          {
+            "permalink": "https://carbide.rs/examples/drawing/clip-shape/",
+            "title": "ClipShape"
+          }
+        ]
+      },
+      "higher": {
+        "relative_path": "examples/drawing/filter/index.md",
+        "colocated_path": "examples/drawing/filter/",
+        "content": "<h1 id=\"filter\"><a class=\"zola-anchor\" href=\"#filter\" aria-label=\"Anchor link for: filter\">Filter</a></h1>\n<p><img src=\"https://carbide.rs/examples/drawing/filter/filter.png\" alt=\"A screenshot of the filter example\" /></p>\n<p>The filter example shows how to apply a <a href=\"https://en.wikipedia.org/wiki/Kernel_(image_processing)\">convolution filter</a> to render a graphical effect. The filter applied is a 3x3 sobel filter. The filter is applied on a rendered <a href=\"https://carbide.rs/examples/image/image/\">Image</a>.</p>\n<h2 id=\"explaination\"><a class=\"zola-anchor\" href=\"#explaination\" aria-label=\"Anchor link for: explaination\">Explaination</a></h2>\n<p>In the below code, a sobal image filter effect is given, and clipped to a circle. The effect is constrained to a 200x200 <a href=\"https://carbide.rs/examples/drawing/filter/TODO\">frame</a>, and <a href=\"https://carbide.rs/examples/drawing/filter/TODO\">offset</a> with an x coordinate.</p>\n<pre data-lang=\"rust\" style=\"background-color:#2b303b;color:#c0c5ce;\" class=\"language-rust \"><code class=\"language-rust\" data-lang=\"rust\"><span>Filter::new(ImageFilter::sobel(), Empty::new())\n</span><span>    .</span><span style=\"color:#96b5b4;\">clip_shape</span><span>(Circle::new())\n</span><span>    .</span><span style=\"color:#96b5b4;\">frame</span><span>(</span><span style=\"color:#d08770;\">200.0</span><span>, </span><span style=\"color:#d08770;\">200.0</span><span>)\n</span><span>    .</span><span style=\"color:#96b5b4;\">offset</span><span>(position_x.</span><span style=\"color:#96b5b4;\">clone</span><span>(), </span><span style=\"color:#d08770;\">0.0</span><span>),\n</span></code></pre>\n<p>The offset is animated, making the filter move back and forward across the image, showing the filter is dynamic and performant.</p>\n<p>The filter is applied to already rendered content. For more on renderinger order, see: <a href=\"https://carbide.rs/examples/drawing/filter/TODO\">Rendering</a>.</p>\n<blockquote>\n<p>It is not recommended using the Filter for a blurring effect, even though it is possible. This is because a blur effect defined and used this way is very expensive on the rendering hardware, and may cause slow-downs. Instead we recommend using the <a href=\"https://carbide.rs/examples/drawing/blur/\">Blur</a> effect, as it is optimized specifically for applying blurs.</p>\n</blockquote>\n<h2 id=\"run-the-example\"><a class=\"zola-anchor\" href=\"#run-the-example\" aria-label=\"Anchor link for: run-the-example\">Run the example</a></h2>\n<p>The example can be run with the following command: <code>cargo run --package carbide_wgpu --example filter</code> when located in the working directory <code>carbide</code>.</p>\n<p>For better performance, remember to run the example with <code>--release</code>.</p>\n",
+        "permalink": "https://carbide.rs/examples/drawing/filter/",
+        "slug": "filter",
+        "ancestors": [
+          "_index.md",
+          "examples/_index.md",
+          "examples/drawing/_index.md"
+        ],
+        "title": "Filter",
+        "description": null,
+        "updated": null,
+        "date": null,
+        "year": null,
+        "month": null,
+        "day": null,
+        "taxonomies": {},
+        "authors": [],
+        "extra": {},
+        "path": "/examples/drawing/filter/",
+        "components": [
+          "examples",
+          "drawing",
+          "filter"
+        ],
+        "summary": null,
+        "toc": [
+          {
+            "level": 1,
+            "id": "filter",
+            "permalink": "https://carbide.rs/examples/drawing/filter/#filter",
+            "title": "Filter",
+            "children": [
+              {
+                "level": 2,
+                "id": "explaination",
+                "permalink": "https://carbide.rs/examples/drawing/filter/#explaination",
+                "title": "Explaination",
+                "children": []
+              },
+              {
+                "level": 2,
+                "id": "run-the-example",
+                "permalink": "https://carbide.rs/examples/drawing/filter/#run-the-example",
+                "title": "Run the example",
+                "children": []
+              }
+            ]
+          }
+        ],
+        "word_count": 211,
+        "reading_time": 2,
+        "assets": [
+          "/examples/drawing/filter/filter.png"
+        ],
+        "draft": false,
+        "lang": "en",
+        "lower": null,
+        "higher": null,
+        "translations": [],
+        "backlinks": [
+          {
+            "permalink": "https://carbide.rs/examples/drawing/blur/",
+            "title": "Blur"
+          }
+        ]
+      },
+      "translations": [],
+      "backlinks": [
+        {
+          "permalink": "https://carbide.rs/examples/drawing/clip/",
+          "title": "Clip"
+        }
+      ]
+    },
+    {
+      "relative_path": "examples/drawing/filter/index.md",
+      "colocated_path": "examples/drawing/filter/",
+      "content": "<h1 id=\"filter\"><a class=\"zola-anchor\" href=\"#filter\" aria-label=\"Anchor link for: filter\">Filter</a></h1>\n<p><img src=\"https://carbide.rs/examples/drawing/filter/filter.png\" alt=\"A screenshot of the filter example\" /></p>\n<p>The filter example shows how to apply a <a href=\"https://en.wikipedia.org/wiki/Kernel_(image_processing)\">convolution filter</a> to render a graphical effect. The filter applied is a 3x3 sobel filter. The filter is applied on a rendered <a href=\"https://carbide.rs/examples/image/image/\">Image</a>.</p>\n<h2 id=\"explaination\"><a class=\"zola-anchor\" href=\"#explaination\" aria-label=\"Anchor link for: explaination\">Explaination</a></h2>\n<p>In the below code, a sobal image filter effect is given, and clipped to a circle. The effect is constrained to a 200x200 <a href=\"https://carbide.rs/examples/drawing/filter/TODO\">frame</a>, and <a href=\"https://carbide.rs/examples/drawing/filter/TODO\">offset</a> with an x coordinate.</p>\n<pre data-lang=\"rust\" style=\"background-color:#2b303b;color:#c0c5ce;\" class=\"language-rust \"><code class=\"language-rust\" data-lang=\"rust\"><span>Filter::new(ImageFilter::sobel(), Empty::new())\n</span><span>    .</span><span style=\"color:#96b5b4;\">clip_shape</span><span>(Circle::new())\n</span><span>    .</span><span style=\"color:#96b5b4;\">frame</span><span>(</span><span style=\"color:#d08770;\">200.0</span><span>, </span><span style=\"color:#d08770;\">200.0</span><span>)\n</span><span>    .</span><span style=\"color:#96b5b4;\">offset</span><span>(position_x.</span><span style=\"color:#96b5b4;\">clone</span><span>(), </span><span style=\"color:#d08770;\">0.0</span><span>),\n</span></code></pre>\n<p>The offset is animated, making the filter move back and forward across the image, showing the filter is dynamic and performant.</p>\n<p>The filter is applied to already rendered content. For more on renderinger order, see: <a href=\"https://carbide.rs/examples/drawing/filter/TODO\">Rendering</a>.</p>\n<blockquote>\n<p>It is not recommended using the Filter for a blurring effect, even though it is possible. This is because a blur effect defined and used this way is very expensive on the rendering hardware, and may cause slow-downs. Instead we recommend using the <a href=\"https://carbide.rs/examples/drawing/blur/\">Blur</a> effect, as it is optimized specifically for applying blurs.</p>\n</blockquote>\n<h2 id=\"run-the-example\"><a class=\"zola-anchor\" href=\"#run-the-example\" aria-label=\"Anchor link for: run-the-example\">Run the example</a></h2>\n<p>The example can be run with the following command: <code>cargo run --package carbide_wgpu --example filter</code> when located in the working directory <code>carbide</code>.</p>\n<p>For better performance, remember to run the example with <code>--release</code>.</p>\n",
+      "permalink": "https://carbide.rs/examples/drawing/filter/",
+      "slug": "filter",
+      "ancestors": [
+        "_index.md",
+        "examples/_index.md",
+        "examples/drawing/_index.md"
+      ],
+      "title": "Filter",
+      "description": null,
+      "updated": null,
+      "date": null,
+      "year": null,
+      "month": null,
+      "day": null,
+      "taxonomies": {},
+      "authors": [],
+      "extra": {},
+      "path": "/examples/drawing/filter/",
+      "components": [
+        "examples",
+        "drawing",
+        "filter"
+      ],
+      "summary": null,
+      "toc": [
+        {
+          "level": 1,
+          "id": "filter",
+          "permalink": "https://carbide.rs/examples/drawing/filter/#filter",
+          "title": "Filter",
+          "children": [
+            {
+              "level": 2,
+              "id": "explaination",
+              "permalink": "https://carbide.rs/examples/drawing/filter/#explaination",
+              "title": "Explaination",
+              "children": []
+            },
+            {
+              "level": 2,
+              "id": "run-the-example",
+              "permalink": "https://carbide.rs/examples/drawing/filter/#run-the-example",
+              "title": "Run the example",
+              "children": []
+            }
+          ]
+        }
+      ],
+      "word_count": 211,
+      "reading_time": 2,
+      "assets": [
+        "/examples/drawing/filter/filter.png"
+      ],
+      "draft": false,
+      "lang": "en",
+      "lower": {
+        "relative_path": "examples/drawing/clip_shape/index.md",
+        "colocated_path": "examples/drawing/clip_shape/",
+        "content": "<h1 id=\"clipshape\"><a class=\"zola-anchor\" href=\"#clipshape\" aria-label=\"Anchor link for: clipshape\">ClipShape</a></h1>\n<p><img src=\"https://carbide.rs/examples/drawing/clip-shape/clip_shape.png\" alt=\"A screenshot of the clipshape example\" /></p>\n<p>The ClipShape example, defines a shape to use for clipping another widget. In the example, the shape chosen is a circle, and the item being clippes is an <a href=\"https://carbide.rs/examples/image/image/\">Image</a>. Notice only the image is clipped, and not the background.</p>\n<h2 id=\"explaination\"><a class=\"zola-anchor\" href=\"#explaination\" aria-label=\"Anchor link for: explaination\">Explaination</a></h2>\n<p>The <code>.clip_shape()</code> modifier clips its content to a given shape. The modifier fills its available space with the shape, meaning it tries to be as large as possible. In the below example the size chosen is the size of the <a href=\"https://carbide.rs/examples/drawing/clip-shape/TODO\">Window</a>.</p>\n<pre data-lang=\"rust\" style=\"background-color:#2b303b;color:#c0c5ce;\" class=\"language-rust \"><code class=\"language-rust\" data-lang=\"rust\"><span>Image::new(&quot;</span><span style=\"color:#a3be8c;\">images/landscape.png</span><span>&quot;)\n</span><span>    .</span><span style=\"color:#96b5b4;\">clip_shape</span><span>(Circle::new())\n</span></code></pre>\n<p>When multiple clip shapes are applied to the same content, the result will be the intersection of the different clip shapes.</p>\n<p>The <code>ClipShape</code> will react to the current transform matrix. It will render the same way as any other rendering primitives.</p>\n<blockquote>\n<p>The <code>ClipShape</code> is the middleground in performance and flexibility between the <a href=\"https://carbide.rs/examples/drawing/clip/\">Clip</a> and the <a href=\"https://carbide.rs/examples/drawing/mask/\">Mask</a>. The complexity of the shape can affect the performance, but due to optimizations renderers can make, will often not be noticed.</p>\n</blockquote>\n<h2 id=\"run-the-example\"><a class=\"zola-anchor\" href=\"#run-the-example\" aria-label=\"Anchor link for: run-the-example\">Run the example</a></h2>\n<p>The example can be run with the following command: <code>cargo run --package carbide_wgpu --example clip_shape</code> when located in the working directory <code>carbide</code>.</p>\n<p>For better performance, remember to run the example with <code>--release</code>.</p>\n",
+        "permalink": "https://carbide.rs/examples/drawing/clip-shape/",
+        "slug": "clip-shape",
+        "ancestors": [
+          "_index.md",
+          "examples/_index.md",
+          "examples/drawing/_index.md"
+        ],
+        "title": "ClipShape",
+        "description": null,
+        "updated": null,
+        "date": null,
+        "year": null,
+        "month": null,
+        "day": null,
+        "taxonomies": {},
+        "authors": [],
+        "extra": {},
+        "path": "/examples/drawing/clip-shape/",
+        "components": [
+          "examples",
+          "drawing",
+          "clip-shape"
+        ],
+        "summary": null,
+        "toc": [
+          {
+            "level": 1,
+            "id": "clipshape",
+            "permalink": "https://carbide.rs/examples/drawing/clip-shape/#clipshape",
+            "title": "ClipShape",
+            "children": [
+              {
+                "level": 2,
+                "id": "explaination",
+                "permalink": "https://carbide.rs/examples/drawing/clip-shape/#explaination",
+                "title": "Explaination",
+                "children": []
+              },
+              {
+                "level": 2,
+                "id": "run-the-example",
+                "permalink": "https://carbide.rs/examples/drawing/clip-shape/#run-the-example",
+                "title": "Run the example",
+                "children": []
+              }
+            ]
+          }
+        ],
+        "word_count": 214,
+        "reading_time": 2,
+        "assets": [
+          "/examples/drawing/clip_shape/clip_shape.png"
+        ],
+        "draft": false,
+        "lang": "en",
+        "lower": null,
+        "higher": null,
+        "translations": [],
+        "backlinks": [
+          {
+            "permalink": "https://carbide.rs/examples/drawing/clip/",
+            "title": "Clip"
+          }
+        ]
+      },
+      "higher": {
+        "relative_path": "examples/drawing/mask/index.md",
+        "colocated_path": "examples/drawing/mask/",
+        "content": "<h1 id=\"mask\"><a class=\"zola-anchor\" href=\"#mask\" aria-label=\"Anchor link for: mask\">Mask</a></h1>\n<p><img src=\"https://carbide.rs/examples/drawing/mask/mask.png\" alt=\"A screenshot of the mask example\" /></p>\n<p>The mask example shows how a mask can be applied to some underlying content. The mask is generated by rendering some content, and is masking the children.</p>\n<h2 id=\"explaination\"><a class=\"zola-anchor\" href=\"#explaination\" aria-label=\"Anchor link for: explaination\">Explaination</a></h2>\n<p>In the example the mask is applied to an <a href=\"https://carbide.rs/examples/image/image/\">Image</a>. The mask contains a <a href=\"https://carbide.rs/examples/drawing/mask/TODO\">VStack</a> containing multiple elements. The stack contains a <a href=\"https://carbide.rs/examples/drawing/mask/TODO\">Text</a> element and another <a href=\"https://carbide.rs/examples/image/image/\">Image</a>.</p>\n<pre data-lang=\"rust\" style=\"background-color:#2b303b;color:#c0c5ce;\" class=\"language-rust \"><code class=\"language-rust\" data-lang=\"rust\"><span>Image::new(&quot;</span><span style=\"color:#a3be8c;\">images/landscape.png</span><span>&quot;)\n</span><span>    .</span><span style=\"color:#96b5b4;\">mask</span><span>(VStack::new((\n</span><span>        Text::new(&quot;</span><span style=\"color:#a3be8c;\">Hello world!</span><span>&quot;)\n</span><span>            .</span><span style=\"color:#96b5b4;\">font_size</span><span>(</span><span style=\"color:#d08770;\">42</span><span>),\n</span><span>        Image::new_icon(&quot;</span><span style=\"color:#a3be8c;\">images/rust.png</span><span>&quot;)\n</span><span>    )))\n</span></code></pre>\n<p>Masking is the most flexible, and most expensive clipping mechanism. Other clipping mechamisms include <a href=\"https://carbide.rs/examples/drawing/mask/TODO\">Clip</a> and <a href=\"https://carbide.rs/examples/drawing/mask/TODO\">ClipShape</a>, each with their own performance considerations and limitations.</p>\n<blockquote>\n<p>It is possible to both apply multiple masks on top of each other, and masking a mask. Both will result in the same rendering result, but is achieved in different ways. The result will be the intersection of the two masks. Applying multiple masks is prefered over masking a mask, since it is easier to optimize the ressource use by the rendering backends.</p>\n</blockquote>\n<p>Masks react to the current transformation, and are transformed as any other rendering primitive.</p>\n<h2 id=\"run-the-example\"><a class=\"zola-anchor\" href=\"#run-the-example\" aria-label=\"Anchor link for: run-the-example\">Run the example</a></h2>\n<p>The example can be run with the following command: <code>cargo run --package carbide_wgpu --example mask</code> when located in the working directory <code>carbide</code>.</p>\n<p>For better performance, remember to run the example with <code>--release</code>.</p>\n",
+        "permalink": "https://carbide.rs/examples/drawing/mask/",
+        "slug": "mask",
+        "ancestors": [
+          "_index.md",
+          "examples/_index.md",
+          "examples/drawing/_index.md"
+        ],
+        "title": "Mask",
+        "description": null,
+        "updated": null,
+        "date": null,
+        "year": null,
+        "month": null,
+        "day": null,
+        "taxonomies": {},
+        "authors": [],
+        "extra": {},
+        "path": "/examples/drawing/mask/",
+        "components": [
+          "examples",
+          "drawing",
+          "mask"
+        ],
+        "summary": null,
+        "toc": [
+          {
+            "level": 1,
+            "id": "mask",
+            "permalink": "https://carbide.rs/examples/drawing/mask/#mask",
+            "title": "Mask",
+            "children": [
+              {
+                "level": 2,
+                "id": "explaination",
+                "permalink": "https://carbide.rs/examples/drawing/mask/#explaination",
+                "title": "Explaination",
+                "children": []
+              },
+              {
+                "level": 2,
+                "id": "run-the-example",
+                "permalink": "https://carbide.rs/examples/drawing/mask/#run-the-example",
+                "title": "Run the example",
+                "children": []
+              }
+            ]
+          }
+        ],
+        "word_count": 212,
+        "reading_time": 2,
+        "assets": [
+          "/examples/drawing/mask/mask.png"
+        ],
+        "draft": false,
+        "lang": "en",
+        "lower": null,
+        "higher": null,
+        "translations": [],
+        "backlinks": [
+          {
+            "permalink": "https://carbide.rs/examples/drawing/clip-shape/",
+            "title": "ClipShape"
+          },
+          {
+            "permalink": "https://carbide.rs/examples/drawing/clip/",
+            "title": "Clip"
+          }
+        ]
+      },
+      "translations": [],
+      "backlinks": [
+        {
+          "permalink": "https://carbide.rs/examples/drawing/blur/",
+          "title": "Blur"
+        }
+      ]
+    },
+    {
+      "relative_path": "examples/drawing/mask/index.md",
+      "colocated_path": "examples/drawing/mask/",
+      "content": "<h1 id=\"mask\"><a class=\"zola-anchor\" href=\"#mask\" aria-label=\"Anchor link for: mask\">Mask</a></h1>\n<p><img src=\"https://carbide.rs/examples/drawing/mask/mask.png\" alt=\"A screenshot of the mask example\" /></p>\n<p>The mask example shows how a mask can be applied to some underlying content. The mask is generated by rendering some content, and is masking the children.</p>\n<h2 id=\"explaination\"><a class=\"zola-anchor\" href=\"#explaination\" aria-label=\"Anchor link for: explaination\">Explaination</a></h2>\n<p>In the example the mask is applied to an <a href=\"https://carbide.rs/examples/image/image/\">Image</a>. The mask contains a <a href=\"https://carbide.rs/examples/drawing/mask/TODO\">VStack</a> containing multiple elements. The stack contains a <a href=\"https://carbide.rs/examples/drawing/mask/TODO\">Text</a> element and another <a href=\"https://carbide.rs/examples/image/image/\">Image</a>.</p>\n<pre data-lang=\"rust\" style=\"background-color:#2b303b;color:#c0c5ce;\" class=\"language-rust \"><code class=\"language-rust\" data-lang=\"rust\"><span>Image::new(&quot;</span><span style=\"color:#a3be8c;\">images/landscape.png</span><span>&quot;)\n</span><span>    .</span><span style=\"color:#96b5b4;\">mask</span><span>(VStack::new((\n</span><span>        Text::new(&quot;</span><span style=\"color:#a3be8c;\">Hello world!</span><span>&quot;)\n</span><span>            .</span><span style=\"color:#96b5b4;\">font_size</span><span>(</span><span style=\"color:#d08770;\">42</span><span>),\n</span><span>        Image::new_icon(&quot;</span><span style=\"color:#a3be8c;\">images/rust.png</span><span>&quot;)\n</span><span>    )))\n</span></code></pre>\n<p>Masking is the most flexible, and most expensive clipping mechanism. Other clipping mechamisms include <a href=\"https://carbide.rs/examples/drawing/mask/TODO\">Clip</a> and <a href=\"https://carbide.rs/examples/drawing/mask/TODO\">ClipShape</a>, each with their own performance considerations and limitations.</p>\n<blockquote>\n<p>It is possible to both apply multiple masks on top of each other, and masking a mask. Both will result in the same rendering result, but is achieved in different ways. The result will be the intersection of the two masks. Applying multiple masks is prefered over masking a mask, since it is easier to optimize the ressource use by the rendering backends.</p>\n</blockquote>\n<p>Masks react to the current transformation, and are transformed as any other rendering primitive.</p>\n<h2 id=\"run-the-example\"><a class=\"zola-anchor\" href=\"#run-the-example\" aria-label=\"Anchor link for: run-the-example\">Run the example</a></h2>\n<p>The example can be run with the following command: <code>cargo run --package carbide_wgpu --example mask</code> when located in the working directory <code>carbide</code>.</p>\n<p>For better performance, remember to run the example with <code>--release</code>.</p>\n",
+      "permalink": "https://carbide.rs/examples/drawing/mask/",
+      "slug": "mask",
+      "ancestors": [
+        "_index.md",
+        "examples/_index.md",
+        "examples/drawing/_index.md"
+      ],
+      "title": "Mask",
+      "description": null,
+      "updated": null,
+      "date": null,
+      "year": null,
+      "month": null,
+      "day": null,
+      "taxonomies": {},
+      "authors": [],
+      "extra": {},
+      "path": "/examples/drawing/mask/",
+      "components": [
+        "examples",
+        "drawing",
+        "mask"
+      ],
+      "summary": null,
+      "toc": [
+        {
+          "level": 1,
+          "id": "mask",
+          "permalink": "https://carbide.rs/examples/drawing/mask/#mask",
+          "title": "Mask",
+          "children": [
+            {
+              "level": 2,
+              "id": "explaination",
+              "permalink": "https://carbide.rs/examples/drawing/mask/#explaination",
+              "title": "Explaination",
+              "children": []
+            },
+            {
+              "level": 2,
+              "id": "run-the-example",
+              "permalink": "https://carbide.rs/examples/drawing/mask/#run-the-example",
+              "title": "Run the example",
+              "children": []
+            }
+          ]
+        }
+      ],
+      "word_count": 212,
+      "reading_time": 2,
+      "assets": [
+        "/examples/drawing/mask/mask.png"
+      ],
+      "draft": false,
+      "lang": "en",
+      "lower": {
+        "relative_path": "examples/drawing/filter/index.md",
+        "colocated_path": "examples/drawing/filter/",
+        "content": "<h1 id=\"filter\"><a class=\"zola-anchor\" href=\"#filter\" aria-label=\"Anchor link for: filter\">Filter</a></h1>\n<p><img src=\"https://carbide.rs/examples/drawing/filter/filter.png\" alt=\"A screenshot of the filter example\" /></p>\n<p>The filter example shows how to apply a <a href=\"https://en.wikipedia.org/wiki/Kernel_(image_processing)\">convolution filter</a> to render a graphical effect. The filter applied is a 3x3 sobel filter. The filter is applied on a rendered <a href=\"https://carbide.rs/examples/image/image/\">Image</a>.</p>\n<h2 id=\"explaination\"><a class=\"zola-anchor\" href=\"#explaination\" aria-label=\"Anchor link for: explaination\">Explaination</a></h2>\n<p>In the below code, a sobal image filter effect is given, and clipped to a circle. The effect is constrained to a 200x200 <a href=\"https://carbide.rs/examples/drawing/filter/TODO\">frame</a>, and <a href=\"https://carbide.rs/examples/drawing/filter/TODO\">offset</a> with an x coordinate.</p>\n<pre data-lang=\"rust\" style=\"background-color:#2b303b;color:#c0c5ce;\" class=\"language-rust \"><code class=\"language-rust\" data-lang=\"rust\"><span>Filter::new(ImageFilter::sobel(), Empty::new())\n</span><span>    .</span><span style=\"color:#96b5b4;\">clip_shape</span><span>(Circle::new())\n</span><span>    .</span><span style=\"color:#96b5b4;\">frame</span><span>(</span><span style=\"color:#d08770;\">200.0</span><span>, </span><span style=\"color:#d08770;\">200.0</span><span>)\n</span><span>    .</span><span style=\"color:#96b5b4;\">offset</span><span>(position_x.</span><span style=\"color:#96b5b4;\">clone</span><span>(), </span><span style=\"color:#d08770;\">0.0</span><span>),\n</span></code></pre>\n<p>The offset is animated, making the filter move back and forward across the image, showing the filter is dynamic and performant.</p>\n<p>The filter is applied to already rendered content. For more on renderinger order, see: <a href=\"https://carbide.rs/examples/drawing/filter/TODO\">Rendering</a>.</p>\n<blockquote>\n<p>It is not recommended using the Filter for a blurring effect, even though it is possible. This is because a blur effect defined and used this way is very expensive on the rendering hardware, and may cause slow-downs. Instead we recommend using the <a href=\"https://carbide.rs/examples/drawing/blur/\">Blur</a> effect, as it is optimized specifically for applying blurs.</p>\n</blockquote>\n<h2 id=\"run-the-example\"><a class=\"zola-anchor\" href=\"#run-the-example\" aria-label=\"Anchor link for: run-the-example\">Run the example</a></h2>\n<p>The example can be run with the following command: <code>cargo run --package carbide_wgpu --example filter</code> when located in the working directory <code>carbide</code>.</p>\n<p>For better performance, remember to run the example with <code>--release</code>.</p>\n",
+        "permalink": "https://carbide.rs/examples/drawing/filter/",
+        "slug": "filter",
+        "ancestors": [
+          "_index.md",
+          "examples/_index.md",
+          "examples/drawing/_index.md"
+        ],
+        "title": "Filter",
+        "description": null,
+        "updated": null,
+        "date": null,
+        "year": null,
+        "month": null,
+        "day": null,
+        "taxonomies": {},
+        "authors": [],
+        "extra": {},
+        "path": "/examples/drawing/filter/",
+        "components": [
+          "examples",
+          "drawing",
+          "filter"
+        ],
+        "summary": null,
+        "toc": [
+          {
+            "level": 1,
+            "id": "filter",
+            "permalink": "https://carbide.rs/examples/drawing/filter/#filter",
+            "title": "Filter",
+            "children": [
+              {
+                "level": 2,
+                "id": "explaination",
+                "permalink": "https://carbide.rs/examples/drawing/filter/#explaination",
+                "title": "Explaination",
+                "children": []
+              },
+              {
+                "level": 2,
+                "id": "run-the-example",
+                "permalink": "https://carbide.rs/examples/drawing/filter/#run-the-example",
+                "title": "Run the example",
+                "children": []
+              }
+            ]
+          }
+        ],
+        "word_count": 211,
+        "reading_time": 2,
+        "assets": [
+          "/examples/drawing/filter/filter.png"
+        ],
+        "draft": false,
+        "lang": "en",
+        "lower": null,
+        "higher": null,
+        "translations": [],
+        "backlinks": [
+          {
+            "permalink": "https://carbide.rs/examples/drawing/blur/",
+            "title": "Blur"
+          }
+        ]
+      },
+      "higher": {
+        "relative_path": "examples/drawing/materials/index.md",
+        "colocated_path": "examples/drawing/materials/",
+        "content": "<h1 id=\"materials\"><a class=\"zola-anchor\" href=\"#materials\" aria-label=\"Anchor link for: materials\">Materials</a></h1>\n<p><img src=\"https://carbide.rs/examples/drawing/materials/materials.png\" alt=\"A screenshot of the materials example\" /></p>\n<p>The materials example showcases the different built-in materials in Carbide. These are used to render shapes in a special way with different depths and colors.</p>\n<p>A material is different than a Color, because a material includes other effects. The currently available materials uses the Blur effect.</p>\n<h2 id=\"explanation\"><a class=\"zola-anchor\" href=\"#explanation\" aria-label=\"Anchor link for: explanation\">Explanation</a></h2>\n<p>The example consist of two rows of rectangles, where the first row uses the light theme material, and the second row the dark theme. Each row consist of 5 different matarials, each of a different strength, with the strength decreasing from left to right.</p>\n<p>The below code shows how the top row of rectangles are defined:</p>\n<pre data-lang=\"rust\" style=\"background-color:#2b303b;color:#c0c5ce;\" class=\"language-rust \"><code class=\"language-rust\" data-lang=\"rust\"><span>HStack::new((\n</span><span>    Rectangle::new()\n</span><span>        .</span><span style=\"color:#96b5b4;\">material</span><span>(EnvironmentColor::UltraThickLight)\n</span><span>        .</span><span style=\"color:#96b5b4;\">frame</span><span>(</span><span style=\"color:#d08770;\">100.0</span><span>, </span><span style=\"color:#d08770;\">100.0</span><span>),\n</span><span>    Rectangle::new()\n</span><span>        .</span><span style=\"color:#96b5b4;\">material</span><span>(EnvironmentColor::ThickLight)\n</span><span>        .</span><span style=\"color:#96b5b4;\">frame</span><span>(</span><span style=\"color:#d08770;\">100.0</span><span>, </span><span style=\"color:#d08770;\">100.0</span><span>),\n</span><span>    Rectangle::new()\n</span><span>        .</span><span style=\"color:#96b5b4;\">material</span><span>(EnvironmentColor::RegularLight)\n</span><span>        .</span><span style=\"color:#96b5b4;\">frame</span><span>(</span><span style=\"color:#d08770;\">100.0</span><span>, </span><span style=\"color:#d08770;\">100.0</span><span>),\n</span><span>    Rectangle::new()\n</span><span>        .</span><span style=\"color:#96b5b4;\">material</span><span>(EnvironmentColor::ThinLight)\n</span><span>        .</span><span style=\"color:#96b5b4;\">frame</span><span>(</span><span style=\"color:#d08770;\">100.0</span><span>, </span><span style=\"color:#d08770;\">100.0</span><span>),\n</span><span>    Rectangle::new()\n</span><span>        .</span><span style=\"color:#96b5b4;\">material</span><span>(EnvironmentColor::UltraThinLight)\n</span><span>        .</span><span style=\"color:#96b5b4;\">frame</span><span>(</span><span style=\"color:#d08770;\">100.0</span><span>, </span><span style=\"color:#d08770;\">100.0</span><span>),\n</span><span>))\n</span></code></pre>\n<p>The background consist of multiple different colored rectangles, that are rotated to better show the effect of the materials.</p>\n<h2 id=\"run-the-example\"><a class=\"zola-anchor\" href=\"#run-the-example\" aria-label=\"Anchor link for: run-the-example\">Run the example</a></h2>\n<p>The example can be run with the following command: <code>cargo run --package carbide_wgpu --example materials</code> when located in the working directory <code>carbide</code>.</p>\n<p>For better performance, remember to run the example with <code>--release</code>.</p>\n",
+        "permalink": "https://carbide.rs/examples/drawing/materials/",
+        "slug": "materials",
+        "ancestors": [
+          "_index.md",
+          "examples/_index.md",
+          "examples/drawing/_index.md"
+        ],
+        "title": "Materials",
+        "description": null,
+        "updated": null,
+        "date": "2019-11-28",
+        "year": 2019,
+        "month": 11,
+        "day": 28,
+        "taxonomies": {},
+        "authors": [],
+        "extra": {},
+        "path": "/examples/drawing/materials/",
+        "components": [
+          "examples",
+          "drawing",
+          "materials"
+        ],
+        "summary": null,
+        "toc": [
+          {
+            "level": 1,
+            "id": "materials",
+            "permalink": "https://carbide.rs/examples/drawing/materials/#materials",
+            "title": "Materials",
+            "children": [
+              {
+                "level": 2,
+                "id": "explanation",
+                "permalink": "https://carbide.rs/examples/drawing/materials/#explanation",
+                "title": "Explanation",
+                "children": []
+              },
+              {
+                "level": 2,
+                "id": "run-the-example",
+                "permalink": "https://carbide.rs/examples/drawing/materials/#run-the-example",
+                "title": "Run the example",
+                "children": []
+              }
+            ]
+          }
+        ],
+        "word_count": 166,
+        "reading_time": 1,
+        "assets": [
+          "/examples/drawing/materials/materials.png"
+        ],
+        "draft": false,
+        "lang": "en",
+        "lower": null,
+        "higher": null,
+        "translations": [],
+        "backlinks": [
+          {
+            "permalink": "https://carbide.rs/examples/drawing/blur/",
+            "title": "Blur"
+          }
+        ]
+      },
+      "translations": [],
+      "backlinks": [
+        {
+          "permalink": "https://carbide.rs/examples/drawing/clip-shape/",
+          "title": "ClipShape"
+        },
+        {
+          "permalink": "https://carbide.rs/examples/drawing/clip/",
+          "title": "Clip"
+        }
+      ]
+    },
+    {
+      "relative_path": "examples/drawing/materials/index.md",
+      "colocated_path": "examples/drawing/materials/",
+      "content": "<h1 id=\"materials\"><a class=\"zola-anchor\" href=\"#materials\" aria-label=\"Anchor link for: materials\">Materials</a></h1>\n<p><img src=\"https://carbide.rs/examples/drawing/materials/materials.png\" alt=\"A screenshot of the materials example\" /></p>\n<p>The materials example showcases the different built-in materials in Carbide. These are used to render shapes in a special way with different depths and colors.</p>\n<p>A material is different than a Color, because a material includes other effects. The currently available materials uses the Blur effect.</p>\n<h2 id=\"explanation\"><a class=\"zola-anchor\" href=\"#explanation\" aria-label=\"Anchor link for: explanation\">Explanation</a></h2>\n<p>The example consist of two rows of rectangles, where the first row uses the light theme material, and the second row the dark theme. Each row consist of 5 different matarials, each of a different strength, with the strength decreasing from left to right.</p>\n<p>The below code shows how the top row of rectangles are defined:</p>\n<pre data-lang=\"rust\" style=\"background-color:#2b303b;color:#c0c5ce;\" class=\"language-rust \"><code class=\"language-rust\" data-lang=\"rust\"><span>HStack::new((\n</span><span>    Rectangle::new()\n</span><span>        .</span><span style=\"color:#96b5b4;\">material</span><span>(EnvironmentColor::UltraThickLight)\n</span><span>        .</span><span style=\"color:#96b5b4;\">frame</span><span>(</span><span style=\"color:#d08770;\">100.0</span><span>, </span><span style=\"color:#d08770;\">100.0</span><span>),\n</span><span>    Rectangle::new()\n</span><span>        .</span><span style=\"color:#96b5b4;\">material</span><span>(EnvironmentColor::ThickLight)\n</span><span>        .</span><span style=\"color:#96b5b4;\">frame</span><span>(</span><span style=\"color:#d08770;\">100.0</span><span>, </span><span style=\"color:#d08770;\">100.0</span><span>),\n</span><span>    Rectangle::new()\n</span><span>        .</span><span style=\"color:#96b5b4;\">material</span><span>(EnvironmentColor::RegularLight)\n</span><span>        .</span><span style=\"color:#96b5b4;\">frame</span><span>(</span><span style=\"color:#d08770;\">100.0</span><span>, </span><span style=\"color:#d08770;\">100.0</span><span>),\n</span><span>    Rectangle::new()\n</span><span>        .</span><span style=\"color:#96b5b4;\">material</span><span>(EnvironmentColor::ThinLight)\n</span><span>        .</span><span style=\"color:#96b5b4;\">frame</span><span>(</span><span style=\"color:#d08770;\">100.0</span><span>, </span><span style=\"color:#d08770;\">100.0</span><span>),\n</span><span>    Rectangle::new()\n</span><span>        .</span><span style=\"color:#96b5b4;\">material</span><span>(EnvironmentColor::UltraThinLight)\n</span><span>        .</span><span style=\"color:#96b5b4;\">frame</span><span>(</span><span style=\"color:#d08770;\">100.0</span><span>, </span><span style=\"color:#d08770;\">100.0</span><span>),\n</span><span>))\n</span></code></pre>\n<p>The background consist of multiple different colored rectangles, that are rotated to better show the effect of the materials.</p>\n<h2 id=\"run-the-example\"><a class=\"zola-anchor\" href=\"#run-the-example\" aria-label=\"Anchor link for: run-the-example\">Run the example</a></h2>\n<p>The example can be run with the following command: <code>cargo run --package carbide_wgpu --example materials</code> when located in the working directory <code>carbide</code>.</p>\n<p>For better performance, remember to run the example with <code>--release</code>.</p>\n",
+      "permalink": "https://carbide.rs/examples/drawing/materials/",
+      "slug": "materials",
+      "ancestors": [
+        "_index.md",
+        "examples/_index.md",
+        "examples/drawing/_index.md"
+      ],
+      "title": "Materials",
+      "description": null,
+      "updated": null,
+      "date": "2019-11-28",
+      "year": 2019,
+      "month": 11,
+      "day": 28,
+      "taxonomies": {},
+      "authors": [],
+      "extra": {},
+      "path": "/examples/drawing/materials/",
+      "components": [
+        "examples",
+        "drawing",
+        "materials"
+      ],
+      "summary": null,
+      "toc": [
+        {
+          "level": 1,
+          "id": "materials",
+          "permalink": "https://carbide.rs/examples/drawing/materials/#materials",
+          "title": "Materials",
+          "children": [
+            {
+              "level": 2,
+              "id": "explanation",
+              "permalink": "https://carbide.rs/examples/drawing/materials/#explanation",
+              "title": "Explanation",
+              "children": []
+            },
+            {
+              "level": 2,
+              "id": "run-the-example",
+              "permalink": "https://carbide.rs/examples/drawing/materials/#run-the-example",
+              "title": "Run the example",
+              "children": []
+            }
+          ]
+        }
+      ],
+      "word_count": 166,
+      "reading_time": 1,
+      "assets": [
+        "/examples/drawing/materials/materials.png"
+      ],
+      "draft": false,
+      "lang": "en",
+      "lower": {
+        "relative_path": "examples/drawing/mask/index.md",
+        "colocated_path": "examples/drawing/mask/",
+        "content": "<h1 id=\"mask\"><a class=\"zola-anchor\" href=\"#mask\" aria-label=\"Anchor link for: mask\">Mask</a></h1>\n<p><img src=\"https://carbide.rs/examples/drawing/mask/mask.png\" alt=\"A screenshot of the mask example\" /></p>\n<p>The mask example shows how a mask can be applied to some underlying content. The mask is generated by rendering some content, and is masking the children.</p>\n<h2 id=\"explaination\"><a class=\"zola-anchor\" href=\"#explaination\" aria-label=\"Anchor link for: explaination\">Explaination</a></h2>\n<p>In the example the mask is applied to an <a href=\"https://carbide.rs/examples/image/image/\">Image</a>. The mask contains a <a href=\"https://carbide.rs/examples/drawing/mask/TODO\">VStack</a> containing multiple elements. The stack contains a <a href=\"https://carbide.rs/examples/drawing/mask/TODO\">Text</a> element and another <a href=\"https://carbide.rs/examples/image/image/\">Image</a>.</p>\n<pre data-lang=\"rust\" style=\"background-color:#2b303b;color:#c0c5ce;\" class=\"language-rust \"><code class=\"language-rust\" data-lang=\"rust\"><span>Image::new(&quot;</span><span style=\"color:#a3be8c;\">images/landscape.png</span><span>&quot;)\n</span><span>    .</span><span style=\"color:#96b5b4;\">mask</span><span>(VStack::new((\n</span><span>        Text::new(&quot;</span><span style=\"color:#a3be8c;\">Hello world!</span><span>&quot;)\n</span><span>            .</span><span style=\"color:#96b5b4;\">font_size</span><span>(</span><span style=\"color:#d08770;\">42</span><span>),\n</span><span>        Image::new_icon(&quot;</span><span style=\"color:#a3be8c;\">images/rust.png</span><span>&quot;)\n</span><span>    )))\n</span></code></pre>\n<p>Masking is the most flexible, and most expensive clipping mechanism. Other clipping mechamisms include <a href=\"https://carbide.rs/examples/drawing/mask/TODO\">Clip</a> and <a href=\"https://carbide.rs/examples/drawing/mask/TODO\">ClipShape</a>, each with their own performance considerations and limitations.</p>\n<blockquote>\n<p>It is possible to both apply multiple masks on top of each other, and masking a mask. Both will result in the same rendering result, but is achieved in different ways. The result will be the intersection of the two masks. Applying multiple masks is prefered over masking a mask, since it is easier to optimize the ressource use by the rendering backends.</p>\n</blockquote>\n<p>Masks react to the current transformation, and are transformed as any other rendering primitive.</p>\n<h2 id=\"run-the-example\"><a class=\"zola-anchor\" href=\"#run-the-example\" aria-label=\"Anchor link for: run-the-example\">Run the example</a></h2>\n<p>The example can be run with the following command: <code>cargo run --package carbide_wgpu --example mask</code> when located in the working directory <code>carbide</code>.</p>\n<p>For better performance, remember to run the example with <code>--release</code>.</p>\n",
+        "permalink": "https://carbide.rs/examples/drawing/mask/",
+        "slug": "mask",
+        "ancestors": [
+          "_index.md",
+          "examples/_index.md",
+          "examples/drawing/_index.md"
+        ],
+        "title": "Mask",
+        "description": null,
+        "updated": null,
+        "date": null,
+        "year": null,
+        "month": null,
+        "day": null,
+        "taxonomies": {},
+        "authors": [],
+        "extra": {},
+        "path": "/examples/drawing/mask/",
+        "components": [
+          "examples",
+          "drawing",
+          "mask"
+        ],
+        "summary": null,
+        "toc": [
+          {
+            "level": 1,
+            "id": "mask",
+            "permalink": "https://carbide.rs/examples/drawing/mask/#mask",
+            "title": "Mask",
+            "children": [
+              {
+                "level": 2,
+                "id": "explaination",
+                "permalink": "https://carbide.rs/examples/drawing/mask/#explaination",
+                "title": "Explaination",
+                "children": []
+              },
+              {
+                "level": 2,
+                "id": "run-the-example",
+                "permalink": "https://carbide.rs/examples/drawing/mask/#run-the-example",
+                "title": "Run the example",
+                "children": []
+              }
+            ]
+          }
+        ],
+        "word_count": 212,
+        "reading_time": 2,
+        "assets": [
+          "/examples/drawing/mask/mask.png"
+        ],
+        "draft": false,
+        "lang": "en",
+        "lower": null,
+        "higher": null,
+        "translations": [],
+        "backlinks": [
+          {
+            "permalink": "https://carbide.rs/examples/drawing/clip-shape/",
+            "title": "ClipShape"
+          },
+          {
+            "permalink": "https://carbide.rs/examples/drawing/clip/",
+            "title": "Clip"
+          }
+        ]
+      },
+      "higher": {
+        "relative_path": "examples/drawing/shapes/index.md",
+        "colocated_path": "examples/drawing/shapes/",
+        "content": "<h1 id=\"shapes\"><a class=\"zola-anchor\" href=\"#shapes\" aria-label=\"Anchor link for: shapes\">Shapes</a></h1>\n<p><img src=\"https://carbide.rs/examples/drawing/shapes/shapes.png\" alt=\"A screenshot of the shapes example\" /></p>\n<p>The shapes example showcases the different built-in shapes in Carbide. These are used as content for the different widgets to render them. They are treated as atoms, and can be combined using different layouts, into more complex shapes.</p>\n<h2 id=\"explanation\"><a class=\"zola-anchor\" href=\"#explanation\" aria-label=\"Anchor link for: explanation\">Explanation</a></h2>\n<p>The example consist of 5 columns, each rendering the same shape, but in different ways. The different renderings are:</p>\n<ul>\n<li>Fill</li>\n<li>Stroke</li>\n<li>Fill and stroke</li>\n<li>Clipped image fill</li>\n<li>Clipped image stroke</li>\n</ul>\n<p>Rendering of the filled shapes are using the current <a href=\"https://carbide.rs/examples/drawing/accent/\">accent color</a> from the environment.</p>\n<p>Each row consist of a shape. The shapes are:</p>\n<ul>\n<li>Rectangle</li>\n<li>RoundedRectangle</li>\n<li>Circle</li>\n<li>Ellipse</li>\n<li>Capsule</li>\n<li><a href=\"https://carbide.rs/examples/drawing/canvas/\">Canvas</a></li>\n</ul>\n<p>The last row is a Canvas element, configured to draw a star.</p>\n<h2 id=\"run-the-example\"><a class=\"zola-anchor\" href=\"#run-the-example\" aria-label=\"Anchor link for: run-the-example\">Run the example</a></h2>\n<p>The example can be run with the following command: <code>cargo run --package carbide_wgpu --example shapes</code> when located in the working directory <code>carbide</code>.</p>\n<p>For better performance, remember to run the example with <code>--release</code>.</p>\n",
+        "permalink": "https://carbide.rs/examples/drawing/shapes/",
+        "slug": "shapes",
+        "ancestors": [
+          "_index.md",
+          "examples/_index.md",
+          "examples/drawing/_index.md"
+        ],
+        "title": "Shapes",
+        "description": null,
+        "updated": null,
+        "date": null,
+        "year": null,
+        "month": null,
+        "day": null,
+        "taxonomies": {},
+        "authors": [],
+        "extra": {},
+        "path": "/examples/drawing/shapes/",
+        "components": [
+          "examples",
+          "drawing",
+          "shapes"
+        ],
+        "summary": null,
+        "toc": [
+          {
+            "level": 1,
+            "id": "shapes",
+            "permalink": "https://carbide.rs/examples/drawing/shapes/#shapes",
+            "title": "Shapes",
+            "children": [
+              {
+                "level": 2,
+                "id": "explanation",
+                "permalink": "https://carbide.rs/examples/drawing/shapes/#explanation",
+                "title": "Explanation",
+                "children": []
+              },
+              {
+                "level": 2,
+                "id": "run-the-example",
+                "permalink": "https://carbide.rs/examples/drawing/shapes/#run-the-example",
+                "title": "Run the example",
+                "children": []
+              }
+            ]
+          }
+        ],
+        "word_count": 162,
+        "reading_time": 1,
+        "assets": [
+          "/examples/drawing/shapes/shapes.png"
+        ],
+        "draft": false,
+        "lang": "en",
+        "lower": null,
+        "higher": null,
+        "translations": [],
+        "backlinks": [
+          {
+            "permalink": "https://carbide.rs/docs/general/colors/",
+            "title": "Colors"
+          }
+        ]
+      },
+      "translations": [],
+      "backlinks": [
+        {
+          "permalink": "https://carbide.rs/examples/drawing/blur/",
+          "title": "Blur"
+        }
+      ]
+    },
+    {
+      "relative_path": "examples/drawing/shapes/index.md",
+      "colocated_path": "examples/drawing/shapes/",
+      "content": "<h1 id=\"shapes\"><a class=\"zola-anchor\" href=\"#shapes\" aria-label=\"Anchor link for: shapes\">Shapes</a></h1>\n<p><img src=\"https://carbide.rs/examples/drawing/shapes/shapes.png\" alt=\"A screenshot of the shapes example\" /></p>\n<p>The shapes example showcases the different built-in shapes in Carbide. These are used as content for the different widgets to render them. They are treated as atoms, and can be combined using different layouts, into more complex shapes.</p>\n<h2 id=\"explanation\"><a class=\"zola-anchor\" href=\"#explanation\" aria-label=\"Anchor link for: explanation\">Explanation</a></h2>\n<p>The example consist of 5 columns, each rendering the same shape, but in different ways. The different renderings are:</p>\n<ul>\n<li>Fill</li>\n<li>Stroke</li>\n<li>Fill and stroke</li>\n<li>Clipped image fill</li>\n<li>Clipped image stroke</li>\n</ul>\n<p>Rendering of the filled shapes are using the current <a href=\"https://carbide.rs/examples/drawing/accent/\">accent color</a> from the environment.</p>\n<p>Each row consist of a shape. The shapes are:</p>\n<ul>\n<li>Rectangle</li>\n<li>RoundedRectangle</li>\n<li>Circle</li>\n<li>Ellipse</li>\n<li>Capsule</li>\n<li><a href=\"https://carbide.rs/examples/drawing/canvas/\">Canvas</a></li>\n</ul>\n<p>The last row is a Canvas element, configured to draw a star.</p>\n<h2 id=\"run-the-example\"><a class=\"zola-anchor\" href=\"#run-the-example\" aria-label=\"Anchor link for: run-the-example\">Run the example</a></h2>\n<p>The example can be run with the following command: <code>cargo run --package carbide_wgpu --example shapes</code> when located in the working directory <code>carbide</code>.</p>\n<p>For better performance, remember to run the example with <code>--release</code>.</p>\n",
+      "permalink": "https://carbide.rs/examples/drawing/shapes/",
+      "slug": "shapes",
+      "ancestors": [
+        "_index.md",
+        "examples/_index.md",
+        "examples/drawing/_index.md"
+      ],
+      "title": "Shapes",
+      "description": null,
+      "updated": null,
+      "date": null,
+      "year": null,
+      "month": null,
+      "day": null,
+      "taxonomies": {},
+      "authors": [],
+      "extra": {},
+      "path": "/examples/drawing/shapes/",
+      "components": [
+        "examples",
+        "drawing",
+        "shapes"
+      ],
+      "summary": null,
+      "toc": [
+        {
+          "level": 1,
+          "id": "shapes",
+          "permalink": "https://carbide.rs/examples/drawing/shapes/#shapes",
+          "title": "Shapes",
+          "children": [
+            {
+              "level": 2,
+              "id": "explanation",
+              "permalink": "https://carbide.rs/examples/drawing/shapes/#explanation",
+              "title": "Explanation",
+              "children": []
+            },
+            {
+              "level": 2,
+              "id": "run-the-example",
+              "permalink": "https://carbide.rs/examples/drawing/shapes/#run-the-example",
+              "title": "Run the example",
+              "children": []
+            }
+          ]
+        }
+      ],
+      "word_count": 162,
+      "reading_time": 1,
+      "assets": [
+        "/examples/drawing/shapes/shapes.png"
+      ],
+      "draft": false,
+      "lang": "en",
+      "lower": {
+        "relative_path": "examples/drawing/materials/index.md",
+        "colocated_path": "examples/drawing/materials/",
+        "content": "<h1 id=\"materials\"><a class=\"zola-anchor\" href=\"#materials\" aria-label=\"Anchor link for: materials\">Materials</a></h1>\n<p><img src=\"https://carbide.rs/examples/drawing/materials/materials.png\" alt=\"A screenshot of the materials example\" /></p>\n<p>The materials example showcases the different built-in materials in Carbide. These are used to render shapes in a special way with different depths and colors.</p>\n<p>A material is different than a Color, because a material includes other effects. The currently available materials uses the Blur effect.</p>\n<h2 id=\"explanation\"><a class=\"zola-anchor\" href=\"#explanation\" aria-label=\"Anchor link for: explanation\">Explanation</a></h2>\n<p>The example consist of two rows of rectangles, where the first row uses the light theme material, and the second row the dark theme. Each row consist of 5 different matarials, each of a different strength, with the strength decreasing from left to right.</p>\n<p>The below code shows how the top row of rectangles are defined:</p>\n<pre data-lang=\"rust\" style=\"background-color:#2b303b;color:#c0c5ce;\" class=\"language-rust \"><code class=\"language-rust\" data-lang=\"rust\"><span>HStack::new((\n</span><span>    Rectangle::new()\n</span><span>        .</span><span style=\"color:#96b5b4;\">material</span><span>(EnvironmentColor::UltraThickLight)\n</span><span>        .</span><span style=\"color:#96b5b4;\">frame</span><span>(</span><span style=\"color:#d08770;\">100.0</span><span>, </span><span style=\"color:#d08770;\">100.0</span><span>),\n</span><span>    Rectangle::new()\n</span><span>        .</span><span style=\"color:#96b5b4;\">material</span><span>(EnvironmentColor::ThickLight)\n</span><span>        .</span><span style=\"color:#96b5b4;\">frame</span><span>(</span><span style=\"color:#d08770;\">100.0</span><span>, </span><span style=\"color:#d08770;\">100.0</span><span>),\n</span><span>    Rectangle::new()\n</span><span>        .</span><span style=\"color:#96b5b4;\">material</span><span>(EnvironmentColor::RegularLight)\n</span><span>        .</span><span style=\"color:#96b5b4;\">frame</span><span>(</span><span style=\"color:#d08770;\">100.0</span><span>, </span><span style=\"color:#d08770;\">100.0</span><span>),\n</span><span>    Rectangle::new()\n</span><span>        .</span><span style=\"color:#96b5b4;\">material</span><span>(EnvironmentColor::ThinLight)\n</span><span>        .</span><span style=\"color:#96b5b4;\">frame</span><span>(</span><span style=\"color:#d08770;\">100.0</span><span>, </span><span style=\"color:#d08770;\">100.0</span><span>),\n</span><span>    Rectangle::new()\n</span><span>        .</span><span style=\"color:#96b5b4;\">material</span><span>(EnvironmentColor::UltraThinLight)\n</span><span>        .</span><span style=\"color:#96b5b4;\">frame</span><span>(</span><span style=\"color:#d08770;\">100.0</span><span>, </span><span style=\"color:#d08770;\">100.0</span><span>),\n</span><span>))\n</span></code></pre>\n<p>The background consist of multiple different colored rectangles, that are rotated to better show the effect of the materials.</p>\n<h2 id=\"run-the-example\"><a class=\"zola-anchor\" href=\"#run-the-example\" aria-label=\"Anchor link for: run-the-example\">Run the example</a></h2>\n<p>The example can be run with the following command: <code>cargo run --package carbide_wgpu --example materials</code> when located in the working directory <code>carbide</code>.</p>\n<p>For better performance, remember to run the example with <code>--release</code>.</p>\n",
+        "permalink": "https://carbide.rs/examples/drawing/materials/",
+        "slug": "materials",
+        "ancestors": [
+          "_index.md",
+          "examples/_index.md",
+          "examples/drawing/_index.md"
+        ],
+        "title": "Materials",
+        "description": null,
+        "updated": null,
+        "date": "2019-11-28",
+        "year": 2019,
+        "month": 11,
+        "day": 28,
+        "taxonomies": {},
+        "authors": [],
+        "extra": {},
+        "path": "/examples/drawing/materials/",
+        "components": [
+          "examples",
+          "drawing",
+          "materials"
+        ],
+        "summary": null,
+        "toc": [
+          {
+            "level": 1,
+            "id": "materials",
+            "permalink": "https://carbide.rs/examples/drawing/materials/#materials",
+            "title": "Materials",
+            "children": [
+              {
+                "level": 2,
+                "id": "explanation",
+                "permalink": "https://carbide.rs/examples/drawing/materials/#explanation",
+                "title": "Explanation",
+                "children": []
+              },
+              {
+                "level": 2,
+                "id": "run-the-example",
+                "permalink": "https://carbide.rs/examples/drawing/materials/#run-the-example",
+                "title": "Run the example",
+                "children": []
+              }
+            ]
+          }
+        ],
+        "word_count": 166,
+        "reading_time": 1,
+        "assets": [
+          "/examples/drawing/materials/materials.png"
+        ],
+        "draft": false,
+        "lang": "en",
+        "lower": null,
+        "higher": null,
+        "translations": [],
+        "backlinks": [
+          {
+            "permalink": "https://carbide.rs/examples/drawing/blur/",
+            "title": "Blur"
+          }
+        ]
+      },
+      "higher": null,
+      "translations": [],
+      "backlinks": [
+        {
+          "permalink": "https://carbide.rs/docs/general/colors/",
+          "title": "Colors"
+        }
+      ]
+    }
+  ],
+  "subsections": [],
+  "translations": [],
+  "backlinks": [],
+  "generate_feeds": false,
+  "transparent": false,
+  "paginate_by": null,
+  "paginate_reversed": false
+}</pre>
+</div>
+
+
+  </div>
+</body>
+
+</html>

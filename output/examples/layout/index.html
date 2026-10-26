@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <link href='https://carbide.rs/css/output.css' rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carbide</title>
+</head>
+
+<body class="bg-stone-50 min-h-screen min-w-screen max-h-screen max-w-screen overflow-hidden flex flex-col text-stone-700"
+  style="background-image: linear-gradient(180deg, rgba(88, 125, 45, 0.04) 0%, transparent 680px)">
+  <header class="bg-white w-full h-14 shadow-xs shrink-0 grow-0 z-20 flex flex-row justify-between items-center px-5">
+    <a class="text-amber-600 font-bold" href="/">Carbide</a>
+    <div class="flex flex-row gap-8 h-full items-center">
+      <nav class="flex flex-row gap-2 h-full items-center">
+        <a class="group px-1.5 box-content  hover:border-b-2 border-amber-600 h-full flex flex-row items-center" href="https://carbide.rs/docs/outline/">
+          <div class="group-hover:-mb-[2px] ">Home</div>
+        </a>
+        <a class="group px-1.5 box-content  hover:border-b-2 border-amber-600 h-full flex flex-row items-center" href="https://carbide.rs/api/">
+          <div class="group-hover:-mb-[2px] ">API</div>
+        </a>
+        <a class="group px-1.5 box-content  border-b-2  hover:border-b-2 border-amber-600 h-full flex flex-row items-center" href="https://carbide.rs/examples/outline/">
+          <div class="group-hover:-mb-[2px]  -mb-[2px] ">Examples</div>
+        </a>
+      </nav>
+      <a href="https://github.com/HolgerGottChristensen/carbide">GitHub</a>
+    </div>
+    
+  </header>
+  <div class="grow flex flex-col overflow-hidden bg-slate-50">
+    
+
+<div class="overflow-auto p-10 grow">
+  <pre>{
+  "relative_path": "examples/layout/_index.md",
+  "colocated_path": null,
+  "content": "",
+  "permalink": "https://carbide.rs/examples/layout/",
+  "draft": false,
+  "ancestors": [
+    "_index.md",
+    "examples/_index.md"
+  ],
+  "title": "Layout",
+  "description": null,
+  "extra": {},
+  "path": "/examples/layout/",
+  "components": [
+    "examples",
+    "layout"
+  ],
+  "toc": [],
+  "word_count": 0,
+  "reading_time": 0,
+  "lang": "en",
+  "assets": [],
+  "pages": [
+    {
+      "relative_path": "examples/layout/absolute/index.md",
+      "colocated_path": "examples/layout/absolute/",
+      "content": "<h1 id=\"absolute\">Absolute</h1>\n<p><img src=\"https://carbide.rs/examples/layout/absolute/absolute.png\" alt=\"A screenshot of the absolute example\" /></p>\n<h2 id=\"run-the-example\">Run the example</h2>\n<p>The example can be run with the following command: <code>cargo run --package carbide_wgpu --example absolute</code> when located in the working directory <code>carbide</code>.</p>\n<p>For better performance, remember to run the example with <code>--release</code>.</p>\n",
+      "permalink": "https://carbide.rs/examples/layout/absolute/",
+      "slug": "absolute",
+      "ancestors": [
+        "_index.md",
+        "examples/_index.md",
+        "examples/layout/_index.md"
+      ],
+      "title": "Absolute",
+      "description": null,
+      "updated": null,
+      "date": null,
+      "year": null,
+      "month": null,
+      "day": null,
+      "taxonomies": {},
+      "authors": [],
+      "extra": {},
+      "path": "/examples/layout/absolute/",
+      "components": [
+        "examples",
+        "layout",
+        "absolute"
+      ],
+      "summary": null,
+      "toc": [
+        {
+          "level": 1,
+          "id": "absolute",
+          "permalink": "https://carbide.rs/examples/layout/absolute/#absolute",
+          "title": "Absolute",
+          "children": [
+            {
+              "level": 2,
+              "id": "run-the-example",
+              "permalink": "https://carbide.rs/examples/layout/absolute/#run-the-example",
+              "title": "Run the example",
+              "children": []
+            }
+          ]
+        }
+      ],
+      "word_count": 43,
+      "reading_time": 1,
+      "assets": [
+        "/examples/layout/absolute/absolute.png"
+      ],
+      "draft": false,
+      "lang": "en",
+      "lower": null,
+      "higher": {
+        "relative_path": "examples/layout/aspect_ratio/index.md",
+        "colocated_path": "examples/layout/aspect_ratio/",
+        "content": "<h1 id=\"aspect-ratio\">Aspect Ratio</h1>\n<p><img src=\"https://carbide.rs/examples/layout/aspect-ratio/aspect_ratio.png\" alt=\"A screenshot of the aspect ratio example\" /></p>\n<h2 id=\"run-the-example\">Run the example</h2>\n<p>The example can be run with the following command: <code>cargo run --package carbide_wgpu --example aspect_ratio</code> when located in the working directory <code>carbide</code>.</p>\n<p>For better performance, remember to run the example with <code>--release</code>.</p>\n",
+        "permalink": "https://carbide.rs/examples/layout/aspect-ratio/",
+        "slug": "aspect-ratio",
+        "ancestors": [
+          "_index.md",
+          "examples/_index.md",
+          "examples/layout/_index.md"
+        ],
+        "title": "Aspect Ratio",
+        "description": null,
+        "updated": null,
+        "date": null,
+        "year": null,
+        "month": null,
+        "day": null,
+        "taxonomies": {},
+        "authors": [],
+        "extra": {},
+        "path": "/examples/layout/aspect-ratio/",
+        "components": [
+          "examples",
+          "layout",
+          "aspect-ratio"
+        ],
+        "summary": null,
+        "toc": [
+          {
+            "level": 1,
+            "id": "aspect-ratio",
+            "permalink": "https://carbide.rs/examples/layout/aspect-ratio/#aspect-ratio",
+            "title": "Aspect Ratio",
+            "children": [
+              {
+                "level": 2,
+                "id": "run-the-example",
+                "permalink": "https://carbide.rs/examples/layout/aspect-ratio/#run-the-example",
+                "title": "Run the example",
+                "children": []
+              }
+            ]
+          }
+        ],
+        "word_count": 45,
+        "reading_time": 1,
+        "assets": [
+          "/examples/layout/aspect_ratio/aspect_ratio.png"
+        ],
+        "draft": false,
+        "lang": "en",
+        "lower": null,
+        "higher": null,
+        "translations": [],
+        "backlinks": []
+      },
+      "translations": [],
+      "backlinks": []
+    },
+    {
+      "relative_path": "examples/layout/aspect_ratio/index.md",
+      "colocated_path": "examples/layout/aspect_ratio/",
+      "content": "<h1 id=\"aspect-ratio\">Aspect Ratio</h1>\n<p><img src=\"https://carbide.rs/examples/layout/aspect-ratio/aspect_ratio.png\" alt=\"A screenshot of the aspect ratio example\" /></p>\n<h2 id=\"run-the-example\">Run the example</h2>\n<p>The example can be run with the following command: <code>cargo run --package carbide_wgpu --example aspect_ratio</code> when located in the working directory <code>carbide</code>.</p>\n<p>For better performance, remember to run the example with <code>--release</code>.</p>\n",
+      "permalink": "https://carbide.rs/examples/layout/aspect-ratio/",
+      "slug": "aspect-ratio",
+      "ancestors": [
+        "_index.md",
+        "examples/_index.md",
+        "examples/layout/_index.md"
+      ],
+      "title": "Aspect Ratio",
+      "description": null,
+      "updated": null,
+      "date": null,
+      "year": null,
+      "month": null,
+      "day": null,
+      "taxonomies": {},
+      "authors": [],
+      "extra": {},
+      "path": "/examples/layout/aspect-ratio/",
+      "components": [
+        "examples",
+        "layout",
+        "aspect-ratio"
+      ],
+      "summary": null,
+      "toc": [
+        {
+          "level": 1,
+          "id": "aspect-ratio",
+          "permalink": "https://carbide.rs/examples/layout/aspect-ratio/#aspect-ratio",
+          "title": "Aspect Ratio",
+          "children": [
+            {
+              "level": 2,
+              "id": "run-the-example",
+              "permalink": "https://carbide.rs/examples/layout/aspect-ratio/#run-the-example",
+              "title": "Run the example",
+              "children": []
+            }
+          ]
+        }
+      ],
+      "word_count": 45,
+      "reading_time": 1,
+      "assets": [
+        "/examples/layout/aspect_ratio/aspect_ratio.png"
+      ],
+      "draft": false,
+      "lang": "en",
+      "lower": {
+        "relative_path": "examples/layout/absolute/index.md",
+        "colocated_path": "examples/layout/absolute/",
+        "content": "<h1 id=\"absolute\">Absolute</h1>\n<p><img src=\"https://carbide.rs/examples/layout/absolute/absolute.png\" alt=\"A screenshot of the absolute example\" /></p>\n<h2 id=\"run-the-example\">Run the example</h2>\n<p>The example can be run with the following command: <code>cargo run --package carbide_wgpu --example absolute</code> when located in the working directory <code>carbide</code>.</p>\n<p>For better performance, remember to run the example with <code>--release</code>.</p>\n",
+        "permalink": "https://carbide.rs/examples/layout/absolute/",
+        "slug": "absolute",
+        "ancestors": [
+          "_index.md",
+          "examples/_index.md",
+          "examples/layout/_index.md"
+        ],
+        "title": "Absolute",
+        "description": null,
+        "updated": null,
+        "date": null,
+        "year": null,
+        "month": null,
+        "day": null,
+        "taxonomies": {},
+        "authors": [],
+        "extra": {},
+        "path": "/examples/layout/absolute/",
+        "components": [
+          "examples",
+          "layout",
+          "absolute"
+        ],
+        "summary": null,
+        "toc": [
+          {
+            "level": 1,
+            "id": "absolute",
+            "permalink": "https://carbide.rs/examples/layout/absolute/#absolute",
+            "title": "Absolute",
+            "children": [
+              {
+                "level": 2,
+                "id": "run-the-example",
+                "permalink": "https://carbide.rs/examples/layout/absolute/#run-the-example",
+                "title": "Run the example",
+                "children": []
+              }
+            ]
+          }
+        ],
+        "word_count": 43,
+        "reading_time": 1,
+        "assets": [
+          "/examples/layout/absolute/absolute.png"
+        ],
+        "draft": false,
+        "lang": "en",
+        "lower": null,
+        "higher": null,
+        "translations": [],
+        "backlinks": []
+      },
+      "higher": {
+        "relative_path": "examples/layout/background/index.md",
+        "colocated_path": "examples/layout/background/",
+        "content": "<h1 id=\"background\">Background</h1>\n<p><img src=\"https://carbide.rs/examples/layout/background/background.png\" alt=\"A screenshot of the background example\" /></p>\n<h2 id=\"run-the-example\">Run the example</h2>\n<p>The example can be run with the following command: <code>cargo run --package carbide_wgpu --example background</code> when located in the working directory <code>carbide</code>.</p>\n<p>For better performance, remember to run the example with <code>--release</code>.</p>\n",
+        "permalink": "https://carbide.rs/examples/layout/background/",
+        "slug": "background",
+        "ancestors": [
+          "_index.md",
+          "examples/_index.md",
+          "examples/layout/_index.md"
+        ],
+        "title": "Background",
+        "description": null,
+        "updated": null,
+        "date": null,
+        "year": null,
+        "month": null,
+        "day": null,
+        "taxonomies": {},
+        "authors": [],
+        "extra": {},
+        "path": "/examples/layout/background/",
+        "components": [
+          "examples",
+          "layout",
+          "background"
+        ],
+        "summary": null,
+        "toc": [
+          {
+            "level": 1,
+            "id": "background",
+            "permalink": "https://carbide.rs/examples/layout/background/#background",
+            "title": "Background",
+            "children": [
+              {
+                "level": 2,
+                "id": "run-the-example",
+                "permalink": "https://carbide.rs/examples/layout/background/#run-the-example",
+                "title": "Run the example",
+                "children": []
+              }
+            ]
+          }
+        ],
+        "word_count": 43,
+        "reading_time": 1,
+        "assets": [
+          "/examples/layout/background/background.png"
+        ],
+        "draft": false,
+        "lang": "en",
+        "lower": null,
+        "higher": null,
+        "translations": [],
+        "backlinks": []
+      },
+      "translations": [],
+      "backlinks": []
+    },
+    {
+      "relative_path": "examples/layout/background/index.md",
+      "colocated_path": "examples/layout/background/",
+      "content": "<h1 id=\"background\">Background</h1>\n<p><img src=\"https://carbide.rs/examples/layout/background/background.png\" alt=\"A screenshot of the background example\" /></p>\n<h2 id=\"run-the-example\">Run the example</h2>\n<p>The example can be run with the following command: <code>cargo run --package carbide_wgpu --example background</code> when located in the working directory <code>carbide</code>.</p>\n<p>For better performance, remember to run the example with <code>--release</code>.</p>\n",
+      "permalink": "https://carbide.rs/examples/layout/background/",
+      "slug": "background",
+      "ancestors": [
+        "_index.md",
+        "examples/_index.md",
+        "examples/layout/_index.md"
+      ],
+      "title": "Background",
+      "description": null,
+      "updated": null,
+      "date": null,
+      "year": null,
+      "month": null,
+      "day": null,
+      "taxonomies": {},
+      "authors": [],
+      "extra": {},
+      "path": "/examples/layout/background/",
+      "components": [
+        "examples",
+        "layout",
+        "background"
+      ],
+      "summary": null,
+      "toc": [
+        {
+          "level": 1,
+          "id": "background",
+          "permalink": "https://carbide.rs/examples/layout/background/#background",
+          "title": "Background",
+          "children": [
+            {
+              "level": 2,
+              "id": "run-the-example",
+              "permalink": "https://carbide.rs/examples/layout/background/#run-the-example",
+              "title": "Run the example",
+              "children": []
+            }
+          ]
+        }
+      ],
+      "word_count": 43,
+      "reading_time": 1,
+      "assets": [
+        "/examples/layout/background/background.png"
+      ],
+      "draft": false,
+      "lang": "en",
+      "lower": {
+        "relative_path": "examples/layout/aspect_ratio/index.md",
+        "colocated_path": "examples/layout/aspect_ratio/",
+        "content": "<h1 id=\"aspect-ratio\">Aspect Ratio</h1>\n<p><img src=\"https://carbide.rs/examples/layout/aspect-ratio/aspect_ratio.png\" alt=\"A screenshot of the aspect ratio example\" /></p>\n<h2 id=\"run-the-example\">Run the example</h2>\n<p>The example can be run with the following command: <code>cargo run --package carbide_wgpu --example aspect_ratio</code> when located in the working directory <code>carbide</code>.</p>\n<p>For better performance, remember to run the example with <code>--release</code>.</p>\n",
+        "permalink": "https://carbide.rs/examples/layout/aspect-ratio/",
+        "slug": "aspect-ratio",
+        "ancestors": [
+          "_index.md",
+          "examples/_index.md",
+          "examples/layout/_index.md"
+        ],
+        "title": "Aspect Ratio",
+        "description": null,
+        "updated": null,
+        "date": null,
+        "year": null,
+        "month": null,
+        "day": null,
+        "taxonomies": {},
+        "authors": [],
+        "extra": {},
+        "path": "/examples/layout/aspect-ratio/",
+        "components": [
+          "examples",
+          "layout",
+          "aspect-ratio"
+        ],
+        "summary": null,
+        "toc": [
+          {
+            "level": 1,
+            "id": "aspect-ratio",
+            "permalink": "https://carbide.rs/examples/layout/aspect-ratio/#aspect-ratio",
+            "title": "Aspect Ratio",
+            "children": [
+              {
+                "level": 2,
+                "id": "run-the-example",
+                "permalink": "https://carbide.rs/examples/layout/aspect-ratio/#run-the-example",
+                "title": "Run the example",
+                "children": []
+              }
+            ]
+          }
+        ],
+        "word_count": 45,
+        "reading_time": 1,
+        "assets": [
+          "/examples/layout/aspect_ratio/aspect_ratio.png"
+        ],
+        "draft": false,
+        "lang": "en",
+        "lower": null,
+        "higher": null,
+        "translations": [],
+        "backlinks": []
+      },
+      "higher": {
+        "relative_path": "examples/layout/hstack/index.md",
+        "colocated_path": "examples/layout/hstack/",
+        "content": "<p>Materials</p>\n",
+        "permalink": "https://carbide.rs/examples/layout/hstack/",
+        "slug": "hstack",
+        "ancestors": [
+          "_index.md",
+          "examples/_index.md",
+          "examples/layout/_index.md"
+        ],
+        "title": "HStack",
+        "description": null,
+        "updated": null,
+        "date": "2019-11-28",
+        "year": 2019,
+        "month": 11,
+        "day": 28,
+        "taxonomies": {},
+        "authors": [],
+        "extra": {},
+        "path": "/examples/layout/hstack/",
+        "components": [
+          "examples",
+          "layout",
+          "hstack"
+        ],
+        "summary": null,
+        "toc": [],
+        "word_count": 1,
+        "reading_time": 1,
+        "assets": [],
+        "draft": false,
+        "lang": "en",
+        "lower": null,
+        "higher": null,
+        "translations": [],
+        "backlinks": []
+      },
+      "translations": [],
+      "backlinks": []
+    },
+    {
+      "relative_path": "examples/layout/hstack/index.md",
+      "colocated_path": "examples/layout/hstack/",
+      "content": "<p>Materials</p>\n",
+      "permalink": "https://carbide.rs/examples/layout/hstack/",
+      "slug": "hstack",
+      "ancestors": [
+        "_index.md",
+        "examples/_index.md",
+        "examples/layout/_index.md"
+      ],
+      "title": "HStack",
+      "description": null,
+      "updated": null,
+      "date": "2019-11-28",
+      "year": 2019,
+      "month": 11,
+      "day": 28,
+      "taxonomies": {},
+      "authors": [],
+      "extra": {},
+      "path": "/examples/layout/hstack/",
+      "components": [
+        "examples",
+        "layout",
+        "hstack"
+      ],
+      "summary": null,
+      "toc": [],
+      "word_count": 1,
+      "reading_time": 1,
+      "assets": [],
+      "draft": false,
+      "lang": "en",
+      "lower": {
+        "relative_path": "examples/layout/background/index.md",
+        "colocated_path": "examples/layout/background/",
+        "content": "<h1 id=\"background\">Background</h1>\n<p><img src=\"https://carbide.rs/examples/layout/background/background.png\" alt=\"A screenshot of the background example\" /></p>\n<h2 id=\"run-the-example\">Run the example</h2>\n<p>The example can be run with the following command: <code>cargo run --package carbide_wgpu --example background</code> when located in the working directory <code>carbide</code>.</p>\n<p>For better performance, remember to run the example with <code>--release</code>.</p>\n",
+        "permalink": "https://carbide.rs/examples/layout/background/",
+        "slug": "background",
+        "ancestors": [
+          "_index.md",
+          "examples/_index.md",
+          "examples/layout/_index.md"
+        ],
+        "title": "Background",
+        "description": null,
+        "updated": null,
+        "date": null,
+        "year": null,
+        "month": null,
+        "day": null,
+        "taxonomies": {},
+        "authors": [],
+        "extra": {},
+        "path": "/examples/layout/background/",
+        "components": [
+          "examples",
+          "layout",
+          "background"
+        ],
+        "summary": null,
+        "toc": [
+          {
+            "level": 1,
+            "id": "background",
+            "permalink": "https://carbide.rs/examples/layout/background/#background",
+            "title": "Background",
+            "children": [
+              {
+                "level": 2,
+                "id": "run-the-example",
+                "permalink": "https://carbide.rs/examples/layout/background/#run-the-example",
+                "title": "Run the example",
+                "children": []
+              }
+            ]
+          }
+        ],
+        "word_count": 43,
+        "reading_time": 1,
+        "assets": [
+          "/examples/layout/background/background.png"
+        ],
+        "draft": false,
+        "lang": "en",
+        "lower": null,
+        "higher": null,
+        "translations": [],
+        "backlinks": []
+      },
+      "higher": {
+        "relative_path": "examples/layout/offset/index.md",
+        "colocated_path": "examples/layout/offset/",
+        "content": "<h1 id=\"offset\">Offset</h1>\n<p><img src=\"https://carbide.rs/examples/layout/offset/offset.png\" alt=\"A screenshot of the offset example\" /></p>\n<h2 id=\"run-the-example\">Run the example</h2>\n<p>The example can be run with the following command: <code>cargo run --package carbide_wgpu --example offset</code> when located in the working directory <code>carbide</code>.</p>\n<p>For better performance, remember to run the example with <code>--release</code>.</p>\n",
+        "permalink": "https://carbide.rs/examples/layout/offset/",
+        "slug": "offset",
+        "ancestors": [
+          "_index.md",
+          "examples/_index.md",
+          "examples/layout/_index.md"
+        ],
+        "title": "Offset",
+        "description": null,
+        "updated": null,
+        "date": null,
+        "year": null,
+        "month": null,
+        "day": null,
+        "taxonomies": {},
+        "authors": [],
+        "extra": {},
+        "path": "/examples/layout/offset/",
+        "components": [
+          "examples",
+          "layout",
+          "offset"
+        ],
+        "summary": null,
+        "toc": [
+          {
+            "level": 1,
+            "id": "offset",
+            "permalink": "https://carbide.rs/examples/layout/offset/#offset",
+            "title": "Offset",
+            "children": [
+              {
+                "level": 2,
+                "id": "run-the-example",
+                "permalink": "https://carbide.rs/examples/layout/offset/#run-the-example",
+                "title": "Run the example",
+                "children": []
+              }
+            ]
+          }
+        ],
+        "word_count": 43,
+        "reading_time": 1,
+        "assets": [
+          "/examples/layout/offset/offset.png"
+        ],
+        "draft": false,
+        "lang": "en",
+        "lower": null,
+        "higher": null,
+        "translations": [],
+        "backlinks": []
+      },
+      "translations": [],
+      "backlinks": []
+    },
+    {
+      "relative_path": "examples/layout/offset/index.md",
+      "colocated_path": "examples/layout/offset/",
+      "content": "<h1 id=\"offset\">Offset</h1>\n<p><img src=\"https://carbide.rs/examples/layout/offset/offset.png\" alt=\"A screenshot of the offset example\" /></p>\n<h2 id=\"run-the-example\">Run the example</h2>\n<p>The example can be run with the following command: <code>cargo run --package carbide_wgpu --example offset</code> when located in the working directory <code>carbide</code>.</p>\n<p>For better performance, remember to run the example with <code>--release</code>.</p>\n",
+      "permalink": "https://carbide.rs/examples/layout/offset/",
+      "slug": "offset",
+      "ancestors": [
+        "_index.md",
+        "examples/_index.md",
+        "examples/layout/_index.md"
+      ],
+      "title": "Offset",
+      "description": null,
+      "updated": null,
+      "date": null,
+      "year": null,
+      "month": null,
+      "day": null,
+      "taxonomies": {},
+      "authors": [],
+      "extra": {},
+      "path": "/examples/layout/offset/",
+      "components": [
+        "examples",
+        "layout",
+        "offset"
+      ],
+      "summary": null,
+      "toc": [
+        {
+          "level": 1,
+          "id": "offset",
+          "permalink": "https://carbide.rs/examples/layout/offset/#offset",
+          "title": "Offset",
+          "children": [
+            {
+              "level": 2,
+              "id": "run-the-example",
+              "permalink": "https://carbide.rs/examples/layout/offset/#run-the-example",
+              "title": "Run the example",
+              "children": []
+            }
+          ]
+        }
+      ],
+      "word_count": 43,
+      "reading_time": 1,
+      "assets": [
+        "/examples/layout/offset/offset.png"
+      ],
+      "draft": false,
+      "lang": "en",
+      "lower": {
+        "relative_path": "examples/layout/hstack/index.md",
+        "colocated_path": "examples/layout/hstack/",
+        "content": "<p>Materials</p>\n",
+        "permalink": "https://carbide.rs/examples/layout/hstack/",
+        "slug": "hstack",
+        "ancestors": [
+          "_index.md",
+          "examples/_index.md",
+          "examples/layout/_index.md"
+        ],
+        "title": "HStack",
+        "description": null,
+        "updated": null,
+        "date": "2019-11-28",
+        "year": 2019,
+        "month": 11,
+        "day": 28,
+        "taxonomies": {},
+        "authors": [],
+        "extra": {},
+        "path": "/examples/layout/hstack/",
+        "components": [
+          "examples",
+          "layout",
+          "hstack"
+        ],
+        "summary": null,
+        "toc": [],
+        "word_count": 1,
+        "reading_time": 1,
+        "assets": [],
+        "draft": false,
+        "lang": "en",
+        "lower": null,
+        "higher": null,
+        "translations": [],
+        "backlinks": []
+      },
+      "higher": {
+        "relative_path": "examples/layout/vstack/index.md",
+        "colocated_path": "examples/layout/vstack/",
+        "content": "<p>This is my second blog post.</p>\n",
+        "permalink": "https://carbide.rs/examples/layout/vstack/",
+        "slug": "vstack",
+        "ancestors": [
+          "_index.md",
+          "examples/_index.md",
+          "examples/layout/_index.md"
+        ],
+        "title": "VStack",
+        "description": null,
+        "updated": null,
+        "date": "2019-11-28",
+        "year": 2019,
+        "month": 11,
+        "day": 28,
+        "taxonomies": {},
+        "authors": [],
+        "extra": {},
+        "path": "/examples/layout/vstack/",
+        "components": [
+          "examples",
+          "layout",
+          "vstack"
+        ],
+        "summary": null,
+        "toc": [],
+        "word_count": 6,
+        "reading_time": 1,
+        "assets": [],
+        "draft": false,
+        "lang": "en",
+        "lower": null,
+        "higher": null,
+        "translations": [],
+        "backlinks": []
+      },
+      "translations": [],
+      "backlinks": []
+    },
+    {
+      "relative_path": "examples/layout/vstack/index.md",
+      "colocated_path": "examples/layout/vstack/",
+      "content": "<p>This is my second blog post.</p>\n",
+      "permalink": "https://carbide.rs/examples/layout/vstack/",
+      "slug": "vstack",
+      "ancestors": [
+        "_index.md",
+        "examples/_index.md",
+        "examples/layout/_index.md"
+      ],
+      "title": "VStack",
+      "description": null,
+      "updated": null,
+      "date": "2019-11-28",
+      "year": 2019,
+      "month": 11,
+      "day": 28,
+      "taxonomies": {},
+      "authors": [],
+      "extra": {},
+      "path": "/examples/layout/vstack/",
+      "components": [
+        "examples",
+        "layout",
+        "vstack"
+      ],
+      "summary": null,
+      "toc": [],
+      "word_count": 6,
+      "reading_time": 1,
+      "assets": [],
+      "draft": false,
+      "lang": "en",
+      "lower": {
+        "relative_path": "examples/layout/offset/index.md",
+        "colocated_path": "examples/layout/offset/",
+        "content": "<h1 id=\"offset\">Offset</h1>\n<p><img src=\"https://carbide.rs/examples/layout/offset/offset.png\" alt=\"A screenshot of the offset example\" /></p>\n<h2 id=\"run-the-example\">Run the example</h2>\n<p>The example can be run with the following command: <code>cargo run --package carbide_wgpu --example offset</code> when located in the working directory <code>carbide</code>.</p>\n<p>For better performance, remember to run the example with <code>--release</code>.</p>\n",
+        "permalink": "https://carbide.rs/examples/layout/offset/",
+        "slug": "offset",
+        "ancestors": [
+          "_index.md",
+          "examples/_index.md",
+          "examples/layout/_index.md"
+        ],
+        "title": "Offset",
+        "description": null,
+        "updated": null,
+        "date": null,
+        "year": null,
+        "month": null,
+        "day": null,
+        "taxonomies": {},
+        "authors": [],
+        "extra": {},
+        "path": "/examples/layout/offset/",
+        "components": [
+          "examples",
+          "layout",
+          "offset"
+        ],
+        "summary": null,
+        "toc": [
+          {
+            "level": 1,
+            "id": "offset",
+            "permalink": "https://carbide.rs/examples/layout/offset/#offset",
+            "title": "Offset",
+            "children": [
+              {
+                "level": 2,
+                "id": "run-the-example",
+                "permalink": "https://carbide.rs/examples/layout/offset/#run-the-example",
+                "title": "Run the example",
+                "children": []
+              }
+            ]
+          }
+        ],
+        "word_count": 43,
+        "reading_time": 1,
+        "assets": [
+          "/examples/layout/offset/offset.png"
+        ],
+        "draft": false,
+        "lang": "en",
+        "lower": null,
+        "higher": null,
+        "translations": [],
+        "backlinks": []
+      },
+      "higher": null,
+      "translations": [],
+      "backlinks": []
+    }
+  ],
+  "subsections": [],
+  "translations": [],
+  "backlinks": [],
+  "generate_feeds": false,
+  "transparent": false,
+  "paginate_by": null,
+  "paginate_reversed": false
+}</pre>
+</div>
+
+
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <link href='https://carbide.rs/css/output.css' rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carbide</title>
+</head>
+
+<body class="bg-stone-50 min-h-screen min-w-screen max-h-screen max-w-screen overflow-hidden flex flex-col text-stone-700"
+  style="background-image: linear-gradient(180deg, rgba(88, 125, 45, 0.04) 0%, transparent 680px)">
+  <header class="bg-white w-full h-14 shadow-xs shrink-0 grow-0 z-20 flex flex-row justify-between items-center px-5">
+    <a class="text-amber-600 font-bold" href="/">Carbide</a>
+    <div class="flex flex-row gap-8 h-full items-center">
+      <nav class="flex flex-row gap-2 h-full items-center">
+        <a class="group px-1.5 box-content  border-b-2  hover:border-b-2 border-amber-600 h-full flex flex-row items-center" href="https://carbide.rs/docs/outline/">
+          <div class="group-hover:-mb-[2px]  -mb-[2px] ">Home</div>
+        </a>
+        <a class="group px-1.5 box-content  hover:border-b-2 border-amber-600 h-full flex flex-row items-center" href="https://carbide.rs/api/">
+          <div class="group-hover:-mb-[2px] ">API</div>
+        </a>
+        <a class="group px-1.5 box-content  hover:border-b-2 border-amber-600 h-full flex flex-row items-center" href="https://carbide.rs/examples/outline/">
+          <div class="group-hover:-mb-[2px] ">Examples</div>
+        </a>
+      </nav>
+      <a href="https://github.com/HolgerGottChristensen/carbide">GitHub</a>
+    </div>
+    
+  </header>
+  <div class="grow flex flex-col overflow-hidden bg-slate-50">
+    
+
+<div class="overflow-auto p-10 grow">
+  <pre>{
+  "relative_path": "docs/general/_index.md",
+  "colocated_path": null,
+  "content": "",
+  "permalink": "https://carbide.rs/docs/general/",
+  "draft": false,
+  "ancestors": [
+    "_index.md",
+    "docs/_index.md"
+  ],
+  "title": "General",
+  "description": null,
+  "extra": {},
+  "path": "/docs/general/",
+  "components": [
+    "docs",
+    "general"
+  ],
+  "toc": [],
+  "word_count": 0,
+  "reading_time": 0,
+  "lang": "en",
+  "assets": [],
+  "pages": [
+    {
+      "relative_path": "docs/general/application-structure.md",
+      "colocated_path": null,
+      "content": "<h1 id=\"application-structure\"><a class=\"zola-anchor\" href=\"#application-structure\" aria-label=\"Anchor link for: application-structure\">Application Structure</a></h1>\n<p>The main element of Carbide is an application. This is the main struct allowing you to run Carbide. This application struct holds the state of the program, its environment, and allows processing events, and manages focus.</p>\n<p>The outermost environment contains values provided by the outside environment, for example the OS. An example of this is the preferred text size, and accent color (To-Be). The environment is considered immutable, and functions using shadowing. This is described in further detail <a href=\"https://carbide.rs/docs/general/environment/\">here</a>.</p>\n<p>The main use of the application is to allow managing one or multiple scenes. A scene is an abstraction that holds a set of widgets that for example can be rendered. A classic example of a Scene is a Window. Another example is a WindowGroup, where the group allows spawning and managing multiple of the same window. Scenes are a hierarchy, and a Scene can contain child Scenes. For example this could be a window that requires a sub window, where if the window is closed all the child windows are also closed.</p>\n<p>A scene decides how to present its containing widgets, and how to respond to events. A window might render to a desktop window and allow handling mouse and keyboard events. It might decide to render at a constant framerate, whenever the OS requests it, or when receiving events. A pdf, might only care about rendering, and layout.</p>\n<p>To run your application, you call <code>.launch()</code> on the application struct. This is a blocking call, and will start the event loop behind the scenes and depending on the target (for example wasm), will handle the implementation details of launching the code.</p>\n",
+      "permalink": "https://carbide.rs/docs/general/application-structure/",
+      "slug": "application-structure",
+      "ancestors": [
+        "_index.md",
+        "docs/_index.md",
+        "docs/general/_index.md"
+      ],
+      "title": "Application Structure",
+      "description": null,
+      "updated": null,
+      "date": null,
+      "year": null,
+      "month": null,
+      "day": null,
+      "taxonomies": {},
+      "authors": [],
+      "extra": {},
+      "path": "/docs/general/application-structure/",
+      "components": [
+        "docs",
+        "general",
+        "application-structure"
+      ],
+      "summary": null,
+      "toc": [
+        {
+          "level": 1,
+          "id": "application-structure",
+          "permalink": "https://carbide.rs/docs/general/application-structure/#application-structure",
+          "title": "Application Structure",
+          "children": []
+        }
+      ],
+      "word_count": 277,
+      "reading_time": 2,
+      "assets": [],
+      "draft": false,
+      "lang": "en",
+      "lower": null,
+      "higher": {
+        "relative_path": "docs/general/colors/index.md",
+        "colocated_path": "docs/general/colors/",
+        "content": "<h1 id=\"colors\"><a class=\"zola-anchor\" href=\"#colors\" aria-label=\"Anchor link for: colors\">Colors</a></h1>\n<p>When rendering in Carbide, each shape can have a <code>Color</code>. In Carbide, this color is specified using an enum (in <code>color.rs</code>), and can be constructed on multiple different ways.</p>\n<p>The most common way to create a new <code>Color</code> is by using its <code>Color::new_rgb()</code> or <code>Color::new_rgba()</code> methods. These will construct a RGBA color based on the different color components given as input.</p>\n<p>Carbide has a few predefined colors. These can be used as simple debugging colors. The predefined colors are not recommended to be used, since they were migrated over when we forked Conrod in 2021, and has not been updated since.</p>\n<p>A color can also be used in a <a href=\"https://carbide.rs/docs/general/gradient/\">Gradient</a>, allowing you to create more complex visual effects.</p>\n<p>A few other interesting ways of constructing a color exist. You can generate a random color using <code>Color::random()</code> method, which creates a new random color each time the method is called. You can also generate a new color based on the current time using the <code>Color::time()</code> method. This rotates through different hues of an HSL color based on the current time.</p>\n<blockquote>\n<p>It is recommended, when rendering, to use <a href=\"https://carbide.rs/docs/general/colors/TODO\">EnvironmentColor</a>, and not use the Color type directly. This enables Carbide to apply <a href=\"https://carbide.rs/docs/general/colors/TODO\">themeing</a> and other modifications to the color based on user preferences, such as lightmode, darkmode, and custom themes. It also allows custom overrides higher in the <a href=\"https://carbide.rs/docs/general/colors/TODO\">widget tree</a>, for example setting the <a href=\"https://carbide.rs/docs/general/colors/TODO\">EnvironmentColor</a> red, to another shade, or an entirely different color.</p>\n</blockquote>\n<h2 id=\"the-color-example\"><a class=\"zola-anchor\" href=\"#the-color-example\" aria-label=\"Anchor link for: the-color-example\">The color example</a></h2>\n<p>The colors example showcases the different <a href=\"https://carbide.rs/docs/general/colors/TODO\">EnvironmentColor</a>'s when rendered using the current <a href=\"https://carbide.rs/docs/general/colors/TODO\">Theme</a>.</p>\n<p><img src=\"https://carbide.rs/docs/general/colors/colors.png\" alt=\"A screenshot of the colors example\" /></p>\n<h3 id=\"run-the-example\"><a class=\"zola-anchor\" href=\"#run-the-example\" aria-label=\"Anchor link for: run-the-example\">Run the example</a></h3>\n<p>The example can be run with the following command: <code>cargo run --package carbide_wgpu --example colors</code> when located in the working directory <code>carbide</code>.</p>\n<p>For better performance, remember to run the example with <code>--release</code>.</p>\n<h2 id=\"color-reprensentation\"><a class=\"zola-anchor\" href=\"#color-reprensentation\" aria-label=\"Anchor link for: color-reprensentation\">Color reprensentation</a></h2>\n<p>In Carbide, colors can be represented in two diffrent ways. Either the color is specified using the RGBA components or the HSLA components.</p>\n<p>Carbide converts between the different colors based on the methods you call.</p>\n<h2 id=\"environmentcolor\"><a class=\"zola-anchor\" href=\"#environmentcolor\" aria-label=\"Anchor link for: environmentcolor\">EnvironmentColor</a></h2>\n<p>An <code>EnvironmentColor</code> provides a mechanish of using semantic and configurable colors instead of choosing a color with specific RGB values. The most common color variants are the <a href=\"https://carbide.rs/examples/drawing/accent/\">Accent</a> and the <a href=\"https://carbide.rs/docs/general/colors/TODO\">Label</a>.</p>\n<p>The accent environment color is the default color for the different <a href=\"https://carbide.rs/examples/drawing/shapes/\">shapes</a>, such as Rectangle, Circle, Capsule and more.</p>\n<p>The label environment color is the default color for rendering <a href=\"https://carbide.rs/docs/general/colors/TODO\">Text</a> and <a href=\"https://carbide.rs/docs/general/colors/TODO\">icon images</a>.</p>\n<p><code>EnvironmentColor</code>'s are configurable in the <a href=\"https://carbide.rs/docs/general/colors/TODO\">Environment</a>, and can be overridden by inserting them into the widget tree. The <code>EnvironmentColor</code> is inherited by the <a href=\"https://carbide.rs/docs/general/colors/TODO\">widget children</a>, and the closest override to the thing being rendered takes precedence.</p>\n",
+        "permalink": "https://carbide.rs/docs/general/colors/",
+        "slug": "colors",
+        "ancestors": [
+          "_index.md",
+          "docs/_index.md",
+          "docs/general/_index.md"
+        ],
+        "title": "Colors",
+        "description": null,
+        "updated": null,
+        "date": null,
+        "year": null,
+        "month": null,
+        "day": null,
+        "taxonomies": {},
+        "authors": [],
+        "extra": {},
+        "path": "/docs/general/colors/",
+        "components": [
+          "docs",
+          "general",
+          "colors"
+        ],
+        "summary": null,
+        "toc": [
+          {
+            "level": 1,
+            "id": "colors",
+            "permalink": "https://carbide.rs/docs/general/colors/#colors",
+            "title": "Colors",
+            "children": [
+              {
+                "level": 2,
+                "id": "the-color-example",
+                "permalink": "https://carbide.rs/docs/general/colors/#the-color-example",
+                "title": "The color example",
+                "children": [
+                  {
+                    "level": 3,
+                    "id": "run-the-example",
+                    "permalink": "https://carbide.rs/docs/general/colors/#run-the-example",
+                    "title": "Run the example",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "level": 2,
+                "id": "color-reprensentation",
+                "permalink": "https://carbide.rs/docs/general/colors/#color-reprensentation",
+                "title": "Color reprensentation",
+                "children": []
+              },
+              {
+                "level": 2,
+                "id": "environmentcolor",
+                "permalink": "https://carbide.rs/docs/general/colors/#environmentcolor",
+                "title": "EnvironmentColor",
+                "children": []
+              }
+            ]
+          }
+        ],
+        "word_count": 467,
+        "reading_time": 3,
+        "assets": [
+          "/docs/general/colors/colors.png"
+        ],
+        "draft": false,
+        "lang": "en",
+        "lower": null,
+        "higher": null,
+        "translations": [],
+        "backlinks": [
+          {
+            "permalink": "https://carbide.rs/examples/drawing/accent/",
+            "title": "Accent"
+          },
+          {
+            "permalink": "https://carbide.rs/examples/drawing/border/",
+            "title": "Border"
+          },
+          {
+            "permalink": "https://carbide.rs/examples/image/icon/",
+            "title": "Icon"
+          }
+        ]
+      },
+      "translations": [],
+      "backlinks": []
+    },
+    {
+      "relative_path": "docs/general/colors/index.md",
+      "colocated_path": "docs/general/colors/",
+      "content": "<h1 id=\"colors\"><a class=\"zola-anchor\" href=\"#colors\" aria-label=\"Anchor link for: colors\">Colors</a></h1>\n<p>When rendering in Carbide, each shape can have a <code>Color</code>. In Carbide, this color is specified using an enum (in <code>color.rs</code>), and can be constructed on multiple different ways.</p>\n<p>The most common way to create a new <code>Color</code> is by using its <code>Color::new_rgb()</code> or <code>Color::new_rgba()</code> methods. These will construct a RGBA color based on the different color components given as input.</p>\n<p>Carbide has a few predefined colors. These can be used as simple debugging colors. The predefined colors are not recommended to be used, since they were migrated over when we forked Conrod in 2021, and has not been updated since.</p>\n<p>A color can also be used in a <a href=\"https://carbide.rs/docs/general/gradient/\">Gradient</a>, allowing you to create more complex visual effects.</p>\n<p>A few other interesting ways of constructing a color exist. You can generate a random color using <code>Color::random()</code> method, which creates a new random color each time the method is called. You can also generate a new color based on the current time using the <code>Color::time()</code> method. This rotates through different hues of an HSL color based on the current time.</p>\n<blockquote>\n<p>It is recommended, when rendering, to use <a href=\"https://carbide.rs/docs/general/colors/TODO\">EnvironmentColor</a>, and not use the Color type directly. This enables Carbide to apply <a href=\"https://carbide.rs/docs/general/colors/TODO\">themeing</a> and other modifications to the color based on user preferences, such as lightmode, darkmode, and custom themes. It also allows custom overrides higher in the <a href=\"https://carbide.rs/docs/general/colors/TODO\">widget tree</a>, for example setting the <a href=\"https://carbide.rs/docs/general/colors/TODO\">EnvironmentColor</a> red, to another shade, or an entirely different color.</p>\n</blockquote>\n<h2 id=\"the-color-example\"><a class=\"zola-anchor\" href=\"#the-color-example\" aria-label=\"Anchor link for: the-color-example\">The color example</a></h2>\n<p>The colors example showcases the different <a href=\"https://carbide.rs/docs/general/colors/TODO\">EnvironmentColor</a>'s when rendered using the current <a href=\"https://carbide.rs/docs/general/colors/TODO\">Theme</a>.</p>\n<p><img src=\"https://carbide.rs/docs/general/colors/colors.png\" alt=\"A screenshot of the colors example\" /></p>\n<h3 id=\"run-the-example\"><a class=\"zola-anchor\" href=\"#run-the-example\" aria-label=\"Anchor link for: run-the-example\">Run the example</a></h3>\n<p>The example can be run with the following command: <code>cargo run --package carbide_wgpu --example colors</code> when located in the working directory <code>carbide</code>.</p>\n<p>For better performance, remember to run the example with <code>--release</code>.</p>\n<h2 id=\"color-reprensentation\"><a class=\"zola-anchor\" href=\"#color-reprensentation\" aria-label=\"Anchor link for: color-reprensentation\">Color reprensentation</a></h2>\n<p>In Carbide, colors can be represented in two diffrent ways. Either the color is specified using the RGBA components or the HSLA components.</p>\n<p>Carbide converts between the different colors based on the methods you call.</p>\n<h2 id=\"environmentcolor\"><a class=\"zola-anchor\" href=\"#environmentcolor\" aria-label=\"Anchor link for: environmentcolor\">EnvironmentColor</a></h2>\n<p>An <code>EnvironmentColor</code> provides a mechanish of using semantic and configurable colors instead of choosing a color with specific RGB values. The most common color variants are the <a href=\"https://carbide.rs/examples/drawing/accent/\">Accent</a> and the <a href=\"https://carbide.rs/docs/general/colors/TODO\">Label</a>.</p>\n<p>The accent environment color is the default color for the different <a href=\"https://carbide.rs/examples/drawing/shapes/\">shapes</a>, such as Rectangle, Circle, Capsule and more.</p>\n<p>The label environment color is the default color for rendering <a href=\"https://carbide.rs/docs/general/colors/TODO\">Text</a> and <a href=\"https://carbide.rs/docs/general/colors/TODO\">icon images</a>.</p>\n<p><code>EnvironmentColor</code>'s are configurable in the <a href=\"https://carbide.rs/docs/general/colors/TODO\">Environment</a>, and can be overridden by inserting them into the widget tree. The <code>EnvironmentColor</code> is inherited by the <a href=\"https://carbide.rs/docs/general/colors/TODO\">widget children</a>, and the closest override to the thing being rendered takes precedence.</p>\n",
+      "permalink": "https://carbide.rs/docs/general/colors/",
+      "slug": "colors",
+      "ancestors": [
+        "_index.md",
+        "docs/_index.md",
+        "docs/general/_index.md"
+      ],
+      "title": "Colors",
+      "description": null,
+      "updated": null,
+      "date": null,
+      "year": null,
+      "month": null,
+      "day": null,
+      "taxonomies": {},
+      "authors": [],
+      "extra": {},
+      "path": "/docs/general/colors/",
+      "components": [
+        "docs",
+        "general",
+        "colors"
+      ],
+      "summary": null,
+      "toc": [
+        {
+          "level": 1,
+          "id": "colors",
+          "permalink": "https://carbide.rs/docs/general/colors/#colors",
+          "title": "Colors",
+          "children": [
+            {
+              "level": 2,
+              "id": "the-color-example",
+              "permalink": "https://carbide.rs/docs/general/colors/#the-color-example",
+              "title": "The color example",
+              "children": [
+                {
+                  "level": 3,
+                  "id": "run-the-example",
+                  "permalink": "https://carbide.rs/docs/general/colors/#run-the-example",
+                  "title": "Run the example",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "level": 2,
+              "id": "color-reprensentation",
+              "permalink": "https://carbide.rs/docs/general/colors/#color-reprensentation",
+              "title": "Color reprensentation",
+              "children": []
+            },
+            {
+              "level": 2,
+              "id": "environmentcolor",
+              "permalink": "https://carbide.rs/docs/general/colors/#environmentcolor",
+              "title": "EnvironmentColor",
+              "children": []
+            }
+          ]
+        }
+      ],
+      "word_count": 467,
+      "reading_time": 3,
+      "assets": [
+        "/docs/general/colors/colors.png"
+      ],
+      "draft": false,
+      "lang": "en",
+      "lower": {
+        "relative_path": "docs/general/application-structure.md",
+        "colocated_path": null,
+        "content": "<h1 id=\"application-structure\"><a class=\"zola-anchor\" href=\"#application-structure\" aria-label=\"Anchor link for: application-structure\">Application Structure</a></h1>\n<p>The main element of Carbide is an application. This is the main struct allowing you to run Carbide. This application struct holds the state of the program, its environment, and allows processing events, and manages focus.</p>\n<p>The outermost environment contains values provided by the outside environment, for example the OS. An example of this is the preferred text size, and accent color (To-Be). The environment is considered immutable, and functions using shadowing. This is described in further detail <a href=\"https://carbide.rs/docs/general/environment/\">here</a>.</p>\n<p>The main use of the application is to allow managing one or multiple scenes. A scene is an abstraction that holds a set of widgets that for example can be rendered. A classic example of a Scene is a Window. Another example is a WindowGroup, where the group allows spawning and managing multiple of the same window. Scenes are a hierarchy, and a Scene can contain child Scenes. For example this could be a window that requires a sub window, where if the window is closed all the child windows are also closed.</p>\n<p>A scene decides how to present its containing widgets, and how to respond to events. A window might render to a desktop window and allow handling mouse and keyboard events. It might decide to render at a constant framerate, whenever the OS requests it, or when receiving events. A pdf, might only care about rendering, and layout.</p>\n<p>To run your application, you call <code>.launch()</code> on the application struct. This is a blocking call, and will start the event loop behind the scenes and depending on the target (for example wasm), will handle the implementation details of launching the code.</p>\n",
+        "permalink": "https://carbide.rs/docs/general/application-structure/",
+        "slug": "application-structure",
+        "ancestors": [
+          "_index.md",
+          "docs/_index.md",
+          "docs/general/_index.md"
+        ],
+        "title": "Application Structure",
+        "description": null,
+        "updated": null,
+        "date": null,
+        "year": null,
+        "month": null,
+        "day": null,
+        "taxonomies": {},
+        "authors": [],
+        "extra": {},
+        "path": "/docs/general/application-structure/",
+        "components": [
+          "docs",
+          "general",
+          "application-structure"
+        ],
+        "summary": null,
+        "toc": [
+          {
+            "level": 1,
+            "id": "application-structure",
+            "permalink": "https://carbide.rs/docs/general/application-structure/#application-structure",
+            "title": "Application Structure",
+            "children": []
+          }
+        ],
+        "word_count": 277,
+        "reading_time": 2,
+        "assets": [],
+        "draft": false,
+        "lang": "en",
+        "lower": null,
+        "higher": null,
+        "translations": [],
+        "backlinks": []
+      },
+      "higher": {
+        "relative_path": "docs/general/environment.md",
+        "colocated_path": null,
+        "content": "<h1 id=\"environment\"><a class=\"zola-anchor\" href=\"#environment\" aria-label=\"Anchor link for: environment\">Environment</a></h1>\n<p>One of the most common structures of Carbide is the <code>Environment</code>. The <code>Environment</code> is a <a href=\"https://carbide.rs/docs/general/environment/TODO\">scoped</a> dictionary of keys and values. When Carbide processes events, calculates layouts or does rendering, an <code>Environment</code> is provided to the <a href=\"https://carbide.rs/docs/general/environment/TODO\">Widget</a>, containing all the state that can be used while processing. This could include settings, the current theme, and custom state. Values can be added and updated in the <code>Environment</code>, and due to its lifetime and scoping rules, can be provided when processing a widgets children.</p>\n<p>The <code>Environment</code> can contain both mutable and immutable references to a given value. Since the <code>Environment</code> contains references to its values, a <a href=\"https://carbide.rs/docs/general/environment/TODO\">Widget</a> can provide contained state to its children, while still adhering to rust's strict borrowing rules.</p>\n<p>The mechanism is also used by Carbide to provide <a href=\"https://carbide.rs/docs/general/environment/TODO\">Manager</a>'s, for example allowing a widget within a window, to request the window to be closed, requesting focus, or requesting a new animation frame.</p>\n<p>One of the most common examples of where the environment is used in Carbide is <a href=\"https://carbide.rs/docs/general/environment/TODO\">EnvironmentColor</a>. The environment contains an <a href=\"https://carbide.rs/docs/general/environment/TODO\">Accent</a> color, which can be overridden within a <a href=\"https://carbide.rs/docs/general/environment/TODO\">widgets children</a>.</p>\n<h2 id=\"how-it-works\"><a class=\"zola-anchor\" href=\"#how-it-works\" aria-label=\"Anchor link for: how-it-works\">How it works</a></h2>\n<p>TODO</p>\n<h2 id=\"scoping-rules\"><a class=\"zola-anchor\" href=\"#scoping-rules\" aria-label=\"Anchor link for: scoping-rules\">Scoping rules</a></h2>\n<p>The environment contains scoped values, and allows for shadowing. Scoping follows the same shadowing rules as Rust. Scoping is on a per key basis. Only one value can be current in the environment per key. If you insert a new value into the environment with a key that is already inserted, the previous value will be shadowed by the new value.</p>\n<p>This is for example used when defining styles for carbide controls. Suppose we have a default button style. This could be inserted at the outermost position in the environment. A specific style can be then inserted, overriding the other style, for all widgets contained in the scope of the environment. When leaving the scope, the outermost value can be accessed again.</p>\n<p>It is not possible to access the value from the outer environment in the inner environment.</p>\n<p>TODO</p>\n<h2 id=\"custom-values\"><a class=\"zola-anchor\" href=\"#custom-values\" aria-label=\"Anchor link for: custom-values\">Custom values</a></h2>\n<p>TODO</p>\n",
+        "permalink": "https://carbide.rs/docs/general/environment/",
+        "slug": "environment",
+        "ancestors": [
+          "_index.md",
+          "docs/_index.md",
+          "docs/general/_index.md"
+        ],
+        "title": "Environment",
+        "description": null,
+        "updated": null,
+        "date": null,
+        "year": null,
+        "month": null,
+        "day": null,
+        "taxonomies": {},
+        "authors": [],
+        "extra": {},
+        "path": "/docs/general/environment/",
+        "components": [
+          "docs",
+          "general",
+          "environment"
+        ],
+        "summary": null,
+        "toc": [
+          {
+            "level": 1,
+            "id": "environment",
+            "permalink": "https://carbide.rs/docs/general/environment/#environment",
+            "title": "Environment",
+            "children": [
+              {
+                "level": 2,
+                "id": "how-it-works",
+                "permalink": "https://carbide.rs/docs/general/environment/#how-it-works",
+                "title": "How it works",
+                "children": []
+              },
+              {
+                "level": 2,
+                "id": "scoping-rules",
+                "permalink": "https://carbide.rs/docs/general/environment/#scoping-rules",
+                "title": "Scoping rules",
+                "children": []
+              },
+              {
+                "level": 2,
+                "id": "custom-values",
+                "permalink": "https://carbide.rs/docs/general/environment/#custom-values",
+                "title": "Custom values",
+                "children": []
+              }
+            ]
+          }
+        ],
+        "word_count": 340,
+        "reading_time": 2,
+        "assets": [],
+        "draft": false,
+        "lang": "en",
+        "lower": null,
+        "higher": null,
+        "translations": [],
+        "backlinks": [
+          {
+            "permalink": "https://carbide.rs/docs/general/application-structure/",
+            "title": "Application Structure"
+          }
+        ]
+      },
+      "translations": [],
+      "backlinks": [
+        {
+          "permalink": "https://carbide.rs/examples/drawing/accent/",
+          "title": "Accent"
+        },
+        {
+          "permalink": "https://carbide.rs/examples/drawing/border/",
+          "title": "Border"
+        },
+        {
+          "permalink": "https://carbide.rs/examples/image/icon/",
+          "title": "Icon"
+        }
+      ]
+    },
+    {
+      "relative_path": "docs/general/environment.md",
+      "colocated_path": null,
+      "content": "<h1 id=\"environment\"><a class=\"zola-anchor\" href=\"#environment\" aria-label=\"Anchor link for: environment\">Environment</a></h1>\n<p>One of the most common structures of Carbide is the <code>Environment</code>. The <code>Environment</code> is a <a href=\"https://carbide.rs/docs/general/environment/TODO\">scoped</a> dictionary of keys and values. When Carbide processes events, calculates layouts or does rendering, an <code>Environment</code> is provided to the <a href=\"https://carbide.rs/docs/general/environment/TODO\">Widget</a>, containing all the state that can be used while processing. This could include settings, the current theme, and custom state. Values can be added and updated in the <code>Environment</code>, and due to its lifetime and scoping rules, can be provided when processing a widgets children.</p>\n<p>The <code>Environment</code> can contain both mutable and immutable references to a given value. Since the <code>Environment</code> contains references to its values, a <a href=\"https://carbide.rs/docs/general/environment/TODO\">Widget</a> can provide contained state to its children, while still adhering to rust's strict borrowing rules.</p>\n<p>The mechanism is also used by Carbide to provide <a href=\"https://carbide.rs/docs/general/environment/TODO\">Manager</a>'s, for example allowing a widget within a window, to request the window to be closed, requesting focus, or requesting a new animation frame.</p>\n<p>One of the most common examples of where the environment is used in Carbide is <a href=\"https://carbide.rs/docs/general/environment/TODO\">EnvironmentColor</a>. The environment contains an <a href=\"https://carbide.rs/docs/general/environment/TODO\">Accent</a> color, which can be overridden within a <a href=\"https://carbide.rs/docs/general/environment/TODO\">widgets children</a>.</p>\n<h2 id=\"how-it-works\"><a class=\"zola-anchor\" href=\"#how-it-works\" aria-label=\"Anchor link for: how-it-works\">How it works</a></h2>\n<p>TODO</p>\n<h2 id=\"scoping-rules\"><a class=\"zola-anchor\" href=\"#scoping-rules\" aria-label=\"Anchor link for: scoping-rules\">Scoping rules</a></h2>\n<p>The environment contains scoped values, and allows for shadowing. Scoping follows the same shadowing rules as Rust. Scoping is on a per key basis. Only one value can be current in the environment per key. If you insert a new value into the environment with a key that is already inserted, the previous value will be shadowed by the new value.</p>\n<p>This is for example used when defining styles for carbide controls. Suppose we have a default button style. This could be inserted at the outermost position in the environment. A specific style can be then inserted, overriding the other style, for all widgets contained in the scope of the environment. When leaving the scope, the outermost value can be accessed again.</p>\n<p>It is not possible to access the value from the outer environment in the inner environment.</p>\n<p>TODO</p>\n<h2 id=\"custom-values\"><a class=\"zola-anchor\" href=\"#custom-values\" aria-label=\"Anchor link for: custom-values\">Custom values</a></h2>\n<p>TODO</p>\n",
+      "permalink": "https://carbide.rs/docs/general/environment/",
+      "slug": "environment",
+      "ancestors": [
+        "_index.md",
+        "docs/_index.md",
+        "docs/general/_index.md"
+      ],
+      "title": "Environment",
+      "description": null,
+      "updated": null,
+      "date": null,
+      "year": null,
+      "month": null,
+      "day": null,
+      "taxonomies": {},
+      "authors": [],
+      "extra": {},
+      "path": "/docs/general/environment/",
+      "components": [
+        "docs",
+        "general",
+        "environment"
+      ],
+      "summary": null,
+      "toc": [
+        {
+          "level": 1,
+          "id": "environment",
+          "permalink": "https://carbide.rs/docs/general/environment/#environment",
+          "title": "Environment",
+          "children": [
+            {
+              "level": 2,
+              "id": "how-it-works",
+              "permalink": "https://carbide.rs/docs/general/environment/#how-it-works",
+              "title": "How it works",
+              "children": []
+            },
+            {
+              "level": 2,
+              "id": "scoping-rules",
+              "permalink": "https://carbide.rs/docs/general/environment/#scoping-rules",
+              "title": "Scoping rules",
+              "children": []
+            },
+            {
+              "level": 2,
+              "id": "custom-values",
+              "permalink": "https://carbide.rs/docs/general/environment/#custom-values",
+              "title": "Custom values",
+              "children": []
+            }
+          ]
+        }
+      ],
+      "word_count": 340,
+      "reading_time": 2,
+      "assets": [],
+      "draft": false,
+      "lang": "en",
+      "lower": {
+        "relative_path": "docs/general/colors/index.md",
+        "colocated_path": "docs/general/colors/",
+        "content": "<h1 id=\"colors\"><a class=\"zola-anchor\" href=\"#colors\" aria-label=\"Anchor link for: colors\">Colors</a></h1>\n<p>When rendering in Carbide, each shape can have a <code>Color</code>. In Carbide, this color is specified using an enum (in <code>color.rs</code>), and can be constructed on multiple different ways.</p>\n<p>The most common way to create a new <code>Color</code> is by using its <code>Color::new_rgb()</code> or <code>Color::new_rgba()</code> methods. These will construct a RGBA color based on the different color components given as input.</p>\n<p>Carbide has a few predefined colors. These can be used as simple debugging colors. The predefined colors are not recommended to be used, since they were migrated over when we forked Conrod in 2021, and has not been updated since.</p>\n<p>A color can also be used in a <a href=\"https://carbide.rs/docs/general/gradient/\">Gradient</a>, allowing you to create more complex visual effects.</p>\n<p>A few other interesting ways of constructing a color exist. You can generate a random color using <code>Color::random()</code> method, which creates a new random color each time the method is called. You can also generate a new color based on the current time using the <code>Color::time()</code> method. This rotates through different hues of an HSL color based on the current time.</p>\n<blockquote>\n<p>It is recommended, when rendering, to use <a href=\"https://carbide.rs/docs/general/colors/TODO\">EnvironmentColor</a>, and not use the Color type directly. This enables Carbide to apply <a href=\"https://carbide.rs/docs/general/colors/TODO\">themeing</a> and other modifications to the color based on user preferences, such as lightmode, darkmode, and custom themes. It also allows custom overrides higher in the <a href=\"https://carbide.rs/docs/general/colors/TODO\">widget tree</a>, for example setting the <a href=\"https://carbide.rs/docs/general/colors/TODO\">EnvironmentColor</a> red, to another shade, or an entirely different color.</p>\n</blockquote>\n<h2 id=\"the-color-example\"><a class=\"zola-anchor\" href=\"#the-color-example\" aria-label=\"Anchor link for: the-color-example\">The color example</a></h2>\n<p>The colors example showcases the different <a href=\"https://carbide.rs/docs/general/colors/TODO\">EnvironmentColor</a>'s when rendered using the current <a href=\"https://carbide.rs/docs/general/colors/TODO\">Theme</a>.</p>\n<p><img src=\"https://carbide.rs/docs/general/colors/colors.png\" alt=\"A screenshot of the colors example\" /></p>\n<h3 id=\"run-the-example\"><a class=\"zola-anchor\" href=\"#run-the-example\" aria-label=\"Anchor link for: run-the-example\">Run the example</a></h3>\n<p>The example can be run with the following command: <code>cargo run --package carbide_wgpu --example colors</code> when located in the working directory <code>carbide</code>.</p>\n<p>For better performance, remember to run the example with <code>--release</code>.</p>\n<h2 id=\"color-reprensentation\"><a class=\"zola-anchor\" href=\"#color-reprensentation\" aria-label=\"Anchor link for: color-reprensentation\">Color reprensentation</a></h2>\n<p>In Carbide, colors can be represented in two diffrent ways. Either the color is specified using the RGBA components or the HSLA components.</p>\n<p>Carbide converts between the different colors based on the methods you call.</p>\n<h2 id=\"environmentcolor\"><a class=\"zola-anchor\" href=\"#environmentcolor\" aria-label=\"Anchor link for: environmentcolor\">EnvironmentColor</a></h2>\n<p>An <code>EnvironmentColor</code> provides a mechanish of using semantic and configurable colors instead of choosing a color with specific RGB values. The most common color variants are the <a href=\"https://carbide.rs/examples/drawing/accent/\">Accent</a> and the <a href=\"https://carbide.rs/docs/general/colors/TODO\">Label</a>.</p>\n<p>The accent environment color is the default color for the different <a href=\"https://carbide.rs/examples/drawing/shapes/\">shapes</a>, such as Rectangle, Circle, Capsule and more.</p>\n<p>The label environment color is the default color for rendering <a href=\"https://carbide.rs/docs/general/colors/TODO\">Text</a> and <a href=\"https://carbide.rs/docs/general/colors/TODO\">icon images</a>.</p>\n<p><code>EnvironmentColor</code>'s are configurable in the <a href=\"https://carbide.rs/docs/general/colors/TODO\">Environment</a>, and can be overridden by inserting them into the widget tree. The <code>EnvironmentColor</code> is inherited by the <a href=\"https://carbide.rs/docs/general/colors/TODO\">widget children</a>, and the closest override to the thing being rendered takes precedence.</p>\n",
+        "permalink": "https://carbide.rs/docs/general/colors/",
+        "slug": "colors",
+        "ancestors": [
+          "_index.md",
+          "docs/_index.md",
+          "docs/general/_index.md"
+        ],
+        "title": "Colors",
+        "description": null,
+        "updated": null,
+        "date": null,
+        "year": null,
+        "month": null,
+        "day": null,
+        "taxonomies": {},
+        "authors": [],
+        "extra": {},
+        "path": "/docs/general/colors/",
+        "components": [
+          "docs",
+          "general",
+          "colors"
+        ],
+        "summary": null,
+        "toc": [
+          {
+            "level": 1,
+            "id": "colors",
+            "permalink": "https://carbide.rs/docs/general/colors/#colors",
+            "title": "Colors",
+            "children": [
+              {
+                "level": 2,
+                "id": "the-color-example",
+                "permalink": "https://carbide.rs/docs/general/colors/#the-color-example",
+                "title": "The color example",
+                "children": [
+                  {
+                    "level": 3,
+                    "id": "run-the-example",
+                    "permalink": "https://carbide.rs/docs/general/colors/#run-the-example",
+                    "title": "Run the example",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "level": 2,
+                "id": "color-reprensentation",
+                "permalink": "https://carbide.rs/docs/general/colors/#color-reprensentation",
+                "title": "Color reprensentation",
+                "children": []
+              },
+              {
+                "level": 2,
+                "id": "environmentcolor",
+                "permalink": "https://carbide.rs/docs/general/colors/#environmentcolor",
+                "title": "EnvironmentColor",
+                "children": []
+              }
+            ]
+          }
+        ],
+        "word_count": 467,
+        "reading_time": 3,
+        "assets": [
+          "/docs/general/colors/colors.png"
+        ],
+        "draft": false,
+        "lang": "en",
+        "lower": null,
+        "higher": null,
+        "translations": [],
+        "backlinks": [
+          {
+            "permalink": "https://carbide.rs/examples/drawing/accent/",
+            "title": "Accent"
+          },
+          {
+            "permalink": "https://carbide.rs/examples/drawing/border/",
+            "title": "Border"
+          },
+          {
+            "permalink": "https://carbide.rs/examples/image/icon/",
+            "title": "Icon"
+          }
+        ]
+      },
+      "higher": {
+        "relative_path": "docs/general/gradient/index.md",
+        "colocated_path": "docs/general/gradient/",
+        "content": "<h1 id=\"gradient\"><a class=\"zola-anchor\" href=\"#gradient\" aria-label=\"Anchor link for: gradient\">Gradient</a></h1>\n<p>TODO</p>\n",
+        "permalink": "https://carbide.rs/docs/general/gradient/",
+        "slug": "gradient",
+        "ancestors": [
+          "_index.md",
+          "docs/_index.md",
+          "docs/general/_index.md"
+        ],
+        "title": "Gradient",
+        "description": null,
+        "updated": null,
+        "date": null,
+        "year": null,
+        "month": null,
+        "day": null,
+        "taxonomies": {},
+        "authors": [],
+        "extra": {},
+        "path": "/docs/general/gradient/",
+        "components": [
+          "docs",
+          "general",
+          "gradient"
+        ],
+        "summary": null,
+        "toc": [
+          {
+            "level": 1,
+            "id": "gradient",
+            "permalink": "https://carbide.rs/docs/general/gradient/#gradient",
+            "title": "Gradient",
+            "children": []
+          }
+        ],
+        "word_count": 2,
+        "reading_time": 1,
+        "assets": [],
+        "draft": false,
+        "lang": "en",
+        "lower": null,
+        "higher": null,
+        "translations": [],
+        "backlinks": [
+          {
+            "permalink": "https://carbide.rs/docs/general/colors/",
+            "title": "Colors"
+          }
+        ]
+      },
+      "translations": [],
+      "backlinks": [
+        {
+          "permalink": "https://carbide.rs/docs/general/application-structure/",
+          "title": "Application Structure"
+        }
+      ]
+    },
+    {
+      "relative_path": "docs/general/gradient/index.md",
+      "colocated_path": "docs/general/gradient/",
+      "content": "<h1 id=\"gradient\"><a class=\"zola-anchor\" href=\"#gradient\" aria-label=\"Anchor link for: gradient\">Gradient</a></h1>\n<p>TODO</p>\n",
+      "permalink": "https://carbide.rs/docs/general/gradient/",
+      "slug": "gradient",
+      "ancestors": [
+        "_index.md",
+        "docs/_index.md",
+        "docs/general/_index.md"
+      ],
+      "title": "Gradient",
+      "description": null,
+      "updated": null,
+      "date": null,
+      "year": null,
+      "month": null,
+      "day": null,
+      "taxonomies": {},
+      "authors": [],
+      "extra": {},
+      "path": "/docs/general/gradient/",
+      "components": [
+        "docs",
+        "general",
+        "gradient"
+      ],
+      "summary": null,
+      "toc": [
+        {
+          "level": 1,
+          "id": "gradient",
+          "permalink": "https://carbide.rs/docs/general/gradient/#gradient",
+          "title": "Gradient",
+          "children": []
+        }
+      ],
+      "word_count": 2,
+      "reading_time": 1,
+      "assets": [],
+      "draft": false,
+      "lang": "en",
+      "lower": {
+        "relative_path": "docs/general/environment.md",
+        "colocated_path": null,
+        "content": "<h1 id=\"environment\"><a class=\"zola-anchor\" href=\"#environment\" aria-label=\"Anchor link for: environment\">Environment</a></h1>\n<p>One of the most common structures of Carbide is the <code>Environment</code>. The <code>Environment</code> is a <a href=\"https://carbide.rs/docs/general/environment/TODO\">scoped</a> dictionary of keys and values. When Carbide processes events, calculates layouts or does rendering, an <code>Environment</code> is provided to the <a href=\"https://carbide.rs/docs/general/environment/TODO\">Widget</a>, containing all the state that can be used while processing. This could include settings, the current theme, and custom state. Values can be added and updated in the <code>Environment</code>, and due to its lifetime and scoping rules, can be provided when processing a widgets children.</p>\n<p>The <code>Environment</code> can contain both mutable and immutable references to a given value. Since the <code>Environment</code> contains references to its values, a <a href=\"https://carbide.rs/docs/general/environment/TODO\">Widget</a> can provide contained state to its children, while still adhering to rust's strict borrowing rules.</p>\n<p>The mechanism is also used by Carbide to provide <a href=\"https://carbide.rs/docs/general/environment/TODO\">Manager</a>'s, for example allowing a widget within a window, to request the window to be closed, requesting focus, or requesting a new animation frame.</p>\n<p>One of the most common examples of where the environment is used in Carbide is <a href=\"https://carbide.rs/docs/general/environment/TODO\">EnvironmentColor</a>. The environment contains an <a href=\"https://carbide.rs/docs/general/environment/TODO\">Accent</a> color, which can be overridden within a <a href=\"https://carbide.rs/docs/general/environment/TODO\">widgets children</a>.</p>\n<h2 id=\"how-it-works\"><a class=\"zola-anchor\" href=\"#how-it-works\" aria-label=\"Anchor link for: how-it-works\">How it works</a></h2>\n<p>TODO</p>\n<h2 id=\"scoping-rules\"><a class=\"zola-anchor\" href=\"#scoping-rules\" aria-label=\"Anchor link for: scoping-rules\">Scoping rules</a></h2>\n<p>The environment contains scoped values, and allows for shadowing. Scoping follows the same shadowing rules as Rust. Scoping is on a per key basis. Only one value can be current in the environment per key. If you insert a new value into the environment with a key that is already inserted, the previous value will be shadowed by the new value.</p>\n<p>This is for example used when defining styles for carbide controls. Suppose we have a default button style. This could be inserted at the outermost position in the environment. A specific style can be then inserted, overriding the other style, for all widgets contained in the scope of the environment. When leaving the scope, the outermost value can be accessed again.</p>\n<p>It is not possible to access the value from the outer environment in the inner environment.</p>\n<p>TODO</p>\n<h2 id=\"custom-values\"><a class=\"zola-anchor\" href=\"#custom-values\" aria-label=\"Anchor link for: custom-values\">Custom values</a></h2>\n<p>TODO</p>\n",
+        "permalink": "https://carbide.rs/docs/general/environment/",
+        "slug": "environment",
+        "ancestors": [
+          "_index.md",
+          "docs/_index.md",
+          "docs/general/_index.md"
+        ],
+        "title": "Environment",
+        "description": null,
+        "updated": null,
+        "date": null,
+        "year": null,
+        "month": null,
+        "day": null,
+        "taxonomies": {},
+        "authors": [],
+        "extra": {},
+        "path": "/docs/general/environment/",
+        "components": [
+          "docs",
+          "general",
+          "environment"
+        ],
+        "summary": null,
+        "toc": [
+          {
+            "level": 1,
+            "id": "environment",
+            "permalink": "https://carbide.rs/docs/general/environment/#environment",
+            "title": "Environment",
+            "children": [
+              {
+                "level": 2,
+                "id": "how-it-works",
+                "permalink": "https://carbide.rs/docs/general/environment/#how-it-works",
+                "title": "How it works",
+                "children": []
+              },
+              {
+                "level": 2,
+                "id": "scoping-rules",
+                "permalink": "https://carbide.rs/docs/general/environment/#scoping-rules",
+                "title": "Scoping rules",
+                "children": []
+              },
+              {
+                "level": 2,
+                "id": "custom-values",
+                "permalink": "https://carbide.rs/docs/general/environment/#custom-values",
+                "title": "Custom values",
+                "children": []
+              }
+            ]
+          }
+        ],
+        "word_count": 340,
+        "reading_time": 2,
+        "assets": [],
+        "draft": false,
+        "lang": "en",
+        "lower": null,
+        "higher": null,
+        "translations": [],
+        "backlinks": [
+          {
+            "permalink": "https://carbide.rs/docs/general/application-structure/",
+            "title": "Application Structure"
+          }
+        ]
+      },
+      "higher": null,
+      "translations": [],
+      "backlinks": [
+        {
+          "permalink": "https://carbide.rs/docs/general/colors/",
+          "title": "Colors"
+        }
+      ]
+    }
+  ],
+  "subsections": [],
+  "translations": [],
+  "backlinks": [],
+  "generate_feeds": false,
+  "transparent": false,
+  "paginate_by": null,
+  "paginate_reversed": false
+}</pre>
+</div>
+
+
+  </div>
+</body>
+
+</html>
