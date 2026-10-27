@@ -1,40 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link href='https://carbide.rs/css/output.css' rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carbide</title>
+  </head>
 
-<head>
-  <meta charset="utf-8">
-  <link href='https://carbide.rs/css/output.css' rel="stylesheet">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Carbide</title>
-</head>
-
-<body class="bg-stone-50 min-h-screen min-w-screen max-h-screen max-w-screen overflow-hidden flex flex-col text-stone-700"
-  style="background-image: linear-gradient(180deg, rgba(88, 125, 45, 0.04) 0%, transparent 680px)">
-  <header class="bg-white w-full h-14 shadow-xs shrink-0 grow-0 z-20 flex flex-row justify-between items-center px-5">
-    <a class="text-amber-600 font-bold" href="/">Carbide</a>
-    <div class="flex flex-row gap-8 h-full items-center">
-      <nav class="flex flex-row gap-2 h-full items-center">
-        <a class="group px-1.5 box-content  border-b-2  hover:border-b-2 border-amber-600 h-full flex flex-row items-center" href="https://carbide.rs/docs/outline/">
-          <div class="group-hover:-mb-[2px]  -mb-[2px] ">Home</div>
-        </a>
-        <a class="group px-1.5 box-content  hover:border-b-2 border-amber-600 h-full flex flex-row items-center" href="https://carbide.rs/api/">
-          <div class="group-hover:-mb-[2px] ">API</div>
-        </a>
-        <a class="group px-1.5 box-content  hover:border-b-2 border-amber-600 h-full flex flex-row items-center" href="https://carbide.rs/examples/outline/">
-          <div class="group-hover:-mb-[2px] ">Examples</div>
-        </a>
-      </nav>
-      <a href="https://github.com/HolgerGottChristensen/carbide">GitHub</a>
-    </div>
+  <body class="bg-stone-50 min-h-screen min-w-screen max-w-screen flex flex-col text-stone-700" style="background-image: linear-gradient(180deg, rgba(88, 125, 45, 0.04) 0%, transparent 680px)">
     
-  </header>
-  <div class="grow flex flex-col overflow-hidden bg-slate-50">
+    <header class="bg-white shadow-xs w-full h-14 bg-blue-600 fixed top-0 right-0 flex flex-row justify-between items-center px-5">
+      <a class="text-amber-600 font-bold" href="/">Carbide</a>
+      <div class="flex flex-row gap-8 h-full items-center">
+        <nav class="flex flex-row gap-2 h-full items-center">
+          <a class="group px-1.5 box-content  border-b-2  hover:border-b-2 border-amber-600 h-full flex flex-row items-center" href="https://carbide.rs/docs/outline/">
+            <div class="group-hover:-mb-[2px]  -mb-[2px] ">Home</div>
+          </a>
+          <a class="group px-1.5 box-content  hover:border-b-2 border-amber-600 h-full flex flex-row items-center" href="https://carbide.rs/api/">
+            <div class="group-hover:-mb-[2px] ">API</div>
+          </a>
+          <a class="group px-1.5 box-content  hover:border-b-2 border-amber-600 h-full flex flex-row items-center" href="https://carbide.rs/examples/outline/">
+            <div class="group-hover:-mb-[2px] ">Examples</div>
+          </a>
+        </nav>
+        <a href="https://github.com/HolgerGottChristensen/carbide">GitHub</a>
+      </div>
+    </header>
+    <div class="w-full h-14 bg-red-600"></div>
+
+    
     
 
 <div class="overflow-auto p-10 grow">
   <pre>{
   "relative_path": "docs/state/_index.md",
-  "colocated_path": null,
+  "colocated_path": "docs/state/",
   "content": "",
   "permalink": "https://carbide.rs/docs/state/",
   "draft": false,
@@ -57,17 +57,188 @@
   "assets": [],
   "pages": [],
   "subsections": [],
+  "lower": {
+    "relative_path": "docs/rendering/_index.md",
+    "colocated_path": "docs/rendering/",
+    "content": "",
+    "permalink": "https://carbide.rs/docs/rendering/",
+    "draft": false,
+    "ancestors": [
+      "_index.md",
+      "docs/_index.md"
+    ],
+    "title": "Rendering",
+    "description": null,
+    "extra": {},
+    "path": "/docs/rendering/",
+    "components": [
+      "docs",
+      "rendering"
+    ],
+    "toc": [],
+    "word_count": 0,
+    "reading_time": 0,
+    "lang": "en",
+    "assets": [],
+    "pages": [
+      {
+        "relative_path": "docs/rendering/overview/index.md",
+        "colocated_path": "docs/rendering/overview/",
+        "content": "<h1 id=\"rendering-overview\"><a class=\"zola-anchor\" href=\"#rendering-overview\" aria-label=\"Anchor link for: rendering-overview\">Rendering Overview</a></h1>\n<p>Carbide is backend agnostic. It is intentionally designed to allow implementing multiple different backends, such as rendering to a window, to an image, to a pdf, and other targets.</p>\n<p>This design decision dates back to the origin of the framework, when it was forked from conrod. Multiple backends have some advantages. For example, if some new rendering framework is implemented, such as <a rel=\"external\" href=\"https://github.com/linebender/vello\">Vello</a> that has a different implementation and focus than for example <a rel=\"external\" href=\"https://github.com/grovesNL/glow\">Glow</a> or <a rel=\"external\" href=\"https://github.com/gfx-rs/wgpu\">Wgpu</a>, it is possible to switch, without needing to touch any of your application code.</p>\n<p>To achieve this, we have designed a generic and declarative interface that allows specifying shapes, transforms and other rendering features, without specifying how they are converted to pixels and placed on the screen. The current reference implenentation is using WGPU, and to render a shape using WGPU, we need to tesselate the shape(convering the description into triangles) and sending these to the GPU, rendering using a custom shader. The specifics of how shapes are tesselated and the results are cached and split into rendering passes is up to the implementor.</p>\n<p>The declarative interface is inspired by the canvas api from html, where you can choose to rendering using simple command such as <code>lineTo</code>, <code>moveTo</code> and <code>fill</code>.</p>\n<p>It also comes with some drawbacks. Some rendering backends might not support all features, required to render the full application. For example specific rendering features like convolution filters and drop shadows can be complex to support efficiently.</p>\n",
+        "permalink": "https://carbide.rs/docs/rendering/overview/",
+        "slug": "overview",
+        "ancestors": [
+          "_index.md",
+          "docs/_index.md",
+          "docs/rendering/_index.md"
+        ],
+        "title": "Overview",
+        "description": null,
+        "updated": null,
+        "date": null,
+        "year": null,
+        "month": null,
+        "day": null,
+        "taxonomies": {},
+        "authors": [],
+        "aliases": [],
+        "extra": {},
+        "path": "/docs/rendering/overview/",
+        "components": [
+          "docs",
+          "rendering",
+          "overview"
+        ],
+        "summary": null,
+        "toc": [
+          {
+            "level": 1,
+            "id": "rendering-overview",
+            "permalink": "https://carbide.rs/docs/rendering/overview/#rendering-overview",
+            "title": "Rendering Overview",
+            "children": []
+          }
+        ],
+        "word_count": 259,
+        "reading_time": 2,
+        "assets": [],
+        "draft": false,
+        "lang": "en",
+        "include_in_feeds": true,
+        "lower": null,
+        "higher": null,
+        "translations": [],
+        "backlinks": [],
+        "hidden": false
+      }
+    ],
+    "subsections": [],
+    "lower": null,
+    "higher": null,
+    "translations": [],
+    "backlinks": [],
+    "generate_feeds": false,
+    "transparent": false,
+    "paginate_by": null,
+    "paginate_reversed": false,
+    "hidden": false
+  },
+  "higher": {
+    "relative_path": "docs/widgets/_index.md",
+    "colocated_path": "docs/widgets/",
+    "content": "",
+    "permalink": "https://carbide.rs/docs/widgets/",
+    "draft": false,
+    "ancestors": [
+      "_index.md",
+      "docs/_index.md"
+    ],
+    "title": "Widgets",
+    "description": null,
+    "extra": {},
+    "path": "/docs/widgets/",
+    "components": [
+      "docs",
+      "widgets"
+    ],
+    "toc": [],
+    "word_count": 0,
+    "reading_time": 0,
+    "lang": "en",
+    "assets": [],
+    "pages": [
+      {
+        "relative_path": "docs/widgets/overview/index.md",
+        "colocated_path": "docs/widgets/overview/",
+        "content": "<h1 id=\"widget-overview\"><a class=\"zola-anchor\" href=\"#widget-overview\" aria-label=\"Anchor link for: widget-overview\">Widget Overview</a></h1>\n",
+        "permalink": "https://carbide.rs/docs/widgets/overview/",
+        "slug": "overview",
+        "ancestors": [
+          "_index.md",
+          "docs/_index.md",
+          "docs/widgets/_index.md"
+        ],
+        "title": "Overview",
+        "description": null,
+        "updated": null,
+        "date": null,
+        "year": null,
+        "month": null,
+        "day": null,
+        "taxonomies": {},
+        "authors": [],
+        "aliases": [],
+        "extra": {},
+        "path": "/docs/widgets/overview/",
+        "components": [
+          "docs",
+          "widgets",
+          "overview"
+        ],
+        "summary": null,
+        "toc": [
+          {
+            "level": 1,
+            "id": "widget-overview",
+            "permalink": "https://carbide.rs/docs/widgets/overview/#widget-overview",
+            "title": "Widget Overview",
+            "children": []
+          }
+        ],
+        "word_count": 2,
+        "reading_time": 1,
+        "assets": [],
+        "draft": false,
+        "lang": "en",
+        "include_in_feeds": true,
+        "lower": null,
+        "higher": null,
+        "translations": [],
+        "backlinks": [],
+        "hidden": false
+      }
+    ],
+    "subsections": [],
+    "lower": null,
+    "higher": null,
+    "translations": [],
+    "backlinks": [],
+    "generate_feeds": false,
+    "transparent": false,
+    "paginate_by": null,
+    "paginate_reversed": false,
+    "hidden": false
+  },
   "translations": [],
   "backlinks": [],
   "generate_feeds": false,
   "transparent": false,
   "paginate_by": null,
-  "paginate_reversed": false
+  "paginate_reversed": false,
+  "hidden": false
 }</pre>
 </div>
 
 
-  </div>
-</body>
-
+  </body>
 </html>
