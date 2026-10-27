@@ -147,20 +147,20 @@
       
           
           <li>
-              <span class="font-medium">State</span>
-              <ul class="pl-3">
-                  
-              </ul>
-          </li>
-      
-          
-          <li>
               <span class="font-medium">Rendering</span>
               <ul class="pl-3">
                   
                       <li class="">
                           <a href="https:&#x2F;&#x2F;carbide.rs&#x2F;docs&#x2F;rendering&#x2F;overview&#x2F;" class="underline cursor-pointer">Overview</a>
                       </li>
+                  
+              </ul>
+          </li>
+      
+          
+          <li>
+              <span class="font-medium">State</span>
+              <ul class="pl-3">
                   
               </ul>
           </li>
@@ -181,7 +181,7 @@
   </aside>
 
   <main class="overflow-x-hidden overflow-y-auto grow flex flex-col">
-    <div class="flex flex-col p-6 grow">
+    <div class="flex flex-col p-8 grow max-w-4xl">
       <div class="flex flex-col w-full page-content leading-relaxed grow">
         <h1 id="environment"><a class="zola-anchor" href="#environment" aria-label="Anchor link for: environment">Environment</a></h1>
 <p>One of the most common structures of Carbide is the <code>Environment</code>. The <code>Environment</code> is a <a href="https://carbide.rs/docs/general/environment/TODO">scoped</a> dictionary of keys and values. When Carbide processes events, calculates layouts or does rendering, an <code>Environment</code> is provided to the <a href="https://carbide.rs/docs/general/environment/TODO">Widget</a>, containing all the state that can be used while processing. This could include settings, the current theme, and custom state. Values can be added and updated in the <code>Environment</code>, and due to its lifetime and scoping rules, can be provided when processing a widgets children.</p>
