@@ -12,6 +12,7 @@
     
     .page-content h1 {
         @apply text-4xl mb-4 font-medium;
+        scroll-margin-top: 75px;
     }
     
     .page-content h1 a {
@@ -29,6 +30,7 @@
     
     .page-content h2 {
         @apply text-2xl mb-1 font-medium text-stone-700;
+        scroll-margin-top: 75px;
     }
     
     .page-content h2 a {
@@ -46,6 +48,7 @@
 
     .page-content h3 {
         @apply mb-0 font-bold text-stone-700;
+        scroll-margin-top: 75px;
     }
     
     .page-content h3 a {

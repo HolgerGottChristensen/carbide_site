@@ -19,6 +19,7 @@
     --color-stone-700: oklch(37.4% 0.01 67.558);
     --color-white: #fff;
     --spacing: 0.25rem;
+    --container-3xl: 48rem;
     --container-4xl: 56rem;
     --text-sm: 0.875rem;
     --text-sm--line-height: calc(1.25 / 0.875);
@@ -192,9 +193,6 @@
   .fixed {
     position: fixed;
   }
-  .relative {
-    position: relative;
-  }
   .static {
     position: static;
   }
@@ -228,6 +226,9 @@
   .flex {
     display: flex;
   }
+  .hidden {
+    display: none;
+  }
   .h-14 {
     height: calc(var(--spacing) * 14);
   }
@@ -245,6 +246,9 @@
   }
   .w-full {
     width: 100%;
+  }
+  .max-w-3xl {
+    max-width: var(--container-3xl);
   }
   .max-w-4xl {
     max-width: var(--container-4xl);
@@ -330,18 +334,6 @@
   .bg-blue-600 {
     background-color: var(--color-blue-600);
   }
-  .bg-blue-600\/25 {
-    background-color: color-mix(in srgb, oklch(54.6% 0.245 262.881) 25%, transparent);
-    @supports (color: color-mix(in lab, red, red)) {
-      background-color: color-mix(in oklab, var(--color-blue-600) 25%, transparent);
-    }
-  }
-  .bg-blue-600\/50 {
-    background-color: color-mix(in srgb, oklch(54.6% 0.245 262.881) 50%, transparent);
-    @supports (color: color-mix(in lab, red, red)) {
-      background-color: color-mix(in oklab, var(--color-blue-600) 50%, transparent);
-    }
-  }
   .bg-red-600 {
     background-color: var(--color-red-600);
   }
@@ -357,9 +349,6 @@
   .bg-white {
     background-color: var(--color-white);
   }
-  .p-6 {
-    padding: calc(var(--spacing) * 6);
-  }
   .p-8 {
     padding: calc(var(--spacing) * 8);
   }
@@ -371,6 +360,9 @@
   }
   .px-2 {
     padding-inline: calc(var(--spacing) * 2);
+  }
+  .px-4 {
+    padding-inline: calc(var(--spacing) * 4);
   }
   .px-5 {
     padding-inline: calc(var(--spacing) * 5);
@@ -459,6 +451,7 @@
     line-height: var(--tw-leading, var(--text-4xl--line-height));
     --tw-font-weight: var(--font-weight-medium);
     font-weight: var(--font-weight-medium);
+    scroll-margin-top: 75px;
   }
   .page-content h1 a {
     color: var(--color-stone-700);
@@ -477,6 +470,7 @@
     --tw-font-weight: var(--font-weight-medium);
     font-weight: var(--font-weight-medium);
     color: var(--color-stone-700);
+    scroll-margin-top: 75px;
   }
   .page-content h2 a {
     color: var(--color-stone-700);
@@ -493,6 +487,7 @@
     --tw-font-weight: var(--font-weight-bold);
     font-weight: var(--font-weight-bold);
     color: var(--color-stone-700);
+    scroll-margin-top: 75px;
   }
   .page-content h3 a {
     color: var(--color-stone-700);

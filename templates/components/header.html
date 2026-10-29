@@ -1,20 +1,20 @@
 {% component header(@current_path: string = "/docs") %}
-    <header class="bg-white shadow-xs w-full h-14 bg-blue-600 fixed top-0 right-0 flex flex-row justify-between items-center px-5">
-      <a class="text-amber-600 font-bold" href="/">Carbide</a>
-      <div class="flex flex-row gap-8 h-full items-center">
-        <nav class="flex flex-row gap-2 h-full items-center">
-          <a class="group px-1.5 box-content {% if current_path is starting_with(pat='/docs') %} border-b-2 {% endif %} hover:border-b-2 border-amber-600 h-full flex flex-row items-center" href="{{ get_url(path='@/docs/outline.md') }}">
-            <div class="group-hover:-mb-[2px] {% if current_path is starting_with(pat='/docs') %} -mb-[2px] {% endif %}">Home</div>
-          </a>
-          <a class="group px-1.5 box-content {% if current_path is starting_with(pat='/api') %} border-b-2 {% endif %} hover:border-b-2 border-amber-600 h-full flex flex-row items-center" href="{{ get_url(path='@/api/_index.md') }}">
-            <div class="group-hover:-mb-[2px] {% if current_path is starting_with(pat='/api') %} -mb-[2px] {% endif %}">API</div>
-          </a>
-          <a class="group px-1.5 box-content {% if current_path is starting_with(pat='/examples') %} border-b-2 {% endif %} hover:border-b-2 border-amber-600 h-full flex flex-row items-center" href="{{ get_url(path='@/examples/outline.md') }}">
-            <div class="group-hover:-mb-[2px] {% if current_path is starting_with(pat='/examples') %} -mb-[2px] {% endif %}">Examples</div>
-          </a>
-        </nav>
-        <a href="https://github.com/HolgerGottChristensen/carbide">GitHub</a>
-      </div>
-    </header>
-    <div class="w-full h-14 bg-red-600"></div>
+<header class="bg-white shadow-xs w-full h-14 bg-blue-600 fixed top-0 right-0 flex flex-row justify-between items-center px-5">
+    <a class="text-amber-600 font-bold" href="/">Carbide</a>
+    <div class="flex flex-row gap-8 h-full items-center">
+      <nav class="flex flex-row gap-2 h-full items-center">
+        <a class="group px-1.5 box-content {% if current_path is starting_with(pat='/docs') %} border-b-2 {% endif %} hover:border-b-2 border-amber-600 h-full flex flex-row items-center" href="{{ get_url(path='@/docs/outline.md') }}">
+          <div class="group-hover:-mb-[2px] {% if current_path is starting_with(pat='/docs') %} -mb-[2px] {% endif %}">Home</div>
+        </a>
+        <a class="group px-1.5 box-content {% if current_path is starting_with(pat='/api') %} border-b-2 {% endif %} hover:border-b-2 border-amber-600 h-full flex flex-row items-center" href="{{ get_url(path='@/api/_index.md') }}">
+          <div class="group-hover:-mb-[2px] {% if current_path is starting_with(pat='/api') %} -mb-[2px] {% endif %}">API</div>
+        </a>
+        <a class="group px-1.5 box-content {% if current_path is starting_with(pat='/examples') %} border-b-2 {% endif %} hover:border-b-2 border-amber-600 h-full flex flex-row items-center" href="{{ get_url(path='@/examples/outline.md') }}">
+          <div class="group-hover:-mb-[2px] {% if current_path is starting_with(pat='/examples') %} -mb-[2px] {% endif %}">Examples</div>
+        </a>
+      </nav>
+      <a href="https://github.com/HolgerGottChristensen/carbide">GitHub</a>
+    </div>
+  </header>
+  <div class="w-full h-14 bg-transparent"></div>
 {% endcomponent header %}
